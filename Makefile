@@ -13,7 +13,7 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: artApp PutHTML PutCGI
+all: artApp createUserAccounts PutHTML PutCGI 
 
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
@@ -26,10 +26,18 @@ artApp.o: artApp.cpp
 
 artApp: artApp.o artBook.o artEntry.o
 	$(CC) artApp.o artBook.o artEntry.o -o artApp -L/usr/local/lib -lcgicc -lmysqlcppconn
+	
+createUserAccounts.o: createUserAccounts.cpp
+	$(CC) -c $(CFLAGS) createUserAccounts.cpp
+
+createUserAccounts: createUserAccounts.o
+	$(CC) createUserAccounts.o -o createUserAccounts -L/usr/local/lib -lgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
+	chmod 757 createUserAccounts
 	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
+	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi 
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
