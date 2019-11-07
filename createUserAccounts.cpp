@@ -21,7 +21,7 @@ using namespace cgicc; // Needed for AJAX functions.
 #define HOST "localhost"
 #define USER "guidotti1"
 #define DB "guidotti1";
-#define PASS "S217026;
+#define PASS "S217026";
 
 class user
 {
