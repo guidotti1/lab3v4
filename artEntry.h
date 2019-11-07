@@ -27,5 +27,5 @@ private:
 
 };
 
-#endif /* PHONEENTRY_H */
+#endif /* ARTENTRY_H */
 
