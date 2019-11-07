@@ -1,4 +1,6 @@
 #include <string>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 #ifndef ARTENTRY_H
