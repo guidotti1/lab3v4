@@ -22,5 +22,3 @@ artEntry::artEntryartEntry(string name, string bornDiedInit, string titleInit, s
 }
 
 
-#endif /* PHONEENTRY_H */
-
