@@ -15,7 +15,7 @@ public:
      string bornDied;
      string title;
      string date;
-     string technqiue;
+     string technique;
      string location;
      string url;
      string form;
