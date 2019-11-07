@@ -10,7 +10,6 @@ $(document).ready(function () {
     $("#clear").click(clearResults);
     $("#createAcct").click(function()
 	{
-	    console.log("WE IN HERER FUCKERS");
 	    $("#Home").hide();
 	    $("#myModal").modal('hide');
 	    $("#CreateAccountPage").show();
