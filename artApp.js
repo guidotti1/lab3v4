@@ -13,7 +13,7 @@ $(document).ready(function () {
 	    console.log("WE IN HERER FUCKERS");
 	    $('.page').hide();
 	    $('#'+$(this).attr('data-page')).show();
-         }
+         });
 	    
 	    
 
