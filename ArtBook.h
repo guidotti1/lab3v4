@@ -13,27 +13,27 @@
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
-#include "PhoneEntry.h"
+#include "artEntry.h"
 
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#ifndef ARTBOOK_H
+#define ARTBOOK_H
 
 #define HOST "localhost"
-#define USER "skon"
-#define DB "PhoneAppDB"
-#define PASS "PhilanderChase"
+#define USER "guidotti1"
+#define DB "guidotti1"
+#define PASS "S217026"
 
 using namespace std;
 
 class PhoneBook {
 public:
     PhoneBook();
-    vector<PhoneEntry> findByFirst(string first);
-    vector<PhoneEntry> findByLast(string last);
-    vector<PhoneEntry> findByType(string type);
-    void addEntry(string first,string last,string phone,string type);
-    void editEntry(string idnum,string first,string last,string phone,string type);
-    void deleteEntry(string idnum);
+    vector<artEntry> findByFirst(string findFirst);
+    vector<artEntry> findByLast(string findLast);
+    vector<artEntry> findByTitle(string findTitle);
+    //void addEntry(string first,string last,string phone,string type);
+    //void editEntry(string idnum,string first,string last,string phone,string type);
+    //void deleteEntry(string idnum);
 private:
     const string url=HOST;
     const string user=USER;
