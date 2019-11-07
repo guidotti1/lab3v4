@@ -11,8 +11,9 @@ $(document).ready(function () {
     $("#createAcct").click(function()
 	{
 	    console.log("WE IN HERER FUCKERS");
-	    $('.page').hide();
-	    $('#'+$(this).attr('data-page')).show();
+	    $("#Home").hide();
+	    $("#myModal").hide();
+	    $("#CreateAccountPage").show();
          });
 	    
 	    
