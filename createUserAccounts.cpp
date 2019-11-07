@@ -59,7 +59,7 @@ int main()
     do {
       res.reset(stmt->getResultSet());
       while (res->next()) {
-            artEntry entry(res->getString("email"),res->getString("pass"));
+            user entry(res->getString("email"),res->getString("pass"));
 	  list.push_back(entry);
 
       }
