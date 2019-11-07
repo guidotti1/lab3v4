@@ -18,30 +18,30 @@ all: artApp PutHTML PutCGI
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
 
-PhoneBook.o: PhoneBook.cpp PhoneBook.h
-	$(CC) -c $(CFLAGS) -I/usr/include/cppconn PhoneBook.cpp
+artBook.o: artBook.cpp artBook.h
+	$(CC) -c $(CFLAGS) -I/usr/include/cppconn artBook.cpp
 
-phoneApp.o: phoneApp.cpp 
-	$(CC) -c $(CFLAGS) phoneApp.cpp
+artApp.o: artApp.cpp 
+	$(CC) -c $(CFLAGS) artApp.cpp
 
-phoneApp: phoneApp.o PhoneBook.o PhoneEntry.o
-	$(CC) phoneApp.o PhoneBook.o PhoneEntry.o -o phoneApp -L/usr/local/lib -lcgicc -lmysqlcppconn
+artApp: artApp.o artBook.o artEntry.o
+	$(CC) artApp.o artBook.o artEntry.o -o artApp -L/usr/local/lib -lcgicc -lmysqlcppconn
 
-PutCGI: phoneApp
-	chmod 757 phoneApp
-	cp phoneApp /usr/lib/cgi-bin/$(USER)_phoneAppComplete.cgi 
+PutCGI: artApp
+	chmod 757 artApp
+	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
 
 PutHTML:
-	cp phoneApp.html /var/www/html/class/softdev/$(USER)/PhoneAppComplete
-	cp phoneApp.js /var/www/html/class/softdev/$(USER)/PhoneAppComplete
-	cp phoneApp.css /var/www/html/class/softdev/$(USER)/PhoneAppComplete
+	cp artApp.html /var/www/html/class/softdev/$(USER)/artApp
+	cp artApp.js /var/www/html/class/softdev/$(USER)/artApp
+	cp artApp.css /var/www/html/class/softdev/$(USER)/artApp
 
 
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/class/ssd/$(USER)/PhoneAppComplete
+	ls -l /var/www/html/class/ssd/$(USER)/artApp
 
 clean:
-	rm -f *.o  phoneApp 
+	rm -f *.o  artApp 
