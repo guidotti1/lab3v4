@@ -4,11 +4,22 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <stdlib.h>
+#include <sstream>
+#include <stdexcept>
+#include <string>
 
 // Stuff for AJAX
 #include "cgicc/Cgicc.h"
 #include "cgicc/HTTPHTMLHeader.h"
 #include "cgicc/HTMLClasses.h"
+#include "mysql_connection.h"
+#include "mysql_driver.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
 
 
 #define XML_USE_STL
