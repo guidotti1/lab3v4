@@ -43,18 +43,18 @@ int main() {
 	      output = "success";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output += "," + abResults.at(i).last + ","
-		  + abResults.at(i).first + ","
-		  + abResults.at(i).bornDied + ","
-		  + abResults.at(i).title + ","
-		  + abResults.at(i).date
-		  + abResults.at(i).technique + ","
-		  + abResults.at(i).location + ","
-		  + abResults.at(i).url + ","
-		  + abResults.at(i).form
-		  + abResults.at(i).type + ","
-		  + abResults.at(i).school + ","
-		  + abResults.at(i).timeframe + ",";
+	      	  output += "^" + abResults.at(i).last + "^"
+		  + abResults.at(i).first + "^"
+		  + abResults.at(i).bornDied + "^"
+		  + abResults.at(i).title + "^"
+		  + abResults.at(i).date + "^"
+		  + abResults.at(i).technique + "^"
+		  + abResults.at(i).location + "^"
+		  + abResults.at(i).url + "^"
+		  + abResults.at(i).form + "^"
+		  + abResults.at(i).type + "^"
+		  + abResults.at(i).school + "^"
+		  + abResults.at(i).timeframe + "^";
       	     }
     	}
   else 
@@ -74,18 +74,18 @@ int main() {
 	      output = "success";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-		output += "," + abResults.at(i).last + ","
-		  + abResults.at(i).first + ","
-		  + abResults.at(i).bornDied + ","
-		  + abResults.at(i).title + ","
-		  + abResults.at(i).date
-		  + abResults.at(i).technique + ","
-		  + abResults.at(i).location + ","
-		  + abResults.at(i).url + ","
-		  + abResults.at(i).form
-		  + abResults.at(i).type + ","
-		  + abResults.at(i).school + ","
-		  + abResults.at(i).timeframe + ",";
+	      	  output += "^" + abResults.at(i).last + "^"
+		  + abResults.at(i).first + "^"
+		  + abResults.at(i).bornDied + "^"
+		  + abResults.at(i).title + "^"
+		  + abResults.at(i).date + "^"
+		  + abResults.at(i).technique + "^"
+		  + abResults.at(i).location + "^"
+		  + abResults.at(i).url + "^"
+		  + abResults.at(i).form + "^"
+		  + abResults.at(i).type + "^"
+		  + abResults.at(i).school + "^"
+		  + abResults.at(i).timeframe + "^";
       	     }
     }
   else 
@@ -105,18 +105,18 @@ int main() {
 	      output = "success";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-		output += "," + abResults.at(i).last + ","
-		  + abResults.at(i).first + ","
-		  + abResults.at(i).bornDied + ","
-		  + abResults.at(i).title + ","
-		  + abResults.at(i).date
-		  + abResults.at(i).technique + ","
-		  + abResults.at(i).location + ","
-		  + abResults.at(i).url + ","
-		  + abResults.at(i).form
-		  + abResults.at(i).type + ","
-		  + abResults.at(i).school + ","
-		  + abResults.at(i).timeframe + ",";
+	      	  output += "^" + abResults.at(i).last + "^"
+		  + abResults.at(i).first + "^"
+		  + abResults.at(i).bornDied + "^"
+		  + abResults.at(i).title + "^"
+		  + abResults.at(i).date + "^"
+		  + abResults.at(i).technique + "^"
+		  + abResults.at(i).location + "^"
+		  + abResults.at(i).url + "^"
+		  + abResults.at(i).form + "^"
+		  + abResults.at(i).type + "^"
+		  + abResults.at(i).school + "^"
+		  + abResults.at(i).timeframe + "^";
       	     }
     }
   else 
