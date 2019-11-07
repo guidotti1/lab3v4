@@ -45,7 +45,7 @@ public :
 private :
 };
 
-void createAccount(string email, string password);
+void createAccount(string email, string password, string url, string user, string pass);
 
 int main()
 {
@@ -66,7 +66,7 @@ int main()
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     vector<userInfo> list;
-    stmt->execute("SELECT * FROM Users WHERE email like '"+email+"' AND pass like '"+pwString+"'");
+    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
     do {
       res.reset(stmt->getResultSet());
       while (res->next()) {
@@ -80,7 +80,7 @@ int main()
     if (list.size() == 0)
         {
         //ACCOUNT CAN BE CREATED
-        createAccount(email, password);
+        createAccount(emailString, password, url, user, pass);
         }
     else if (list.size() == 1)
         {
@@ -100,7 +100,7 @@ userInfo::userInfo(string e, string p)
     password = p;
 }
 
-void createAccount(string email, string password)
+void createAccount(string email, string password, string url, string user, string pass)
 {
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
