@@ -10,6 +10,7 @@ $(document).ready(function () {
     $("#clear").click(clearResults);
     $("#createAcct").click(function()
 	{
+	    console.log("WE IN HERER FUCKERS");
 	    $('.page').hide();
 	    $('#'+$(this).attr('data-page')).show();
          }
