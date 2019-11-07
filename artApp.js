@@ -8,6 +8,13 @@ $(document).ready(function () {
     $("#search-btn").click(getMatches);
     operation = "Find Last";
     $("#clear").click(clearResults);
+    $("#createAcct").click(function()
+	{
+	    $('.page').hide();
+	    $('#'+$(this).attr('data-page')).show();
+         }
+	    
+	    
 
     $(".dropdown-menu a").click(function(){
 	console.log("pick!"+$(this).text());
