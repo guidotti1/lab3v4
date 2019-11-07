@@ -2,7 +2,7 @@
 # For CSC3004 Software Development
 
 # Put your user name below:
-USER= skon
+USER= guidotti1
 
 CC= g++
 
@@ -13,19 +13,13 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: TestPhoneBook phoneApp PutHTML PutCGI
+all: phoneApp PutHTML PutCGI
 
 PhoneEntry.o: PhoneEntry.cpp PhoneEntry.h
 	$(CC) -c $(CFLAGS) PhoneEntry.cpp
 
 PhoneBook.o: PhoneBook.cpp PhoneBook.h
 	$(CC) -c $(CFLAGS) -I/usr/include/cppconn PhoneBook.cpp
-
-TestPhoneBook.o: TestPhoneBook.cpp PhoneEntry.h	PhoneBook.h
-	$(CC) -c $(CFLAGS) TestPhoneBook.cpp
-
-TestPhoneBook: TestPhoneBook.o PhoneBook.o PhoneEntry.o
-	$(CC) TestPhoneBook.o PhoneBook.o PhoneEntry.o -L/usr/lib -o TestPhoneBook -L/usr/local/lib -lcgicc -lmysqlcppconn
 
 phoneApp.o: phoneApp.cpp 
 	$(CC) -c $(CFLAGS) phoneApp.cpp
@@ -50,4 +44,4 @@ PutHTML:
 	ls -l /var/www/html/class/ssd/$(USER)/PhoneAppComplete
 
 clean:
-	rm -f *.o  phoneApp TestPhoneBook
+	rm -f *.o  phoneApp 
