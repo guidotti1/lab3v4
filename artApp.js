@@ -14,6 +14,17 @@ $(document).ready(function () {
 	    $("#myModal").modal('hide');
 	    $("#CreateAccountPage").show();
          });
+
+   $("#createAcctButton").click(function()
+	{
+        	$.ajax({
+		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+$('#inputEmail').val()+'&password='+$('#inputPW').val(),
+		dataType: 'text',
+		error: function(){alert("Error: Something went wrong");}
+    		});
+   	});
+	   
+	   
 	    
 	    
 
