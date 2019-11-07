@@ -31,7 +31,7 @@ createUserAccounts.o: createUserAccounts.cpp
 	$(CC) -c $(CFLAGS) createUserAccounts.cpp
 
 createUserAccounts: createUserAccounts.o
-	$(CC) createUserAccounts.o -o createUserAccounts -L/usr/local/lib -lgicc -lmysqlcppconn
+	$(CC) createUserAccounts.o -o createUserAccounts -L/usr/local/lib -lcgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
