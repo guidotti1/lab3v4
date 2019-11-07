@@ -8,8 +8,8 @@
 #include "cgicc/HTTPHTMLHeader.h"
 #include "cgicc/HTMLClasses.h"
 
-#include "PhoneBook.h"
-#include "PhoneEntry.h"
+#include "artBook.h"
+#include "artEntry.h"
 
 #define XML_USE_STL
 
@@ -22,72 +22,110 @@ int main() {
   Cgicc cgi;    // Ajax object
   char *cstr;
 
-  PhoneBook pb; // Phone Book SQL Interface Object
-  vector<PhoneEntry> pbResults;
+  artBook ab; // Phone Book SQL Interface Object
+  vector<artEntry> abResults;
   
   // Create AJAX objects to recieve information from web page.
   form_iterator op = cgi.getElement("operation");
   string operation = **op;
-  logfile.open("skonphone.log",ios::out | ios::app);
+  logfile.open("guidottiart.log",ios::out | ios::app);
   logfile << "Op:" << operation << endl;
   logfile.close();
   string output = "Error = "+operation+ " - Operation not support yet!";
-  if (operation == "Find Last") {
+  if (operation == "Find Last") 
+  {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
     
-    pbResults = pb.findByLast(search);
-    if (pbResults.size() > 0) {
-      output = "success";
-      for (int i = 0; i<pbResults.size(); i++) {
-	output += "," + pbResults.at(i).first + ","
-	  + pbResults.at(i).last + ","
-	  + pbResults.at(i).phone + ","
-	  + pbResults.at(i).type + ","
-	  + pbResults.at(i).ID;
-      }
-    } else {
-      output = "No Match Found";
-    }
+    abResults = ab.findByLast(search);
+    if (abResults.size() > 0)
+    	{
+	      output = "success";
+	      for (int i = 0; i<abResults.size(); i++) 
+	      {
+	      	  output += "," + abResults.at(i).last + ","
+		  + abResults.at(i).first + ","
+		  + abResults.at(i).bornDied + ","
+		  + abResults.at(i).title + ","
+		  + abResults.at(i).date
+		  + abResults.at(i).technique + ","
+		  + abResults.at(i).location + ","
+		  + abResults.at(i).url + ","
+		  + abResults.at(i).form
+		  + abResults.at(i).type + ","
+		  + abResults.at(i).school + ","
+		  + abResults.at(i).timeframe + ",";
+      	     }
+    	}
+  else 
+    	{
+		output = "No Match Found";
+    	}
   }
 
-  if (operation == "Find First") {
+  if (operation == "Find First") 
+  {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
     
-    pbResults = pb.findByFirst(search);
-    if (pbResults.size() > 0) {
-      output = "success";
-      for (int i = 0; i<pbResults.size(); i++) {
-	output += "," + pbResults.at(i).first + ","
-	  + pbResults.at(i).last + ","
-	  + pbResults.at(i).phone + ","
-	  + pbResults.at(i).type + ","
-	  + pbResults.at(i).ID;
-      }
-    } else {
-      output = "No Match Found";
+    abResults = ab.findByFirst(search);
+    if (abResults.size() > 0)
+    	{
+	      output = "success";
+	      for (int i = 0; i<abResults.size(); i++) 
+	      {
+		output += "," + abResults.at(i).last + ","
+		  + abResults.at(i).first + ","
+		  + abResults.at(i).bornDied + ","
+		  + abResults.at(i).title + ","
+		  + abResults.at(i).date
+		  + abResults.at(i).technique + ","
+		  + abResults.at(i).location + ","
+		  + abResults.at(i).url + ","
+		  + abResults.at(i).form
+		  + abResults.at(i).type + ","
+		  + abResults.at(i).school + ","
+		  + abResults.at(i).timeframe + ",";
+      	     }
+    }
+  else 
+    {
+    	output = "No Match Found";
     }
   }
-  if (operation == "Find Type") {
+	
+  if (operation == "Find Title") 
+  {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
     
-    pbResults = pb.findByType(search);
-    if (pbResults.size() > 0) {
-      output = "success";
-      for (int i = 0; i<pbResults.size(); i++) {
-	output += "," + pbResults.at(i).first + ","
-	  + pbResults.at(i).last + ","
-	  + pbResults.at(i).phone + ","
-	  + pbResults.at(i).type + ","
-	  + pbResults.at(i).ID;
-      }
-    } else {
-      output = "No Match Found";
+    abResults = ab.findByTitle(search);
+    if (abResults.size() > 0)
+    	{
+	      output = "success";
+	      for (int i = 0; i<abResults.size(); i++) 
+	      {
+		output += "," + abResults.at(i).last + ","
+		  + abResults.at(i).first + ","
+		  + abResults.at(i).bornDied + ","
+		  + abResults.at(i).title + ","
+		  + abResults.at(i).date
+		  + abResults.at(i).technique + ","
+		  + abResults.at(i).location + ","
+		  + abResults.at(i).url + ","
+		  + abResults.at(i).form
+		  + abResults.at(i).type + ","
+		  + abResults.at(i).school + ","
+		  + abResults.at(i).timeframe + ",";
+      	     }
+    }
+  else 
+    {
+      	output = "No Match Found";
     }
   }
-
+	
+	/*
   if(operation=="Add Entry"){
     form_iterator afnameString = cgi.getElement("afname");
     form_iterator alnameString = cgi.getElement("alname");
@@ -128,7 +166,7 @@ int main() {
     pb.editEntry(idedit,editfname,editlname,editphone,edittype);
     output="success";
   }
-  
+  */
   /* send back the results */
   cout << "Content-Type: text/plain\n\n";
 
