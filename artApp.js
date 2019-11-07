@@ -47,7 +47,7 @@ function changeOperation(operation){
 
 // Build output table from comma delimited list
 function buildTable(list) {
-    var a = list.split(",");
+    var a = list.split("^");
     if (a.length < 1) {
 	return "<h3>Internal Error</h3>";
     } else if (a.length == 1) {
