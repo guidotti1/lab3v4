@@ -81,7 +81,7 @@ int main()
     if (list.size() == 0)
         {
         //ACCOUNT CAN BE CREATED
-        createAccount(emailString, password, url, user, pwString, database);
+        createAccount(emailString, pwString, url, user, pass, database);
         }
     else if (list.size() == 1)
         {
