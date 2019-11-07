@@ -13,10 +13,10 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: phoneApp PutHTML PutCGI
+all: artApp PutHTML PutCGI
 
-PhoneEntry.o: PhoneEntry.cpp PhoneEntry.h
-	$(CC) -c $(CFLAGS) PhoneEntry.cpp
+artEntry.o: artEntry.cpp artEntry.h
+	$(CC) -c $(CFLAGS) artEntry.cpp
 
 PhoneBook.o: PhoneBook.cpp PhoneBook.h
 	$(CC) -c $(CFLAGS) -I/usr/include/cppconn PhoneBook.cpp
