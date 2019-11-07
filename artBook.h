@@ -44,5 +44,5 @@ private:
     
 };
 
-#endif /* PHONEBOOK_H */
+#endif /* ARTBOOK_H */
 
