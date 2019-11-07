@@ -12,7 +12,7 @@ $(document).ready(function () {
 	{
 	    console.log("WE IN HERER FUCKERS");
 	    $("#Home").hide();
-	    $("#myModal").hide();
+	    $("#myModal").modal('hide');
 	    $("#CreateAccountPage").show();
          });
 	    
