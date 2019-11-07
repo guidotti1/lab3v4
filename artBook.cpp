@@ -1,80 +1,84 @@
 #include <vector>
 #include <iostream>
-#include "PhoneBook.h"
-#include "PhoneEntry.h"
+#include "artBook.h"
+#include "artEntry.h"
 
-PhoneBook::PhoneBook() {
+artBook::artBook() 
+{
 
 }
-  vector<PhoneEntry> PhoneBook::findByLast(string last) {
+
+vector<artEntry> artBook::findByLast(string findLast) 
+  {
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
-
-    vector<PhoneEntry> list;
-    stmt->execute("SELECT * FROM Phonebook WHERE Last like '%"+last+"%'");
+    vector<artEntry> list;
+    stmt->execute("SELECT * FROM art WHERE Author like '"+findLast+"%'");
     std::auto_ptr< sql::ResultSet > res;
     do {
       res.reset(stmt->getResultSet());
-      while (res->next()) {
-          PhoneEntry entry(res->getString("First"),res->getString("Last"),
-			   res->getString("Phone"),res->getString("Type"),
-	    res->getString("ID"));
-	  
+      while (res->next()) {	   
+            artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
+			   res->getString("Title"),res->getString("Date"),
+	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"));
 	  list.push_back(entry);
 
       }
     } while (stmt->getMoreResults());
     return list;
-    
 }
 
-vector<PhoneEntry> PhoneBook::findByFirst(string first) {
+vector<artEntry> artBook::findByFirst(string findFirst) 
+  {
+    sql::Driver* driver = sql::mysql::get_driver_instance();
+    std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
+    con->setSchema(database);
+    std::auto_ptr<sql::Statement> stmt(con->createStatement());
+    vector<artEntry> list;
+    stmt->execute("SELECT * FROM art WHERE Author like '%"+findFirst+'");
+    std::auto_ptr< sql::ResultSet > res;
+    do {
+      res.reset(stmt->getResultSet());
+      while (res->next()) {	   
+            artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
+			   res->getString("Title"),res->getString("Date"),
+	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"));
+	  list.push_back(entry);
+
+      }
+    } while (stmt->getMoreResults());
+    return list;
+}
+		  
+vector<artEntry> artBook::findByTitle(string findTitle)
+{
   sql::Driver* driver = sql::mysql::get_driver_instance();
   std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
   con->setSchema(database);
   std::auto_ptr<sql::Statement> stmt(con->createStatement());
 
-  vector<PhoneEntry> list;
-  stmt->execute("SELECT * FROM Phonebook WHERE First like '%"+first+"%'");
+  vector<artEntry> list;
+  stmt->execute("SELECT * FROM art WHERE Title like '%"+findTitle+"%'");
   std::auto_ptr< sql::ResultSet > res;
   do {
     res.reset(stmt->getResultSet());
     while (res->next()) {
-      PhoneEntry entry(res->getString("First"),res->getString("Last"),
-		       res->getString("Phone"),res->getString("Type"),
-	res->getString("ID"));
-        list.push_back(entry);
+	    artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
+			   res->getString("Title"),res->getString("Date"),
+	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"));
+	  list.push_back(entry);
 
     }
   } while (stmt->getMoreResults());
   return list;
 
 }
-vector<PhoneEntry> PhoneBook::findByType(string type) {
-  sql::Driver* driver = sql::mysql::get_driver_instance();
-  std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
-  con->setSchema(database);
-  std::auto_ptr<sql::Statement> stmt(con->createStatement());
-
-  vector<PhoneEntry> list;
-  stmt->execute("SELECT * FROM Phonebook WHERE Type like '%"+type+"%'");
-  std::auto_ptr< sql::ResultSet > res;
-  do {
-    res.reset(stmt->getResultSet());
-    while (res->next()) {
-      PhoneEntry entry(res->getString("First"),res->getString("Last"),
-		       res->getString("Phone"),res->getString("Type"),
-	res->getString("ID"));
-      list.push_back(entry);
-
-    }
-  } while (stmt->getMoreResults());
-  return list;
-
-}
-
+/*
 void PhoneBook::addEntry(string first,string last,string phone, string type){
   sql::Driver* driver = sql::mysql::get_driver_instance();
   std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
@@ -107,3 +111,4 @@ void PhoneBook::deleteEntry(string idnum){
 
   stmt->execute("DELETE FROM Phonebook WHERE ID='"+idnum+"'");
 }
+*/
