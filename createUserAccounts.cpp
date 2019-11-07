@@ -67,6 +67,7 @@ int main()
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     vector<userInfo> list;
     stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
+    std::auto_ptr< sql::ResultSet > res;
     do {
       res.reset(stmt->getResultSet());
       while (res->next()) {
@@ -80,7 +81,7 @@ int main()
     if (list.size() == 0)
         {
         //ACCOUNT CAN BE CREATED
-        createAccount(emailString, password, url, user, pass, database);
+        createAccount(emailString, password, url, user, pwString, database);
         }
     else if (list.size() == 1)
         {
