@@ -34,13 +34,13 @@ using namespace cgicc; // Needed for AJAX functions.
 #define DB "guidotti1";
 #define PASS "S217026";
 
-class user
+class userInfo
 {
 public :
     string email;
     string password;
-    user();
-    user(string e, string p);
+    userInfo();
+    userInfo(string e, string p);
 
 private :
 };
@@ -65,12 +65,12 @@ int main()
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
-    vector<user> list;
+    vector<userInfo> list;
     stmt->execute("SELECT * FROM Users WHERE email like '"+email+"' AND pass like '"+pwString+"'");
     do {
       res.reset(stmt->getResultSet());
       while (res->next()) {
-            user entry(res->getString("email"),res->getString("pass"));
+            userInfo entry(res->getString("email"),res->getString("pass"));
 	  list.push_back(entry);
 
       }
@@ -89,12 +89,12 @@ int main()
 
 }
 
-user::user()
+userInfo::userInfo()
 {
     email, password = "";
 }
 
-user::user(string e, string p)
+userInfo::userInfo(string e, string p)
 {
     email = e;
     password = p;
