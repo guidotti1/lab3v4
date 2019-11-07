@@ -40,10 +40,10 @@ int main() {
     abResults = ab.findByLast(search);
     if (abResults.size() > 0)
     	{
-	      output = "success";
+	      output = "";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output += "^" + abResults.at(i).last + "^"
+	      	  output += abResults.at(i).last + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
 		  + abResults.at(i).title + "^"
@@ -71,10 +71,10 @@ int main() {
     abResults = ab.findByFirst(search);
     if (abResults.size() > 0)
     	{
-	      output = "success";
+	      //output = "success";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output += "^" + abResults.at(i).last + "^"
+	      	  output +=  abResults.at(i).last + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
 		  + abResults.at(i).title + "^"
@@ -102,10 +102,10 @@ int main() {
     abResults = ab.findByTitle(search);
     if (abResults.size() > 0)
     	{
-	      output = "success";
+	      //output = "success";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output += "^" + abResults.at(i).last + "^"
+	      	  output += abResults.at(i).last + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
 		  + abResults.at(i).title + "^"
