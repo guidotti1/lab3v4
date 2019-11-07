@@ -45,7 +45,7 @@ public :
 private :
 };
 
-void createAccount(string email, string password, string url, string user, string pass);
+void createAccount(string email, string password, string url, string user, string pass, string database);
 
 int main()
 {
@@ -80,7 +80,7 @@ int main()
     if (list.size() == 0)
         {
         //ACCOUNT CAN BE CREATED
-        createAccount(emailString, password, url, user, pass);
+        createAccount(emailString, password, url, user, pass, database);
         }
     else if (list.size() == 1)
         {
@@ -100,7 +100,7 @@ userInfo::userInfo(string e, string p)
     password = p;
 }
 
-void createAccount(string email, string password, string url, string user, string pass)
+void createAccount(string email, string password, string url, string user, string pass, string database)
 {
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
