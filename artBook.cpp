@@ -38,7 +38,7 @@ vector<artEntry> artBook::findByFirst(string findFirst)
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     vector<artEntry> list;
-    stmt->execute("SELECT * FROM art WHERE Author like '%"+findFirst+'");
+    stmt->execute("SELECT * FROM art WHERE Author like '%"+findFirst+"'");
     std::auto_ptr< sql::ResultSet > res;
     do {
       res.reset(stmt->getResultSet());
