@@ -3,6 +3,8 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <fstream>
+#include <sstream>
 /* uncomment for applications that use vectors */
 #include <vector>
 
