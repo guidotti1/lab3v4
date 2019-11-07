@@ -41,7 +41,7 @@ PutHTML:
 
 
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/class/ssd/$(USER)/artApp
+	ls -l /var/www/html/class/softdev/$(USER)/artApp
 
 clean:
 	rm -f *.o  artApp 
