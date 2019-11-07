@@ -25,9 +25,9 @@
 
 using namespace std;
 
-class PhoneBook {
+class artBook {
 public:
-    PhoneBook();
+    artBook();
     vector<artEntry> findByFirst(string findFirst);
     vector<artEntry> findByLast(string findLast);
     vector<artEntry> findByTitle(string findTitle);
