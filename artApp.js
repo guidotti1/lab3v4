@@ -17,6 +17,7 @@ $(document).ready(function () {
 
    $("#createAcctButton").click(function()
 	{
+	   	console.log("yo we in here");
         	$.ajax({
 		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+$('#inputEmail').val()+'&password='+$('#inputPW').val(),
 		dataType: 'text',
