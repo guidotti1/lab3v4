@@ -87,7 +87,7 @@ int main()
         {
         //ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
         }
-
+ return 0;
 }
 
 userInfo::userInfo()
