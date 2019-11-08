@@ -37,7 +37,7 @@ PutCGI: artApp
 	chmod 757 artApp
 	chmod 757 createUserAccounts
 	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
-	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi 
+	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
