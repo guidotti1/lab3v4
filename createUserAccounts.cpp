@@ -24,15 +24,14 @@
 
 #define XML_USE_STL
 
-
+#define HOST "localhost"
+#define USER "guidotti1"
+#define DB "guidotti1"
+#define PASS "S217026"
 
 using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 
-#define HOST "localhost"
-#define USER "guidotti1"
-#define DB "guidotti1";
-#define PASS "S217026";
 
 class userInfo
 {
