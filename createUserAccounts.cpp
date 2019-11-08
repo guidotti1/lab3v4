@@ -106,6 +106,6 @@ void createAccount(string email, string password, string url, string user, strin
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
-    stmt->execute("INSERT INTO User(email, pass) VALUES ('"+email+"','"+password+"')");
+    stmt->execute("INSERT INTO Users(email, pass) VALUES ('"+email+"','"+password+"')");
 
 }
