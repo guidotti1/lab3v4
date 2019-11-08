@@ -86,6 +86,8 @@ int main()
         {
         //ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
         }
+	
+ cout << "Content-Type: text/plain\n\n";
  return 0;
 }
 
