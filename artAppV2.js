@@ -119,8 +119,8 @@ function processUserLogin(results)
 	if (a.length == 1)
 	{
 		console.log("processUserLogin a.length == 1 (success)");
-		$("#Home").show();
-		$("#CreateAccountPage").hide();
+		//$("#Home").show();
+		//$("#CreateAccountPage").hide();
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
 		var $appendNavButton = $(appendNavButton).bind("click", function()
