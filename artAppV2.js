@@ -69,7 +69,7 @@ function changeOperation(operation){
 
 function processUser(results)
 {
-	console.log("made it to proccesUser);
+	console.log("made it to proccesUser");
 	console.log("Results:"+results);
 	if (results == "Success")
 	{
