@@ -19,8 +19,8 @@ $(document).ready(function () {
 
    $("#createAcctButton").click(function()
 	{
-	   	email= $('#inputEmail').val();
-	        pass = $('#inputPW').val();
+	   	email= $('#inputEmailCreate').val();
+	        pass = $('#inputPWCreate').val();
 	        type = "Create";
 	   	//console.log("yo we in here");
         	$.ajax({
@@ -32,8 +32,8 @@ $(document).ready(function () {
    	});
    $("#UserLogInBtn").click(function()
 	{
-		email= $('#inputEmail').val();
-	        pass = $('#inputPW').val();
+		email= $('#inputEmailLogin').val();
+	        pass = $('#inputPWLogin').val();
 	        type = "Login";
 	        console.log("UserLogInBtn");
 		$.ajax({
