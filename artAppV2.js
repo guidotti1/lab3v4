@@ -180,6 +180,8 @@ function processResults(results) {
 
 function viewArt(){
 	console.log("WE VIEWING ART BOYS");
+	var row = $(this).parents("tr");
+	console.log("Title on the record : "+ $(row).find('.Title').text());
 }
 
 function clearResults() {
