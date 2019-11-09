@@ -9,7 +9,7 @@ using namespace std;
 class artEntry {
 public:
      artEntry();
-     artEntry(string name, string bornDiedInit, string titleInit, string dateInit, string techniqueInit, string locationInit, string urlInit, string formInit, string typeInit, string schoolInit, string timeframeInit);
+     artEntry(string name, string bornDiedInit, string titleInit, string dateInit, string techniqueInit, string locationInit, string urlInit, string formInit, string typeInit, string schoolInit, string timeframeInit, string ARTIDInit);
      string last;
      string first;
      string bornDied;
@@ -22,6 +22,7 @@ public:
      string type;
      string school;
      string timeframe;
+     string ARTIT;
 
 private:
 
