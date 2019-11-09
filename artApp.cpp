@@ -72,6 +72,7 @@ int main() {
     if (abResults.size() > 0)
     	{
 	      //output = "success";
+	      output = "";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
 	      	  output +=  abResults.at(i).last + "^"
@@ -103,6 +104,7 @@ int main() {
     if (abResults.size() > 0)
     	{
 	      //output = "success";
+	      output = "";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
 	      	  output += abResults.at(i).last + "^"
