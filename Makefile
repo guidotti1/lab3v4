@@ -44,7 +44,7 @@ PutCGI: artApp
 
 PutHTML:
 	cp artApp.html /var/www/html/class/softdev/$(USER)/artApp
-	cp artApp.js /var/www/html/class/softdev/$(USER)/artApp
+	
 	cp artApp.css /var/www/html/class/softdev/$(USER)/artApp
 
 
