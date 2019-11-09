@@ -59,35 +59,66 @@ int main()
 
     form_iterator password = cgi.getElement("password");
     string pwString = **password;
-
+	
+    form_iterator type = cgi.getElement("type");
+    string typeString = **type;
+    
+    cout << "Content-Type: text/plain\n\n";
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     vector<userInfo> list;
-    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"'");
     std::auto_ptr< sql::ResultSet > res;
-    do {
-      res.reset(stmt->getResultSet());
-      while (res->next()) {
-            userInfo entry(res->getString("email"),res->getString("pass"));
-	  list.push_back(entry);
+	
+    if (typeString == "Create")
+    {
+	    stmt->execute("SELECT * FROM Users WHERE email ='"+emailString+"'");
+	    do {
+	      res.reset(stmt->getResultSet());
+	      while (res->next()) {
+		    userInfo entry(res->getString("email"),res->getString("pass"));
+		  list.push_back(entry);
 
-      }
-    } while (stmt->getMoreResults());
+	      }
+	    } while (stmt->getMoreResults());
 
-    cout << "Content-Type: text/plain\n\n";
-    if (list.size() == 0)
-        {
-        //ACCOUNT CAN BE CREATED
-        createAccount(emailString, pwString, url, user, pass, database);
-	cout << "Success" << endl;
-        }
-    else if (list.size() == 1)
-        {
-        //ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
-	cout << "Account has already been created for that email" <<endl;
-        }
+	    if (list.size() == 0)
+		{
+		//ACCOUNT CAN BE CREATED
+		createAccount(emailString, pwString, url, user, pass, database);
+		cout << "Success" << endl;
+		}
+	    else if (list.size() == 1)
+		{
+		//ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
+		cout << "Account has already been created for that email" <<endl;
+		}
+    }
+    else
+    {
+	    stmt->execute("SELECT * FROM Users WHERE email ='"+emailString+"' AND pass ='"+pwString+"'");
+	    do {
+	      res.reset(stmt->getResultSet());
+	      while (res->next()) {
+		    userInfo entry(res->getString("email"),res->getString("pass"));
+		  list.push_back(entry);
+
+	      }
+	    } while (stmt->getMoreResults());
+
+	    cout << "Content-Type: text/plain\n\n";
+	    if (list.size() == 0)
+		{
+		//ACCOUNT CAN BE CREATED
+		createAccount(emailString, pwString, url, user, pass, database);
+		cout << "Success" << endl;
+		}
+	    else if (list.size() == 1)
+		{
+		//ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
+		cout << "Account has already been created for that email" <<endl;
+		}
 	
 
  return 0;
