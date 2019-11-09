@@ -73,7 +73,7 @@ int main()
 	
     if (typeString == "Create")
     {
-	    stmt->execute("SELECT * FROM Users WHERE email ='"+emailString+"'");
+	    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
@@ -94,10 +94,11 @@ int main()
 		//ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
 		cout << "Account has already been created for that email" <<endl;
 		}
+	    list.clear();
     }
     else
     {
-	    stmt->execute("SELECT * FROM Users WHERE email ='"+emailString+"' AND pass ='"+pwString+"'");
+	    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
@@ -117,6 +118,7 @@ int main()
 		//ACCOUNT ALREADY CREATED - LET USER LOG IN
 		cout << "Success" <<endl;
 		}
+	    list.clear();
     }
 
  return 0;
