@@ -106,7 +106,7 @@ function processUser(results)
 function userLogOut()
 {
 	email = "";
-	$('#LogOutBtn'.hide();
+	$('#LogOutBtn').hide();
 	$('#LogInBtn').show();
 }
 // Build output table from comma delimited list
