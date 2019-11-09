@@ -107,17 +107,15 @@ int main()
 	      }
 	    } while (stmt->getMoreResults());
 
-	    cout << "Content-Type: text/plain\n\n";
 	    if (list.size() == 0)
 		{
-		//ACCOUNT CAN BE CREATED
-		createAccount(emailString, pwString, url, user, pass, database);
-		cout << "Success" << endl;
+		//NO ACCOUNT EXISTS FOR THAT EMAIL - PW COMBINATION
+		cout << "Incorrect login information" << endl;
 		}
 	    else if (list.size() == 1)
 		{
-		//ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
-		cout << "Account has already been created for that email" <<endl;
+		//ACCOUNT ALREADY CREATED - LET USER LOG IN
+		cout << "Success" <<endl;
 		}
     }
 
