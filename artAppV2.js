@@ -127,7 +127,7 @@ function processUserLogin(results)
 		});
 		$('#HomeNav').append($appendNavButton);
 		$('#LogInBtn').hide();
-		$("#myModal").modal('hide');
+		//$("#myModal").modal('hide');
 	}
 	else 
 	{
