@@ -75,7 +75,7 @@ function processUser(results)
 {
 	console.log("made it to proccesUser");
 	console.log("Results:"+results);
-	if (results == 'Success')
+	if (results == "Success")
 	{
 		$("#Home").show();
 		$("#CreateAccountPage").hide();
@@ -85,7 +85,7 @@ function processUser(results)
 		$('#HomeNav').append(appendNav);
 		
 	}
-	else 
+	else if (results != "Success")
 	{
 		appendH = "<h1 class='display-3'>";
 		appendH += results;
