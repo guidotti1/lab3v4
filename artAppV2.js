@@ -26,7 +26,7 @@ $(document).ready(function () {
         	$.ajax({
 		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
 		dataType: 'text',
-		success: processUser,
+		success: processUserCreate,
 		error: function(){alert("Error: Something went wrong");}
     		});
    	});
@@ -35,7 +35,7 @@ $(document).ready(function () {
 		email= $('#inputEmail').val();
 	        pass = $('#inputPW').val();
 	        type = "Login";
-	       console.log("UserLogInBtn");
+	        console.log("UserLogInBtn");
 		$.ajax({
 		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
 		dataType: 'text',
@@ -85,7 +85,7 @@ function changeOperation(operation){
 }
 
 
-function processUser(results)
+function processUserCreate(results)
 {
 	console.log("made it to proccesUser");
 	console.log("Results:"+results);
@@ -95,9 +95,6 @@ function processUser(results)
 		$("#Home").show();
 		$("#CreateAccountPage").hide();
 		//appendNav = "<p> Logged in as : ";
-		//appendNav += email;
-		//appendNav += "</p>";
-		//$('#LogInInfo').append(appendNav);
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
 		var $appendNavButton = $(appendNavButton).bind("click", function()
@@ -114,6 +111,30 @@ function processUser(results)
 		appendH += results;
 		appendH += "</h1>";
 		$('#createAcctResults').append(appendH);
+	}
+}
+
+function processUserLogin(results)
+{
+	if (a.length == 1)
+	{
+		$("#Home").show();
+		$("#CreateAccountPage").hide();
+		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
+		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
+		var $appendNavButton = $(appendNavButton).bind("click", function()
+		{
+		userLogOut();
+		});
+		$('#HomeNav').append($appendNavButton);
+		$('#LogInBtn').hide();
+	}
+	else 
+	{
+		appendH = "<h1 class='display-3'>";
+		appendH += results;
+		appendH += "</h1>";
+		$('#loginresults').append(appendH);
 	}
 }
 
