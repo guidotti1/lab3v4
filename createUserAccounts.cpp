@@ -98,15 +98,12 @@ int main()
     }
     else if (typeString == "Login")
     {
-	    cout << "emailString :"<<emailString<<endl;
-	    cout << "pwString :"<<pwString<<endl;
 	    stmt->execute("SELECT * FROM Users WHERE email = '"+emailString+"' AND pass = '"+pwString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
 		    userInfo entry(res->getString("email"),res->getString("pass"));
 		  list.push_back(entry);
-		  cout << "List.push)_back"<<endl;
 	      }
 	    } while (stmt->getMoreResults());
 
