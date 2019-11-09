@@ -35,10 +35,10 @@ $(document).ready(function () {
 		email= $('#inputEmail').val();
 	        pass = $('#inputPW').val();
 	        type = "Login";
+	       console.log("UserLogInBtn");
 		$.ajax({
 		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
 		dataType: 'text',
-		console.log("UserLogInBtn"),
 		success: processUser,
 		error: function(){alert("Error: Something went wrong");}
     		});
