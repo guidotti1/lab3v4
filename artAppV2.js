@@ -2,6 +2,8 @@
 // Jim Skon, Kenyon College, 2017
 var operation;  // operation
 var editid;
+var email;
+var pass;
 
 $(document).ready(function () {
     $('.editdata').hide();
@@ -17,9 +19,11 @@ $(document).ready(function () {
 
    $("#createAcctButton").click(function()
 	{
-	   	console.log("yo we in here");
+	   	email= $('#inputEmail').val();
+	        pass = $('#inputPW').val();
+	   	//console.log("yo we in here");
         	$.ajax({
-		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+$('#inputEmail').val()+'&password='+$('#inputPW').val(),
+		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass,
 		dataType: 'text',
 		success: processUser,
 		error: function(){alert("Error: Something went wrong");}
@@ -73,6 +77,13 @@ function processUser(results)
 	console.log("Results:"+results);
 	if (results == "Success")
 	{
+		$("#Home").show();
+		$("#CreateAccountPage").hide();
+		appendNav = "<p> Logged in as : ";
+		appendNav += email;
+		appendNav += "</p>";
+		$('#HomeNav').append(appendNav);
+		
 	}
 	else 
 	{
