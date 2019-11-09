@@ -106,6 +106,7 @@ function processUser(results)
 function userLogOut()
 {
 	email = "";
+	document.getElementById("LogInInfo").innerHTML = "";
 	$('#LogOutBtn').hide();
 	$('#LogInBtn').show();
 }
