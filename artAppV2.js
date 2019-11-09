@@ -75,7 +75,7 @@ function processUser(results)
 {
 	console.log("made it to proccesUser");
 	console.log("Results:"+results);
-	if (results == "Success")
+	if (results == 'Success')
 	{
 		$("#Home").show();
 		$("#CreateAccountPage").hide();
