@@ -162,7 +162,7 @@ function buildTable(list) {
 	    result += "<tr><td class='Last'>"+a[i]+"</td><td class='First'>"+a[i+1]+"</td><td class='Born-Died'>"+a[i+2]+"</td><td class='Title'>"+a[i+3]+"</td>";
 	    result += "<td class='Date'>"+a[i+4]+"</td><td class='Technique'>"+a[i+5]+"</td><td class='Location'>"+a[i+6]+"</td><td class='Url'>"+a[i+7]+"</td>";
 	    result += "<td class='Form'>"+a[i+8]+"</td><td class='Type'>"+a[i+9]+"</td><td class='School'>"+a[i+10]+"</td><td class='Timeframe'>"+a[i+11]+"</td>";
-	    result += "<td><button type = 'button' ID ='"+a[i+12]+"' class = 'btn btn-primary btn-sm view'>View Art</button></td></tr>";
+	    result += "<td><button class = 'ViewBtn' type = 'button' ID ='"+a[i+12]+"' class = 'btn btn-primary btn-sm view'>View Art</button></td></tr>";
 	}
 	result += "</table>";
 	
@@ -206,6 +206,9 @@ function viewArt(){
 		{
 		userComment();
 		});
+	
+	var id = $(row).find('.ViewBtn').id;
+	console.log("ID HERE IS : "+id);
 		
 	$('#ViewArtResults').append(appendFigure);
 	$('#ViewArtResults').append(commentBox);
