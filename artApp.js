@@ -49,21 +49,6 @@ $(document).ready(function () {
 
 changeOperation(operation);
 
-function processUser(results)
-{
-	console.log("Results:"+results);
-	if (results == "Success")
-	{
-	}
-	else 
-	{
-		appendH = "<h1 class="display-2">"
-		appendH += "+results+";
-		appendH += "</h1>";
-		$('#createAcctResults').append(appendH);
-	}
-}
-
 function changeOperation(operation){
     if(operation=="Add Entry"){
 	console.log("Add Entry");
@@ -81,6 +66,22 @@ function changeOperation(operation){
     }    
 }
 
+
+function processUser(results)
+{
+	console.log("made it to proccesUser);
+	console.log("Results:"+results);
+	if (results == "Success")
+	{
+	}
+	else 
+	{
+		appendH = "<h1 class="display-2">"
+		appendH += "+results+";
+		appendH += "</h1>";
+		$('#createAcctResults').append(appendH);
+	}
+}
 // Build output table from comma delimited list
 function buildTable(list) {
     var a = list.split("^");
