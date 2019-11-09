@@ -54,7 +54,8 @@ int main() {
 		  + abResults.at(i).form + "^"
 		  + abResults.at(i).type + "^"
 		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^";
+		  + abResults.at(i).timeframe + "^"
+	          + abResults.at(i).ARTID + "^";
       	     }
     	}
   else 
@@ -86,7 +87,8 @@ int main() {
 		  + abResults.at(i).form + "^"
 		  + abResults.at(i).type + "^"
 		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^";
+		  + abResults.at(i).timeframe + "^"
+		  + abResults.at(i).ARTID + "^";
       	     }
     }
   else 
@@ -118,7 +120,8 @@ int main() {
 		  + abResults.at(i).form + "^"
 		  + abResults.at(i).type + "^"
 		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^";
+		  + abResults.at(i).timeframe + "^"
+		  + abResults.at(i).ARTID + "^";
       	     }
     }
   else 
