@@ -51,6 +51,7 @@ changeOperation(operation);
 
 function processUser(results)
 {
+	console.log("Results:"+results);
 	if (results == "Success")
 	{
 	}
