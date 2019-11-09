@@ -119,7 +119,7 @@ int main()
 		//ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
 		cout << "Account has already been created for that email" <<endl;
 		}
-	
+    }
 
  return 0;
 }
