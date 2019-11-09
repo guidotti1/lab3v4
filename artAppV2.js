@@ -86,7 +86,7 @@ function processUser(results)
 		//$('#LogInInfo').append(appendNav);
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
-		var $appendNavButton = $(button).bind("click", function()
+		var $appendNavButton = $(appendNavButton).bind("click", function()
 		{
 		userLogOut();
 		});
