@@ -104,7 +104,7 @@ int main()
 	      while (res->next()) {
 		    userInfo entry(res->getString("email"),res->getString("pass"));
 		  list.push_back(entry);
-
+		  cout << "List.push)_back"<<endl;
 	      }
 	    } while (stmt->getMoreResults());
 
