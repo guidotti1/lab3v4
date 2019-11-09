@@ -96,7 +96,7 @@ int main()
 		}
 	    list.clear();
     }
-    else
+    else if (typeString = "Login")
     {
 	    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
 	    do {
