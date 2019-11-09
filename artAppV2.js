@@ -39,7 +39,7 @@ $(document).ready(function () {
 		$.ajax({
 		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
 		dataType: 'text',
-		success: processUser,
+		success: processUserLogin,
 		error: function(){alert("Error: Something went wrong");}
     		});
 	   });
