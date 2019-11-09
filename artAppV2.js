@@ -90,7 +90,7 @@ function processUser(results)
 		{
 		userLogOut();
 		});
-		$('#HomeNav').append(appendNavButton);
+		$('#HomeNav').append($appendNavButton);
 		$('#LogInBtn').hide();
 		
 	}
