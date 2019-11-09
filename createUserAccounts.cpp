@@ -98,6 +98,8 @@ int main()
     }
     else if (typeString == "Login")
     {
+	    cout << "emailString :"<<emailString<<endl;
+	    cout << "pwString :"<<pwString<<endl;
 	    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
