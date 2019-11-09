@@ -4,7 +4,7 @@
 artEntry::artEntry() {
 }
 
-artEntry::artEntry(string name, string bornDiedInit, string titleInit, string dateInit, string techniqueInit, string locationInit, string urlInit, string formInit, string typeInit, string schoolInit, string timeframeInit) 
+artEntry::artEntry(string name, string bornDiedInit, string titleInit, string dateInit, string techniqueInit, string locationInit, string urlInit, string formInit, string typeInit, string schoolInit, string timeframeInit, string ARTIDInit) 
 {
     stringstream nameStream(name);
     getline(nameStream, last, ',');
@@ -19,6 +19,7 @@ artEntry::artEntry(string name, string bornDiedInit, string titleInit, string da
     type = typeInit;
     school = schoolInit;
     timeframe = timeframeInit;
+    ARTID = ARTIDInit;
 }
 
 
