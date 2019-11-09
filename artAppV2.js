@@ -119,7 +119,6 @@ function processUserLogin(results)
 	if (a.length == 1)
 	{
 		$("#Home").show();
-		$("#myModal").modal('hide');
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
 		var $appendNavButton = $(appendNavButton).bind("click", function()
@@ -128,6 +127,7 @@ function processUserLogin(results)
 		});
 		$('#HomeNav').append($appendNavButton);
 		$('#LogInBtn').hide();
+		$("#myModal").modal('hide');
 	}
 	else 
 	{
