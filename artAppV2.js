@@ -202,7 +202,7 @@ function viewArt(){
 	commentBox += "</div>";
 	commentBox += "</div>";
 	commentButton =  "<button class='btn btn-primary pull-right' type='button' id = 'SubmitCommentBtn' >Submit Comment</button>";
-	$commentButton = $(commentButton).bind("click", function 
+	$commentButton = $(commentButton).bind("click", function()
 		{
 		userComment();
 		});
