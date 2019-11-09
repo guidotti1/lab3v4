@@ -84,6 +84,8 @@ function processUser(results)
 		appendNav += email;
 		appendNav += "</p>";
 		$('#HomeNav').append(appendNav);
+		appendNavButton += "<button type="button" class="btn btn-primary" id = "LogOut" >Log out!</button>";
+		$('#HomeNav').append(appendNavButton);
 		
 	}
 	else
