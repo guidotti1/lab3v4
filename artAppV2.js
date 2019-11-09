@@ -118,7 +118,9 @@ function processUserLogin(results)
 	var a = results.split(" ");
 	if (a.length == 1)
 	{
+		console.log("processUserLogin a.length == 1 (success)");
 		$("#Home").show();
+		$("#CreateAccountPage").hide();
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
 		var $appendNavButton = $(appendNavButton).bind("click", function()
@@ -131,6 +133,7 @@ function processUserLogin(results)
 	}
 	else 
 	{
+		console.log("processUserLogin (failure)");
 		appendH = "<h1 class='display-3'>";
 		appendH += results;
 		appendH += "</h1>";
