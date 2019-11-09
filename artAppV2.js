@@ -21,14 +21,28 @@ $(document).ready(function () {
 	{
 	   	email= $('#inputEmail').val();
 	        pass = $('#inputPW').val();
+	        type = "Create";
 	   	//console.log("yo we in here");
         	$.ajax({
-		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass,
+		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
 		dataType: 'text',
 		success: processUser,
 		error: function(){alert("Error: Something went wrong");}
     		});
    	});
+   $("#UserLogInBtn").click(function()
+	{
+		email= $('#inputEmail').val();
+	        pass = $('#inputPW').val();
+	        type = "Login";
+		$.ajax({
+		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
+		dataType: 'text',
+		console.log("UserLogInBtn"),
+		success: processUser,
+		error: function(){alert("Error: Something went wrong");}
+    		});
+	   });
 	   
 	   
 	    
