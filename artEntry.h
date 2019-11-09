@@ -22,7 +22,7 @@ public:
      string type;
      string school;
      string timeframe;
-     string ARTIT;
+     string ARTID;
 
 private:
 
