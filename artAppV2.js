@@ -194,7 +194,26 @@ function viewArt(){
         appendFigure += "<figcaption class='figure-caption text-right'>'"+Title+"'</figcaption>";
 	appendFigure += "<figcaption class='figure-caption text-right'> by  "+First+" "+Last+" </figcaption>";
         appendFigure += "</figure>";
+	commentBox = "<div class='container pb-cmnt-container' id = 'commentArea'>";
+        commentBox += "<div class='panel panel-info'>";
+	commentBox +=  "<div class='panel-body'>";
+	commentBox +=  "<textarea placeholder='Write your comment here!' class='pb-cmnt-textarea'></textarea>";
+	commentBox += "</div>";
+	commentBox += "</div>";
+	commentBox += "</div>";
+	commentButton =  "<button class='btn btn-primary pull-right' type='button' id = 'SubmitCommentBtn' >Submit Comment</button>";
+	$commentButton = $(commentButton).click(.bind("click", function 
+		{
+		userComment();
+		});
+		
 	$('#ViewArtResults').append(appendFigure);
+	$('#ViewArtResults').append(commentBox);
+        $('#commentArea').append($commentButton);
+}
+
+function userComment(){
+    console.log("USER COMMENTING");
 }
 
 function clearResults() {
