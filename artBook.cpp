@@ -23,7 +23,7 @@ vector<artEntry> artBook::findByLast(string findLast)
             artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
 			   res->getString("Title"),res->getString("Date"),
 	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
-	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"));
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"), res->getString("ARTID"));
 	  list.push_back(entry);
 
       }
@@ -46,7 +46,7 @@ vector<artEntry> artBook::findByFirst(string findFirst)
             artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
 			   res->getString("Title"),res->getString("Date"),
 	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
-	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"));
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"), res->getString("ARTID"));
 	  list.push_back(entry);
 
       }
@@ -70,7 +70,7 @@ vector<artEntry> artBook::findByTitle(string findTitle)
 	    artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
 			   res->getString("Title"),res->getString("Date"),
 	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
-	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"));
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"), res->getString("ARTID"));
 	  list.push_back(entry);
 
     }
