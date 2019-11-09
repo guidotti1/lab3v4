@@ -190,7 +190,7 @@ function viewArt(){
 	URL = $(row).find('.Url').text();
 	//console.log("URL on the record : "+ URLS);
 	appendFigure = "<figure class='figure'>";
-        appendFigure += "<img src='"+URL+"' class='figure-img img-fluid rounded' alt= 'Picture'>";
+        appendFigure += "<img src='"+URL+"' class='img-fluid' alt='Responsive image'>";
         appendFigure += "<figcaption class='figure-caption text-right'>'"+Title+"'</figcaption>";
 	appendFigure += "<figcaption class='figure-caption text-right'> by  "+First+" "+Last+" </figcaption>";
         appendFigure += "</figure>";
