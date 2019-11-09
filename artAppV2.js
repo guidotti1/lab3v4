@@ -116,6 +116,7 @@ function processUserCreate(results)
 
 function processUserLogin(results)
 {
+	var a = results.split(" ");
 	if (a.length == 1)
 	{
 		$("#Home").show();
