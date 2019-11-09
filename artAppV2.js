@@ -192,7 +192,7 @@ function viewArt(){
 	appendFigure = "<figure class='figure'>";
         appendFigure += "<img src='"+URL+"' class='figure-img img-fluid rounded' alt= 'Picture'>";
         appendFigure += "<figcaption class='figure-caption text-right'>'"+Title+"'</figcaption>";
-	appendFigure += "<figcaption class='figure-caption text-right'> by : '"+First+"' '"+Last+"' </figcaption>";
+	appendFigure += "<figcaption class='figure-caption text-right'> by  "+First+" "+Last+" </figcaption>";
         appendFigure += "</figure>";
 	$('#ViewArtResults').append(appendFigure);
 }
