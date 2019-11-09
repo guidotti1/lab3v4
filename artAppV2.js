@@ -187,11 +187,11 @@ function viewArt(){
 	Title = $(row).find('.Title').text();
 	Last = $(row).find('.Last').text();
 	First = $(row).find('.First').text();
-	URL = $(row).find('Url').text();
-	console.log("URL on the record : "+ $(row).find('.Url').text());
+	URLS = $(row).find('Url').text();
+	console.log("URL on the record : "+ URLS);
 	appendFigure = "<figure class='figure'>";
-        appendFigure += "<img src='"+URL+"' class='figure-img img-fluid rounded' alt= 'Picture'>";
-        appendFigure += " <figcaption class='figure-caption text-right'>A caption for the above image.</figcaption>";
+        appendFigure += "<img src='"+URLS+"' class='figure-img img-fluid rounded' alt= 'Picture'>";
+        appendFigure += "<figcaption class='figure-caption text-right'>A caption for the above image.</figcaption>";
         appendFigure += "</figure>";
 	$('#ViewArtResults').append(appendFigure);
 }
