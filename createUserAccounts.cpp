@@ -73,7 +73,7 @@ int main()
 	
     if (typeString == "Create")
     {
-	    stmt->execute("SELECT * FROM Users WHERE email = '"+emailString+"'");
+	    stmt->execute("SELECT * FROM Users WHERE BINARY email = '"+emailString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
@@ -98,7 +98,7 @@ int main()
     }
     else if (typeString == "Login")
     {
-	    stmt->execute("SELECT * FROM Users WHERE email = '"+emailString+"' AND pass = '"+pwString+"'");
+	    stmt->execute("SELECT * FROM Users WHERE BINARY email = '"+emailString+"' AND pass = '"+pwString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
