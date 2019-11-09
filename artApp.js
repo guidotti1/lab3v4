@@ -21,6 +21,7 @@ $(document).ready(function () {
         	$.ajax({
 		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+$('#inputEmail').val()+'&password='+$('#inputPW').val(),
 		dataType: 'text',
+		success: processUser,
 		error: function(){alert("Error: Something went wrong");}
     		});
    	});
@@ -47,6 +48,20 @@ $(document).ready(function () {
 });
 
 changeOperation(operation);
+
+function processUser(results)
+{
+	if (results == "Success")
+	{
+	}
+	else 
+	{
+		appendH = "<h1 class="display-2">"
+		appendH += "+results+";
+		appendH += "</h1>";
+		$('#createAcctResults').append(appendH);
+	}
+}
 
 function changeOperation(operation){
     if(operation=="Add Entry"){
