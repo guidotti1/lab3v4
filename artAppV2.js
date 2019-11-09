@@ -85,8 +85,13 @@ function processUser(results)
 		//appendNav += "</p>";
 		//$('#LogInInfo').append(appendNav);
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
-		appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOut' >Log out!</button>";
+		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
+		var $appendNavButton = $(button).bind("click", function()
+		{
+		userLogOut();
+		});
 		$('#HomeNav').append(appendNavButton);
+		$('#LogInBtn').hide();
 		
 	}
 	else
@@ -96,6 +101,13 @@ function processUser(results)
 		appendH += "</h1>";
 		$('#createAcctResults').append(appendH);
 	}
+}
+
+function userLogOut()
+{
+	email = "";
+	$('#LogOutBtn'.hide();
+	$('#LogInBtn').show();
 }
 // Build output table from comma delimited list
 function buildTable(list) {
