@@ -65,7 +65,7 @@ int main()
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     vector<userInfo> list;
-    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
+    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"'");
     std::auto_ptr< sql::ResultSet > res;
     do {
       res.reset(stmt->getResultSet());
@@ -76,18 +76,20 @@ int main()
       }
     } while (stmt->getMoreResults());
 
-
+    cout << "Content-Type: text/plain\n\n";
     if (list.size() == 0)
         {
         //ACCOUNT CAN BE CREATED
         createAccount(emailString, pwString, url, user, pass, database);
+	cout << "Success" << endl;
         }
     else if (list.size() == 1)
         {
         //ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
+	cout << "Account has already been created for that email" <<endl;
         }
 	
- cout << "Content-Type: text/plain\n\n";
+
  return 0;
 }
 
