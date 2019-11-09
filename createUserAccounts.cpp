@@ -73,7 +73,7 @@ int main()
 	
     if (typeString == "Create")
     {
-	    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"'");
+	    stmt->execute("SELECT * FROM Users WHERE email = '"+emailString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
@@ -100,7 +100,7 @@ int main()
     {
 	    cout << "emailString :"<<emailString<<endl;
 	    cout << "pwString :"<<pwString<<endl;
-	    stmt->execute("SELECT * FROM Users WHERE email like '"+emailString+"' AND pass like '"+pwString+"'");
+	    stmt->execute("SELECT * FROM Users WHERE email = '"+emailString+"' AND pass = '"+pwString+"'");
 	    do {
 	      res.reset(stmt->getResultSet());
 	      while (res->next()) {
