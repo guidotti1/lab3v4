@@ -156,13 +156,13 @@ function buildTable(list) {
     } else if (a.length == 1) {
 	return "<h3>Nothing Found</h3>";
     } else {
-	var result = '<table class="w3-table-all w3-hoverable" border="2"><tr><th>Last</th><th>First</th><th>Born-Died</th><th>Title</th><th>Date</th><th>Technique</th><th>Location</th><th>URL</th><th>Form</th><th>Type</th><th>School</th><th>Timeframe</th><tr>';
+	var result = '<table class="w3-table-all w3-hoverable" border="2"><tr><th>Last</th><th>First</th><th>Born-Died</th><th>Title</th><th>Date</th><th>Technique</th><th>Location</th><th>URL</th><th>Form</th><th>Type</th><th>School</th><th>Timeframe</th><th>View Art</th><tr>';
 	var aLen = a.length;
-	for (var i = 0; i < aLen-1; i+=12) {
+	for (var i = 0; i < aLen-1; i+=13) {
 	    result += "<tr><td class='Last'>"+a[i]+"</td><td class='First'>"+a[i+1]+"</td><td class='Born-Died'>"+a[i+2]+"</td><td class='Title'>"+a[i+3]+"</td>";
 	    result += "<td class='Date'>"+a[i+4]+"</td><td class='Technique'>"+a[i+5]+"</td><td class='Location'>"+a[i+6]+"</td><td class='Url'>"+a[i+7]+"</td>";
 	    result += "<td class='Form'>"+a[i+8]+"</td><td class='Type'>"+a[i+9]+"</td><td class='School'>"+a[i+10]+"</td><td class='Timeframe'>"+a[i+11]+"</td>";
-	    result += "<td><button type = 'button' class = 'btn btn-primary btn-sm view'>View Art</button></td></tr>";
+	    result += "<td><button type = 'button' ID ='"a[i+12]+"' class = 'btn btn-primary btn-sm view'>View Art</button></td></tr>";
 	}
 	result += "</table>";
 	
