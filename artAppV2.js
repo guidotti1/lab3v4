@@ -187,8 +187,8 @@ function viewArt(){
 	Title = $(row).find('.Title').text();
 	Last = $(row).find('.Last').text();
 	First = $(row).find('.First').text();
-	URLS = $(row).find('Url').text();
-	console.log("URL on the record : "+ URLS);
+	URLS = $(row).find('.Url').text();
+	//console.log("URL on the record : "+ URLS);
 	appendFigure = "<figure class='figure'>";
         appendFigure += "<img src='"+URLS+"' class='figure-img img-fluid rounded' alt= 'Picture'>";
         appendFigure += "<figcaption class='figure-caption text-right'>A caption for the above image.</figcaption>";
