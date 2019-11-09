@@ -40,6 +40,13 @@ int main()
 
     Cgicc cgi;
     form_iterator comment = cgi.getElement("comment");
+    string commentString = **comment;
+
+    form_iterator email = cgi.getElement("email");
+    string emailString = **email;
+
+    form_iterator artID = cgi.getElement("ArtID");
+    string artIDString = ** artID;
 
     cout << "Content-Type: text/plain\n\n";
     sql::Driver* driver = sql::mysql::get_driver_instance();
