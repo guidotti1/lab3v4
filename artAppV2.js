@@ -81,9 +81,10 @@ function processUser(results)
 		$("#Home").show();
 		$("#CreateAccountPage").hide();
 		//appendNav = "<p> Logged in as : ";
-		appendNav += email;
+		//appendNav += email;
 		//appendNav += "</p>";
-		$('#LogInInfo').append(appendNav);
+		//$('#LogInInfo').append(appendNav);
+		document.getElementById("LogInInfo").innerHTML = email;
 		appendNavButton += "<button type='button' class='btn btn-primary' id = 'LogOut' >Log out!</button>";
 		$('#HomeNav').append(appendNavButton);
 		
