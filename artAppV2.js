@@ -76,8 +76,8 @@ function processUser(results)
 	}
 	else 
 	{
-		appendH = "<h1 class='display-2'>";
-		appendH += "+results+";
+		appendH = "<h1 class='display-3'>";
+		appendH += results;
 		appendH += "</h1>";
 		$('#createAcctResults').append(appendH);
 	}
