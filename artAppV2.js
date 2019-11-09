@@ -1,5 +1,4 @@
-// JavaScript for Phone Application Demo Program
-// Jim Skon, Kenyon College, 2017
+
 var operation;  // operation
 var editid;
 var email;
@@ -148,7 +147,8 @@ function userLogOut()
 	$('#LogOutBtn').hide();
 	$('#LogInBtn').show();
 }
-// Build output table from comma delimited list
+
+// Build output table from ^ delimited list
 function buildTable(list) {
     var a = list.split("^");
     if (a.length < 1) {
@@ -179,9 +179,20 @@ function processResults(results) {
 }
 
 function viewArt(){
+	$("#Home").hide();
+	$("#ViewArtPage").show();
 	console.log("WE VIEWING ART BOYS");
 	var row = $(this).parents("tr");
-	console.log("Title on the record : "+ $(row).find('.Title').text());
+	//console.log("Title on the record : "+ $(row).find('.Title').text());
+	Title = $(row).find('.Title').text());
+	Last = $(row).find('.Last').text());
+	First = $(row).find('.First').text());
+	URL = $(row).find('Url').text());
+	appendFigure = "<figure class='figure'>";
+        appendFigure += "<img src='"+URL+"' class='figure-img img-fluid rounded'>";
+        appendFigure += " <figcaption class='figure-caption text-right'>A caption for the above image.</figcaption>";
+        appendFigure += "</figure>";
+	$('#ViewArtResults').append(appendFigure);
 }
 
 function clearResults() {
