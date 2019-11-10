@@ -54,6 +54,7 @@ int main()
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
+    stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
 
     return 0;
 }
