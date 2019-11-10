@@ -73,7 +73,7 @@ int main()
     else if (typeString == "display")
     {
         vector<commentInfo> list;
-        stmt->execute("SELECT * FROM Phonebook WHERE ARTID = '"+artIDString"'");
+        stmt->execute("SELECT * FROM Phonebook WHERE ARTID = '"+artIDString+"'");
         do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
