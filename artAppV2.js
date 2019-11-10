@@ -105,6 +105,7 @@ function processUserCreate(results)
 		{
 		userLogOut();
 		});
+		console.log("appendNavButton should be getting appended ??");
 		$('#HomeNav').append($appendNavButton);
 		$('#ViewArtNav').append($appendNavButton);
 		$('#LogInBtn').hide();
@@ -135,6 +136,7 @@ function processUserLogin(results)
 		{
 		userLogOut();
 		});
+		
 		$('#HomeNav').append($appendNavButton);
 		$('#ViewArtNav').append($appendNavButton);
 		$('#LogInBtn').hide();
