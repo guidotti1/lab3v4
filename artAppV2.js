@@ -198,7 +198,7 @@ function viewArt(){
 	commentBox = "<div class='container pb-cmnt-container' id = 'commentArea'>";
         commentBox += "<div class='panel panel-info'>";
 	commentBox +=  "<div class='panel-body'>";
-	commentBox +=  "<textarea placeholder='Write your comment here!' class='pb-cmnt-textarea'></textarea>";
+	commentBox +=  "<textarea placeholder='Write your comment here!' class='pb-cmnt-textarea' id = 'CommentBox'></textarea>";
 	commentBox += "</div>";
 	commentBox += "</div>";
 	commentBox += "</div>";
@@ -219,6 +219,10 @@ function viewArt(){
 
 function userComment(){
     console.log("USER COMMENTING");
+    comment = $('#CommentBox').getText();
+    console.log("ARTID HERE IS : "+artid);
+    console.log("Comment HERE IS : "+comment);
+    console.log("Email HERE IS : "+email);
 }
 
 function clearResults() {
