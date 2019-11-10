@@ -3,6 +3,7 @@ var operation;  // operation
 var editid;
 var email;
 var pass;
+var artid;
 
 $(document).ready(function () {
     $('.editdata').hide();
@@ -207,7 +208,8 @@ function viewArt(){
 		userComment();
 		});
 	
-	var id = $(row).find('.btn btn-primary btn-sm view').id;
+	artid = $(this).attr('ID');
+	//var id = $(row).find('.btn btn-primary btn-sm view').id;
 	console.log("ID HERE IS : "+id);
 		
 	$('#ViewArtResults').append(appendFigure);
