@@ -37,7 +37,7 @@ userComment.o: userComment.cpp
 	$(CC) -c $(CFLAGS) userComment.cpp
 	
 userComment: userComment.o
-	$(CC) userComment.o -o userComment -L/usr/local/lib -lgicc =lmysqlcppconn
+	$(CC) userComment.o -o userComment -L/usr/local/lib -lcgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
