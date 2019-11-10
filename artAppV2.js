@@ -102,7 +102,9 @@ function processUserCreate(results)
 		userLogOut();
 		});
 		$('#HomeNav').append($appendNavButton);
+		$('#ViewArtNav').append($appendNavButton);
 		$('#LogInBtn').hide();
+		$('#LogInBtnView').hide();
 	}
 	else
 	{
@@ -122,13 +124,16 @@ function processUserLogin(results)
 		//$("#Home").show();
 		//$("#CreateAccountPage").hide();
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
+		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
 		var appendNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtn' >Log out!</button>";
 		var $appendNavButton = $(appendNavButton).bind("click", function()
 		{
 		userLogOut();
 		});
 		$('#HomeNav').append($appendNavButton);
+		$('#ViewArtNav').append($appendNavButton);
 		$('#LogInBtn').hide();
+		$('#LogInBtnViewArt').hide();
 		$("#myModal").modal('hide');
 	}
 	else 
@@ -145,8 +150,10 @@ function userLogOut()
 {
 	email = "";
 	document.getElementById("LogInInfo").innerHTML = "";
+	document.getElementById("LogInInfoViewArt").innerHTML = "";
 	$('#LogOutBtn').hide();
 	$('#LogInBtn').show();
+	$('#LogInBtnViewArt').show();
 }
 
 // Build output table from ^ delimited list
@@ -219,7 +226,7 @@ function viewArt(){
 
 function userComment(){
     console.log("USER COMMENTING");
-    comment = $('#CommentBox').getText();
+    comment = $('#CommentBox').val();
     console.log("ARTID HERE IS : "+artid);
     console.log("Comment HERE IS : "+comment);
     console.log("Email HERE IS : "+email);
