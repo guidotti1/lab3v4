@@ -234,6 +234,24 @@ function userComment(){
     console.log("ARTID HERE IS : "+artid);
     console.log("Comment HERE IS : "+comment);
     console.log("Email HERE IS : "+email);
+    if (email == "")
+    {
+	    alert("Note that you must be logged in to comment!");
+    }
+   else
+   {
+		$.ajax({
+		url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid,
+		dataType: 'text',
+		success: processUserComment,
+		error: function(){alert("Error: Something went wrong");}
+    		});
+   }	   
+}
+
+function processUserComment()
+{
+	console.log("In process user comment!");
 }
 
 function clearResults() {
