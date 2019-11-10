@@ -75,7 +75,7 @@ int main()
         cout << "DISPLAY" << endl;
         cout << "artIDString: " << artIDString << endl;
         vector<commentInfo> list;
-        stmt->execute("SELECT * FROM Phonebook WHERE ARTID = '"+artIDString+"'");
+        stmt->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"'");
         do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
