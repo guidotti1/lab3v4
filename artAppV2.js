@@ -15,11 +15,11 @@ $(document).ready(function () {
     $("#LogOutBtnView").click(function()
 	{
 	    userLogOut();
-        }
+        });
     $("#LogOutBtnHome").click(function()
 	{
 	    userLogOut();
-        }
+        });
 	    
     $("#createAcct").click(function()
 	{
