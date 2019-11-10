@@ -79,6 +79,7 @@ int main()
             while (res->next()) {
                 commentInfo entry(res->getString("Comment"), res->getString("Email"));
                 list.push_back(entry);
+            }
             }while (stmt ->getMoreResults());
         string output = "";
         for (int i = 0; i<list.size(); i++)
