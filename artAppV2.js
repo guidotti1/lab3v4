@@ -112,7 +112,7 @@ function processUserCreate(results)
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
 		$('#LogInBtn').hide();
-		$('#LogInBtnView').hide();
+		$('#LogInBtnViewArt').hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
 	}
@@ -135,7 +135,7 @@ function processUserLogin(results)
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
 		$('#LogInBtn').hide();
-		$('#LogInBtnView').hide();
+		$('#LogInBtnViewArt').hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
 		$("#myModal").modal('hide');
