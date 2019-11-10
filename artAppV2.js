@@ -249,6 +249,18 @@ function displayComments()
 function viewComments(results) 
 {
 	console.log("Results are :"+results);
+	var a = results.split("^");
+	var aLen = a.length;
+	for (var i = 0; i < aLen; i+=2) {
+		appendDiv = "<div class='media'>";
+		appendDiv += "<div class='media-body'>";
+		appendDiv += "<h5 class='mt-0'> Commenter: "+a[1]+"</h5>"
+		appendDiv += a[0];
+		appendDiv += "</div>";
+		appendDiv += "</div>";
+		$('#ViewArtResults').append(appendDiv);
+	}
+		
 }
 
 function userComment(){
@@ -260,7 +272,7 @@ function userComment(){
     type = "add";
     if (email == "" || typeof email === "undefined")
     {
-	    alert("Note that you must be logged in to comment!");
+	    alert("You must be logged in to comment!");
     }
    else
    {
