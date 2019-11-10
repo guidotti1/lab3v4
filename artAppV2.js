@@ -112,6 +112,7 @@ function processUserCreate(results)
 	}
 	else
 	{
+		$('#createAcctResults').empty();
 		appendH = "<h1 class='display-3'>";
 		appendH += results;
 		appendH += "</h1>";
