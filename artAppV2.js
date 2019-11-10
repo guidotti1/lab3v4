@@ -43,7 +43,11 @@ $(document).ready(function () {
 		error: function(){alert("Error: Something went wrong");}
     		});
 	   });
-	   
+    $("#ReturnHomeBtn").click()
+	{
+		$("#ViewArtPage").hide();
+		$("Home").show();
+	});
 	   
 	    
 	    
