@@ -72,8 +72,6 @@ int main()
     }
     else if (typeString == "display")
     {
-        cout << "DISPLAY" << endl;
-        cout << "artIDString: " << artIDString << endl;
         vector<commentInfo> list;
         stmt->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"'");
         do {
