@@ -234,7 +234,7 @@ function userComment(){
     console.log("ARTID HERE IS : "+artid);
     console.log("Comment HERE IS : "+comment);
     console.log("Email HERE IS : "+email);
-    if (email == "" || email == "undefined")
+    if (email == "" || typeof email === "undefined")
     {
 	    alert("Note that you must be logged in to comment!");
     }
