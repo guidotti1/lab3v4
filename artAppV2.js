@@ -109,22 +109,8 @@ function processUserCreate(results)
 	{
 		$("#Home").show();
 		$("#CreateAccountPage").hide();
-		//appendNav = "<p> Logged in as : ";
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
-		//var appendHomeNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnHome' >Log out!</button>";
-		//var $appendHomeNavButton = $(appendHomeNavButton).bind("click", function()
-		//{
-		//userLogOut();
-		//});
-		//var appendViewNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnView' >Log out!</button>";
-		//var $appendViewNavButton = $(appendViewNavButton).bind("click", function()
-		//{
-		//userLogOut();
-		//});
-		//console.log("appendNavButton should be getting appended ??");
-		//$('#HomeNav').append($appendHomeNavButton);
-		//$('#ViewArtNav').append($appendViewNavButton);
 		$('#LogInBtn').hide();
 		$('#LogInBtnView').hide();
 	        $("#LogOutBtnView").show();
@@ -146,23 +132,8 @@ function processUserLogin(results)
 	if (a.length == 1)
 	{
 		console.log("processUserLogin a.length == 1 (success)");
-		//$("#Home").show();
-		//$("#CreateAccountPage").hide();
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
-		//var appendHomeNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnHome' >Log out!</button>";
-		//var $appendHomeNavButton = $(appendHomeNavButton).bind("click", function()
-		//{
-		//userLogOut();
-		//});
-		//var appendViewNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnView' >Log out!</button>";
-		//var $appendViewNavButton = $(appendViewNavButton).bind("click", function()
-		//{
-		//userLogOut();
-		//});
-		//console.log("appendNavButton should be getting appended ??");
-		//$('#HomeNav').append($appendHomeNavButton);
-		//$('#ViewArtNav').append($appendViewNavButton);
 		$('#LogInBtn').hide();
 		$('#LogInBtnView').hide();
 	        $("#LogOutBtnView").show();
@@ -276,9 +247,10 @@ function viewComments(results)
 	console.log("Results are :"+results);
 	var a = results.split("^");
 	var aLen = a.length;
-	appendDiv = "<h3 class='text-center'>Comments</h3>"
+	appendH3= "<h3 class='text-center'>Comments</h3>";
+	$('#Comments').append(appendH3);
 	for (var i = 1; i < aLen; i+=2) {
-		appendDiv += "<div class='media'>";
+		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
 		appendDiv += "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
 		appendDiv += a[i];
