@@ -258,7 +258,7 @@ function viewComments(results)
 		appendDiv += a[i];
 		appendDiv += "</div>";
 		appendDiv += "</div>";
-		$('#ViewArtResults').append(appendDiv);
+		$('#Comments').append(appendDiv);
 	}
 		
 }
