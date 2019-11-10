@@ -53,7 +53,6 @@ int main()
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
-    vector<userInfo> list;
     std::auto_ptr< sql::ResultSet > res;
 
     return 0;
