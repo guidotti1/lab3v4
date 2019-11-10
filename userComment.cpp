@@ -66,11 +66,11 @@ int main()
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
-    if (type == "add")
+    if (typeString == "add")
     {
         stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
     }
-    else if (type == "display")
+    else if (typeString == "display")
     {
         vector<commentInfo> list;
         stmt->execute("SELECT * FROM Phonebook WHERE ARTID = '"+artIDString"'");
@@ -79,15 +79,13 @@ int main()
             while (res->next()) {
                 commentInfo entry(res->getString("Comment"), res->getString("Email"));
                 list.push_back(entry);
-            }while (stmt ->getMoreResults();
+            }while (stmt ->getMoreResults());
         string output = "";
         for (int i = 0; i<list.size(); i++)
              {
                  output += list.at(i).comment + "^" + list.at(i).email;
              }
-        cout << output << endl;
-                        
-                
+        cout << output << endl;           
     }
     return 0;
 }
