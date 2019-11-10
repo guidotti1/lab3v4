@@ -10,6 +10,17 @@ $(document).ready(function () {
     $("#search-btn").click(getMatches);
     operation = "Find Last";
     $("#clear").click(clearResults);
+    $("#LogOutBtnView").hide();
+    $("#LogOutBtnHome").hide();
+    $("#LogOutBtnView").click(function()
+	{
+	    userLogOut();
+        }
+    $("#LogOutBtnHome").click(function()
+	{
+	    userLogOut();
+        }
+	    
     $("#createAcct").click(function()
 	{
 	    $("#Home").hide();
@@ -101,21 +112,23 @@ function processUserCreate(results)
 		//appendNav = "<p> Logged in as : ";
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
-		var appendHomeNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnHome' >Log out!</button>";
-		var $appendHomeNavButton = $(appendHomeNavButton).bind("click", function()
-		{
-		userLogOut();
-		});
-		var appendViewNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnView' >Log out!</button>";
-		var $appendViewNavButton = $(appendViewNavButton).bind("click", function()
-		{
-		userLogOut();
-		});
-		console.log("appendNavButton should be getting appended ??");
-		$('#HomeNav').append($appendHomeNavButton);
-		$('#ViewArtNav').append($appendViewNavButton);
+		//var appendHomeNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnHome' >Log out!</button>";
+		//var $appendHomeNavButton = $(appendHomeNavButton).bind("click", function()
+		//{
+		//userLogOut();
+		//});
+		//var appendViewNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnView' >Log out!</button>";
+		//var $appendViewNavButton = $(appendViewNavButton).bind("click", function()
+		//{
+		//userLogOut();
+		//});
+		//console.log("appendNavButton should be getting appended ??");
+		//$('#HomeNav').append($appendHomeNavButton);
+		//$('#ViewArtNav').append($appendViewNavButton);
 		$('#LogInBtn').hide();
 		$('#LogInBtnView').hide();
+	        $("#LogOutBtnView").show();
+                $("#LogOutBtnHome").show();
 	}
 	else
 	{
@@ -137,21 +150,23 @@ function processUserLogin(results)
 		//$("#CreateAccountPage").hide();
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
-		var appendHomeNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnHome' >Log out!</button>";
-		var $appendHomeNavButton = $(appendHomeNavButton).bind("click", function()
-		{
-		userLogOut();
-		});
-		var appendViewNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnView' >Log out!</button>";
-		var $appendViewNavButton = $(appendViewNavButton).bind("click", function()
-		{
-		userLogOut();
-		});
-		console.log("appendNavButton should be getting appended ??");
-		$('#HomeNav').append($appendHomeNavButton);
-		$('#ViewArtNav').append($appendViewNavButton);
+		//var appendHomeNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnHome' >Log out!</button>";
+		//var $appendHomeNavButton = $(appendHomeNavButton).bind("click", function()
+		//{
+		//userLogOut();
+		//});
+		//var appendViewNavButton = "<button type='button' class='btn btn-primary' id = 'LogOutBtnView' >Log out!</button>";
+		//var $appendViewNavButton = $(appendViewNavButton).bind("click", function()
+		//{
+		//userLogOut();
+		//});
+		//console.log("appendNavButton should be getting appended ??");
+		//$('#HomeNav').append($appendHomeNavButton);
+		//$('#ViewArtNav').append($appendViewNavButton);
 		$('#LogInBtn').hide();
 		$('#LogInBtnView').hide();
+	        $("#LogOutBtnView").show();
+                $("#LogOutBtnHome").show();
 		$("#myModal").modal('hide');
 	}
 	else 
