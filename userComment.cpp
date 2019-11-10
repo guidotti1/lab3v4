@@ -84,7 +84,7 @@ int main()
         string output = "";
         for (int i = 0; i<list.size(); i++)
              {
-                 output += list.at(i).comment + "^" + list.at(i).email;
+                 output += "^" + list.at(i).comment + "^" + list.at(i).email;
              }
         cout << output << endl;           
     }
