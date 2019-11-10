@@ -222,10 +222,33 @@ function viewArt(){
 	artid = $(this).attr('ID');
 	//var id = $(row).find('.btn btn-primary btn-sm view').id;
 	console.log("ID HERE IS : "+artid);
-		
 	$('#ViewArtResults').append(appendFigure);
 	$('#ViewArtResults').append(commentBox);
         $('#commentArea').append($commentButton);
+	displayComments();
+}
+
+function displayComments()
+{
+  type = "display";
+  comment = "";
+  //<div class="media">
+  //  <div class="media-body">
+  //   <h5 class="mt-0">Media heading</h5>
+  //     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  //   </div>
+  //</div>
+  $.ajax({
+	url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid+'&type='+type,
+	dataType: 'text',
+	success: viewComments,
+	error: function(){alert("Error: Something went wrong");}
+   });
+}
+
+function viewComments(results) 
+{
+	console.log("Results are :"+results);
 }
 
 function userComment(){
@@ -234,6 +257,7 @@ function userComment(){
     console.log("ARTID HERE IS : "+artid);
     console.log("Comment HERE IS : "+comment);
     console.log("Email HERE IS : "+email);
+    type = "add";
     if (email == "" || typeof email === "undefined")
     {
 	    alert("Note that you must be logged in to comment!");
@@ -241,7 +265,7 @@ function userComment(){
    else
    {
 		$.ajax({
-		url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid,
+		url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid+'&type='+type,
 		dataType: 'text',
 		success: processUserComment,
 		error: function(){alert("Error: Something went wrong");}
@@ -252,6 +276,7 @@ function userComment(){
 function processUserComment()
 {
 	console.log("In process user comment!");
+	displayComments();
 }
 
 function clearResults() {
