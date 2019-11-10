@@ -254,8 +254,8 @@ function viewComments(results)
 	for (var i = 0; i < aLen; i+=2) {
 		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
-		appendDiv += "<h5 class='mt-0'> Commenter: "+a[1]+"</h5>"
-		appendDiv += a[0];
+		appendDiv += "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
+		appendDiv += a[i];
 		appendDiv += "</div>";
 		appendDiv += "</div>";
 		$('#ViewArtResults').append(appendDiv);
