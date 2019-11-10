@@ -31,6 +31,15 @@
 using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 
+class commentInfo
+{
+    public:
+    string comment;
+    string email;
+    commentInfo();
+    commentInfo(string c, string e);
+};
+
 int main()
 {
     const string url=HOST;
@@ -47,6 +56,9 @@ int main()
 
     form_iterator artID = cgi.getElement("ArtID");
     string artIDString = ** artID;
+    
+    form_iterator type = cgi.getElement("type");
+    string typeString = **type;
 
     cout << "Content-Type: text/plain\n\n";
     sql::Driver* driver = sql::mysql::get_driver_instance();
@@ -54,7 +66,39 @@ int main()
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
-    stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
-
+    if (type == "add")
+    {
+        stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
+    }
+    else if (type == "display")
+    {
+        vector<commentInfo> list;
+        stmt->execute("SELECT * FROM Phonebook WHERE ARTID = '"+artIDString"'");
+        do {
+            res.reset(stmt->getResultSet());
+            while (res->next()) {
+                commentInfo entry(res->getString("Comment"), res->getString("Email"));
+                list.push_back(entry);
+            }while (stmt ->getMoreResults();
+        string output = "";
+        for (int i = 0; i<list.size(); i++)
+             {
+                 output += list.at(i).comment + "^" + list.at(i).email;
+             }
+        cout << output << endl;
+                        
+                
+    }
     return 0;
+}
+
+commentInfo::commentInfo()
+{
+    comment, email = "";
+}
+        
+commentInfo::commentInfo(string c, string e)
+{
+    comment = c;
+    email = e;
 }
