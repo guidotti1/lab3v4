@@ -251,7 +251,7 @@ function viewComments(results)
 	console.log("Results are :"+results);
 	var a = results.split("^");
 	var aLen = a.length;
-	for (var i = 0; i < aLen; i+=2) {
+	for (var i = 1; i < aLen; i+=2) {
 		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
 		appendDiv += "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
