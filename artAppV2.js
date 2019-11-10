@@ -210,7 +210,7 @@ function viewArt(){
 	
 	artid = $(this).attr('ID');
 	//var id = $(row).find('.btn btn-primary btn-sm view').id;
-	console.log("ID HERE IS : "+id);
+	console.log("ID HERE IS : "+artid);
 		
 	$('#ViewArtResults').append(appendFigure);
 	$('#ViewArtResults').append(commentBox);
