@@ -138,7 +138,7 @@ function processUserLogin(results)
 		});
 		console.log("appendNavButton should be getting appended ??");
 		$('#HomeNav').append($appendNavButton);
-		//$('#ViewArtNav').append($appendNavButton);
+		$('#ViewArtNav').append($appendNavButton);
 		$('#LogInBtn').hide();
 		$('#LogInBtnViewArt').hide();
 		$("#myModal").modal('hide');
