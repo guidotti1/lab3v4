@@ -46,7 +46,7 @@ $(document).ready(function () {
     $("#ReturnHomeBtn").click(function()
 	{
 		$("#ViewArtPage").hide();
-		$("Home").show();
+		$("#Home").show();
 	});
 	   
 	    
