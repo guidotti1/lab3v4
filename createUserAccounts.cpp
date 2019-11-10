@@ -92,7 +92,7 @@ int main()
 	    else if (list.size() == 1)
 		{
 		//ACCOUNT ALREADY CREATED - GIVE ERROR MESSAGE.
-		cout << "Account has already been created for that email" <<endl;
+		cout << "Account has already been created for that username" <<endl;
 		}
 	    list.clear();
     }
