@@ -217,17 +217,21 @@ function viewArt(){
 	commentBox += "</div>";
 	commentBox += "</div>";
 	commentBox += "</div>";
-	commentBox += "</div>";
 	commentButton =  "<button class='btn btn-primary pull-right' type='button' id = 'SubmitCommentBtn' >Submit Comment</button>";
+	commentButton += "</div>";
 	$commentButton = $(commentButton).bind("click", function()
 		{
 		userComment();
 		});
-	voteButtons = "<div class = 'col-sm-6'>";
-	voteButtons += "<button class='btn btn-primary btn-sm' id = 'Upvote'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button> <button class='btn btn-danger btn-sm' id = 'Downvote'><span class='glyphicon glyphicon-arrow-down'></span> Downvote</button>";
-	voteButtons += "</div>";
-	voteButtons += "</div>";
-	$voteButtons = $(voteButtons).bind("click", function()
+	upvoteButton = "<div class = 'col-sm-6'>";
+	upvoteButton += "<button class='btn btn-primary btn-sm' id = 'Upvote'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button>";
+	downvoteButton = "<button class='btn btn-danger btn-sm' id = 'Downvote'><span class='glyphicon glyphicon-arrow-down'></span> Downvote </button>";
+	downvoteButton += "</div>";
+	$upvoteButton = $(upvoteButton).bind("click", function()
+		{
+		userVote();
+		});
+	$downvoteButton = $(downvoteButton).bind("click", function()
 		{
 		userVote();
 		});
@@ -237,14 +241,15 @@ function viewArt(){
 	$('#ViewArtResults').append(appendFigure);
 	$('#ViewArtResults').append(commentBox);
         $('#commentArea').append($commentButton);
-	$('#ViewArtResults').append($voteButtons);
+	$('#ViewArtResults').append($upvoteButton);
+	$('#ViewArtResults').append($downvoteButton);
 	displayComments();
 }
 
 function userVote()
 {
   	console.log("USER VOTING ON ART");
-	vote = $(obj).attr('id');
+	vote = $(this).attr('id');
 	console.log("Vote : "+vote);
 }
 
