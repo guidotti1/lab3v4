@@ -38,6 +38,12 @@ userComment.o: userComment.cpp
 	
 userComment: userComment.o
 	$(CC) userComment.o -o userComment -L/usr/local/lib -lcgicc -lmysqlcppconn
+	
+userVote.o: userVote.cpp
+	$(CC) -c $(CFLAGS) userVote.cpp
+	
+userVote: userVote.o
+	$(CC) userVote.o -o userVote -L/usr/local/lib -lcgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
@@ -45,6 +51,7 @@ PutCGI: artApp
 	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
 	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi
 	cp userComment /usr/lib/cgi-bin/$(USER)_userComment.cgi
+	cp userVote /usr/lib/cgi-bin/$(USER)_userVote.cgi
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
