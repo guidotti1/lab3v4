@@ -230,10 +230,12 @@ function viewArt(){
 	$upvoteButton = $(upvoteButton).bind("click", function()
 		{
 		userVote();
+		vote = "Upvote";
 		});
 	$downvoteButton = $(downvoteButton).bind("click", function()
 		{
 		userVote();
+		vote = "Downvote";
 		});
 	artid = $(this).attr('ID');
 	//var id = $(row).find('.btn btn-primary btn-sm view').id;
@@ -249,7 +251,7 @@ function viewArt(){
 function userVote()
 {
   	console.log("USER VOTING ON ART");
-	vote = $(this).attr('id');
+	//vote = $(this).attr('id');
 	console.log("Vote : "+vote);
 }
 
