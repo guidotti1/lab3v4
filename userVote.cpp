@@ -71,7 +71,7 @@ int main()
     do {
         res.reset(stmt->getResultSet());
         while (res->next()) {
-            commentInfo entry(res->getString("voteType"), res->getString("ARTID"), res->getString("email"));
+            voteInfo entry(res->getString("voteType"), res->getString("ARTID"), res->getString("email"));
             list.push_back(entry);
         }
         }while (stmt ->getMoreResults());
@@ -82,17 +82,8 @@ int main()
     }
     else 
     {
-        //if (voteString == "Upvote")
-        //{
-        //add upvote to database
         stmt->execute("INSERT INTO votes(voteType, ARTID, email) VALUES('"+voteString+"', '"+artIDString+"', '"+email+"')");
         cout << "Success" << endl;
-       // }
-        //else
-       // {
-        //add downvote to database
-       // cout << "Success" << endl;
-       // }
      }
         
         
