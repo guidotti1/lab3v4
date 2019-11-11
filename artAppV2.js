@@ -219,14 +219,24 @@ function viewArt(){
 		{
 		userComment();
 		});
-	
+	voteButtons += "<button class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button> | <button class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-arrow-down'></span> Downvote</button>";
+	$voteButtons = $(voteButtons).bind("click", function()
+		{
+		userVote();
+		});
 	artid = $(this).attr('ID');
 	//var id = $(row).find('.btn btn-primary btn-sm view').id;
 	console.log("ID HERE IS : "+artid);
 	$('#ViewArtResults').append(appendFigure);
 	$('#ViewArtResults').append(commentBox);
         $('#commentArea').append($commentButton);
+	$('#ViewArtResults').append($voteButtons);
 	displayComments();
+}
+
+function userVote()
+{
+  console.log("USER VOTING ON ART");
 }
 
 function displayComments()
