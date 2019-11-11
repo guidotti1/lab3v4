@@ -4,6 +4,7 @@ var editid;
 var email;
 var pass;
 var artid;
+var vote;
 
 $(document).ready(function () {
     $('.editdata').hide();
@@ -243,7 +244,7 @@ function viewArt(){
 function userVote()
 {
   	console.log("USER VOTING ON ART");
-	vote = $(this).attr('id');
+	vote = $(obj).attr('id');
 	console.log("Vote : "+vote);
 }
 
