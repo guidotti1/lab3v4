@@ -242,7 +242,9 @@ function viewArt(){
 
 function userVote()
 {
-  console.log("USER VOTING ON ART");
+  	console.log("USER VOTING ON ART");
+	vote = $(this).val();
+	console.log("Vote : "+vote);
 }
 
 function displayComments()
