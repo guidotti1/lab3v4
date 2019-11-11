@@ -82,16 +82,17 @@ int main()
     }
     else 
     {
-        if (voteString == "Upvote")
-        {
+        //if (voteString == "Upvote")
+        //{
         //add upvote to database
+        stmt->execute("INSERT INTO votes(voteType, ARTID, email) VALUES('"+voteString+"', '"+artIDString+"', '"+email+"')");
         cout << "Success" << endl;
-        }
-        else
-        {
+       // }
+        //else
+       // {
         //add downvote to database
-        cout << "Success" << endl;
-        }
+       // cout << "Success" << endl;
+       // }
      }
         
         
