@@ -273,6 +273,15 @@ function proccessUserVote(results)
 {
 	console.log("In process user vote");
 	console.log("Results:"+results);
+	var a = results.split(" ");
+	if (a.length == 1)
+	{
+		
+	}
+	else 
+	{
+		alert("You have already voted on that piece of art");
+	}
 }
 
 function displayComments()
