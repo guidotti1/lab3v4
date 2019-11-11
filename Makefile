@@ -13,7 +13,7 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: artApp createUserAccounts userComment PutHTML PutCGI 
+all: artApp createUserAccounts userComment userVote PutHTML PutCGI 
 
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
