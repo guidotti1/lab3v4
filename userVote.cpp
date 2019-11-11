@@ -78,17 +78,19 @@ int main()
         
     if (list.size() > 0)
     {
-        cout << "You have already commented on that piece of art" << endl;
+        cout << "You have already voted on that piece of art" << endl;
     }
     else 
     {
         if (voteString == "Upvote")
         {
         //add upvote to database
+        cout << "Success" << endl;
         }
         else
         {
         //add downvote to database
+        cout << "Success" << endl;
         }
      }
         
