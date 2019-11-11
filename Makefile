@@ -48,6 +48,8 @@ userVote: userVote.o
 PutCGI: artApp
 	chmod 757 artApp
 	chmod 757 createUserAccounts
+	chmod 757 userVote
+	chmod 757 userComment
 	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
 	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi
 	cp userComment /usr/lib/cgi-bin/$(USER)_userComment.cgi
