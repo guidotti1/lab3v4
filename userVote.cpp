@@ -82,7 +82,7 @@ int main()
     }
     else 
     {
-        stmt->execute("INSERT INTO votes(voteType, ARTID, email) VALUES('"+voteString+"', '"+artIDString+"', '"+email+"')");
+        stmt->execute("INSERT INTO votes(voteType, ARTID, email) VALUES('"+voteString+"', '"+artIDString+"', '"+emailString+"')");
         cout << "Success" << endl;
      }
         
