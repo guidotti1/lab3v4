@@ -269,7 +269,7 @@ function userVote()
    	}	
 }
 
-function processUserVote(results)
+function proccessUserVote(results)
 {
 	console.log("In process user vote");
 	console.log("Results:"+results);
