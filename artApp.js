@@ -219,7 +219,7 @@ function viewArt(){
 		{
 		userComment();
 		});
-	voteButtons += "<button class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button> | <button class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-arrow-down'></span> Downvote</button>";
+	voteButtons = "<button class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button> | <button class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-arrow-down'></span> Downvote</button>";
 	$voteButtons = $(voteButtons).bind("click", function()
 		{
 		userVote();
