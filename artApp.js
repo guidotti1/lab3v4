@@ -243,7 +243,7 @@ function viewArt(){
 function userVote()
 {
   	console.log("USER VOTING ON ART");
-	vote = $(this).attr('ID');
+	vote = $(this).attr('id');
 	console.log("Vote : "+vote);
 }
 
