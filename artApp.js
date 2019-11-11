@@ -229,13 +229,14 @@ function viewArt(){
 	//downvoteButton += "</div>";
 	$upvoteButton = $(upvoteButton).bind("click", function()
 		{
-		userVote();
 		vote = "Upvote";
+		userVote();
+		
 		});
 	$downvoteButton = $(downvoteButton).bind("click", function()
 		{
-		userVote();
 		vote = "Downvote";
+		userVote();
 		});
 	artid = $(this).attr('ID');
 	//var id = $(row).find('.btn btn-primary btn-sm view').id;
@@ -251,8 +252,27 @@ function viewArt(){
 function userVote()
 {
   	console.log("USER VOTING ON ART");
-	//vote = $(this).attr('id');
 	console.log("Vote : "+vote);
+        if (email == "" || typeof email === "undefined")
+   	{
+	    alert("You must be logged in to vote on art!");
+   	}
+	
+	   else
+   	{
+		$.ajax({
+		url: '/cgi-bin/guidotti1_userVote.cgi?voteType='+vote+'&email='+email+'&ArtID='+artid,
+		dataType: 'text',
+		success: proccessUserVote,
+		error: function(){alert("Error: Something went wrong");}
+    		});
+   	}	
+}
+
+function processUserVote(results)
+{
+	console.log("In process user vote");
+	console.log("Results:"+results);
 }
 
 function displayComments()
