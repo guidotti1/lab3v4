@@ -208,9 +208,9 @@ function viewArt(){
         appendFigure += "<figcaption class='figure-caption text-right'>'"+Title+"'</figcaption>";
 	appendFigure += "<figcaption class='figure-caption text-right'> by  "+First+" "+Last+" </figcaption>";
         appendFigure += "</figure>";
-	commentBox = "<div class = 'row'>";
-	commentBox += "<div class = 'col-sm-6'>";
-	commentBox += "<div class='container pb-cmnt-container' id = 'commentArea'>";
+	//commentBox = "<div class = 'row'>";
+	//commentBox += "<div class = 'col-sm-6'>";
+	commentBox = "<div class='container pb-cmnt-container' id = 'commentArea'>";
         commentBox += "<div class='panel panel-info'>";
 	commentBox +=  "<div class='panel-body'>";
 	commentBox +=  "<textarea placeholder='Write your comment here!' class='pb-cmnt-textarea' id = 'CommentBox'></textarea>";
@@ -218,15 +218,15 @@ function viewArt(){
 	commentBox += "</div>";
 	commentBox += "</div>";
 	commentButton =  "<button class='btn btn-primary pull-right' type='button' id = 'SubmitCommentBtn' >Submit Comment</button>";
-	commentButton += "</div>";
+	//commentButton += "</div>";
 	$commentButton = $(commentButton).bind("click", function()
 		{
 		userComment();
 		});
-	upvoteButton = "<div class = 'col-sm-6'>";
-	upvoteButton += "<button class='btn btn-primary btn-sm' id = 'Upvote'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button>";
+	//upvoteButton = "<div class = 'col-sm-6'>";
+	upvoteButton = "<button class='btn btn-primary btn-sm' id = 'Upvote'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button>";
 	downvoteButton = "<button class='btn btn-danger btn-sm' id = 'Downvote'><span class='glyphicon glyphicon-arrow-down'></span> Downvote </button>";
-	downvoteButton += "</div>";
+	//downvoteButton += "</div>";
 	$upvoteButton = $(upvoteButton).bind("click", function()
 		{
 		userVote();
