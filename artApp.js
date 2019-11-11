@@ -223,7 +223,7 @@ function viewArt(){
 		userComment();
 		});
 	voteButtons = "<div class = 'col-sm-6'>";
-	voteButtons += "<button class='btn btn-primary btn-sm'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button> <button class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-arrow-down'></span> Downvote</button>";
+	voteButtons += "<button class='btn btn-primary btn-sm' id = 'Upvote'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button> <button class='btn btn-danger btn-sm' id = 'Downvote'><span class='glyphicon glyphicon-arrow-down'></span> Downvote</button>";
 	voteButtons += "</div>";
 	voteButtons += "</div>";
 	$voteButtons = $(voteButtons).bind("click", function()
@@ -243,7 +243,7 @@ function viewArt(){
 function userVote()
 {
   	console.log("USER VOTING ON ART");
-	vote = $(this).val();
+	vote = $(this).attr('ID');
 	console.log("Vote : "+vote);
 }
 
