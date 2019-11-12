@@ -106,17 +106,17 @@ int main()
     output += "NOMORECOMMENTS";
     
     vector<string> upvotedArt;
-    stmt->execute("SELECT * FROM votes where email = '"+email+"' AND voteType = 'Upvote'");
+    stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Upvote'");
     do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
                upvotedArt.push_back(res->getString("ARTID"));
              }
-            }while (stmt ->getMoreResults());
+        }while (stmt ->getMoreResults());
     
     for (int i = 0; i <upvotedArt.size(); i++)
     {
-            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]'"");
+            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+'"");
             do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
@@ -131,7 +131,7 @@ int main()
     output += "ENDOFUPVOTES";
     
                           /*
-    stmt->execute("SELECT * FROM votes where email = '"+email+"' AND voteType = 'Downvote'");
+    stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Downvote'");
     do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
