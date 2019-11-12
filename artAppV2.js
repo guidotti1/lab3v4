@@ -58,8 +58,16 @@ $(document).ready(function () {
     $("#ReturnHomeBtn").click(function()
 	{
 		$("#ViewArtPage").hide();
+	        $("#UserProfilePage").hide();
 		$("#Home").show();
 	});
+    
+    $("#ViewUserProfile").click(function()
+	{
+	    	$("#Home").hide();
+	     	$("UserProfilePage").show();
+    	}
+	    
 	   
 	    
 	    
