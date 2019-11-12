@@ -121,9 +121,9 @@ changeOperation(operation);
 function viewProfile(results)
 {
 	console.log("Results for viewProfile"+results);
-	var  a = results.split("NOMORECOMMENTS");
+	var  a = results.split("®"); //break up comments and votes
 	var commentsString = a[0];
-	var commentsSeparated = commentsString.split("ENDOFCOMMENTS");
+	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
 	for (var i = 0; i < commentsSeparated.size; i++)
 	{
 		console.log("commentsSeparated[i]:"+commentsSeparated[i]);
