@@ -75,8 +75,8 @@ int main()
             res.reset(stmt->getResultSet());
             while (res->next()) {
                 string currentID(res->getString("ARTID"));
-                //cout << "currentID: " << currentID << endl;
-                //cout << "email is: " << emailString << endl;
+                cout << "currentID: " << currentID << endl;
+                cout << "email is: " << emailString << endl;
                 //cout << "our sql request L" << e
                 stmt2->execute("SELECT * FROM comments WHERE Email = '"+emailString+"' and ARTID = '"+currentID+"'");
                 do {
