@@ -130,67 +130,34 @@ int main()
     }
     output += "ENDOFUPVOTES";
     
-                          /*
+           
+    vector<string> downvotedArt;
     stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Downvote'");
     do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
-                output += "^" + res->getString("ARTID");
+               downvotedArt.push_back(res->getString("ARTID"));
+             }
+        }while (stmt ->getMoreResults());
+    
+    for (int i = 0; i <upvotedArt.size(); i++)
+    {
+            stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
+            do {
+             res.reset(stmt->getResultSet());
+             while (res->next()) {
+                string first, last;
+                stringstream nameStream(res->getString("Author"));
+                getline(nameStream, last, ',');
+                getline(nameStream, first);
+                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
              }
             }while (stmt ->getMoreResults());
-            */
+    }
     output += "ENDOFDOWNVOTES";
     cout << output << endl;
-     /*
-    if (typeString == "vote")
-    {
-        stmt->execute("SELECT * FROM votes WHERE ARTID = '"+artIDString+"' and email = '"+emailString+"'");
-        do {
-            res.reset(stmt->getResultSet());
-            while (res->next()) {
-                voteInfo entry(res->getString("voteType"), res->getString("ARTID"), res->getString("email"));
-                list.push_back(entry);
-            }
-            }while (stmt ->getMoreResults());
-
-        if (list.size() > 0)
-        {
-            cout << "You have already voted on that piece of art" << endl;
-        }
-        else 
-        {
-            stmt->execute("INSERT INTO votes(voteType, ARTID, email) VALUES('"+voteString+"', '"+artIDString+"', '"+emailString+"')");
-            cout << "Success" << endl;
-         }
-    }
-        
-    else if (typeString == "display")
-    {
-        stmt->execute("SELECT * FROM votes WHERE ARTID = '"+artIDString+"' and voteType = 'Upvote'");
-        do {
-            res.reset(stmt->getResultSet());
-            while (res->next()) {
-                voteInfo entry(res->getString("voteType"), res->getString("ARTID"), res->getString("email"));
-                list.push_back(entry);
-            }
-            }while (stmt ->getMoreResults());
-        int noUpvotes = list.size();
-        list.clear();
-       
-        stmt->execute("SELECT * FROM votes WHERE ARTID = '"+artIDString+"' and voteType = 'Downvote'");
-        do {
-            res.reset(stmt->getResultSet());
-            while (res->next()) {
-                voteInfo entry(res->getString("voteType"), res->getString("ARTID"), res->getString("email"));
-                list.push_back(entry);
-            }
-            }while (stmt ->getMoreResults());
-        
-        int noDownvotes = list.size();
-        cout << "^" << noUpvotes << "^" << noDownvotes << endl;
- 
-    }
-    */
+    
+    
     return 0;
 }
 
