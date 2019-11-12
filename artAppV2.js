@@ -66,7 +66,7 @@ $(document).ready(function () {
 	{
 	    	$("#Home").hide();
 	     	$("UserProfilePage").show();
-    	}
+    	});
 	    
 	   
 	    
