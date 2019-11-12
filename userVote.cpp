@@ -115,7 +115,7 @@ int main()
             }while (stmt ->getMoreResults());
         
         int noDownvotes = list.size();
-        cout << noUpvotes << "^" << noDownvotes << endl;
+        cout << "^" << noUpvotes << "^" << noDownvotes << endl;
  
     }
     return 0;
