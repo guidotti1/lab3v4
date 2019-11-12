@@ -13,6 +13,7 @@ $(document).ready(function () {
     $("#clear").click(clearResults);
     $("#LogOutBtnView").hide();
     $("#LogOutBtnHome").hide();
+    $("#LogOutProfilePage").hide();
     $("#LogOutBtnView").click(function()
 	{
 	    userLogOut();
@@ -21,6 +22,12 @@ $(document).ready(function () {
 	{
 	    userLogOut();
         });
+	
+    $("#LogOutProfilePage").click(function()
+        {
+	    userLogOut();
+   	});
+	    
 	    
     $("#createAcct").click(function()
 	{
@@ -125,10 +132,13 @@ function processUserCreate(results)
 		$("#CreateAccountPage").hide();
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
+		document.getElementById("LogInInfoProfilePage").innerHTML = "Logged in as : "+email;
 		$('#LogInBtn').hide();
 		$('#LogInBtnViewArt').hide();
+		$("#LogInBtnProfilePage").hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
+		$("#LogOutProfilePage").show();
 	}
 	else
 	{
