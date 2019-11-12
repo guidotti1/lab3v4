@@ -331,7 +331,6 @@ function userComment(){
 function displayComments()
 {
   $('#Comments').empty();
-  displayVotes();
   type = "display";
   comment = "";
   $.ajax({
@@ -358,7 +357,7 @@ function viewComments(results)
 		appendDiv += "</div>";
 		$('#Comments').append(appendDiv);
 	}
-		
+	displayVotes();	
 }
 
 
