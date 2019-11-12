@@ -121,6 +121,14 @@ changeOperation(operation);
 function viewProfile(results)
 {
 	console.log("Results for viewProfile"+results);
+	var  a = results.split("NOREMORECOMMENTS");
+	var commentsString = a[0];
+	var commentsSeparated = commentsString.split("ENDOFCOMMENTS");
+	for (var i = 0; i < commentsSeparated.size; i++)
+	{
+		console.log("commentsSeparated[i]:"+commentsSeparated[i]);
+	}
+	var votesString = a[1];
 }
 
 function changeOperation(operation){
