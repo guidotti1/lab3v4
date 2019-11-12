@@ -81,6 +81,17 @@ int main()
      
      for (int i =0; i < artIDS.size(); i++)
      {
+         stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
+         do {
+             res.reset(stmt->getResultSet());
+             while (res->next()) {
+                string currentAuthor(res->getString("Author"));
+                string currentURL(res->getString("URL"));
+                string currentTitle(res->getString("Title"));
+                cout << "Author: " << currentAuthor << " URL: " << currentURL << " Title: " << currentTitle << endl;
+             }
+            }while (stmt ->getMoreResults());
+         
          stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
          do {
              res.reset(stmt->getResultSet());
