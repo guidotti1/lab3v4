@@ -65,7 +65,7 @@ $(document).ready(function () {
     $("#ViewUserProfile").click(function()
 	{
 	    	$("#Home").hide();
-	     	$("UserProfilePage").show();
+	     	$("#UserProfilePage").show();
     	});
 	    
 	   
