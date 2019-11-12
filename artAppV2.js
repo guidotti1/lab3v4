@@ -120,7 +120,7 @@ changeOperation(operation);
 
 function viewProfile(results)
 {
-	console.log("Results for viewProfile+"results);
+	console.log("Results for viewProfile"+results);
 }
 
 function changeOperation(operation){
