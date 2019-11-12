@@ -82,6 +82,7 @@ int main()
                 while (stmt2 ->getMoreResults());
             }
             }while (stmt ->getMoreResults());
+     cout << output << endl;
      /*
     if (typeString == "vote")
     {
