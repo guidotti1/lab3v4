@@ -68,7 +68,7 @@ int main()
     std::auto_ptr< sql::ResultSet > res2;
     
     string output = "^";
-    output += emailString;
+    //output += emailString;
     vector<string> artIDS;
     stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE Email = '"+emailString+"'");
     do {
