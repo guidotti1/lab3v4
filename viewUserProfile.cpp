@@ -61,8 +61,12 @@ int main()
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
     
-    std::auto_ptr<sql::Statement> stmt2(con->createStatement());
+    sql::Driver* driver2 = sql::mysql::get_driver_instance();
+    std::auto_ptr<sql::Connection> con2(driver2->connect(url, user, pass));
+    con2->setSchema(database);
+    std::auto_ptr<sql::Statement> stmt2(con2->createStatement());
     std::auto_ptr< sql::ResultSet > res2;
+    
     string output = "^";
     output += emailString;
     vector<string> artIDS;
@@ -71,7 +75,9 @@ int main()
             res.reset(stmt->getResultSet());
             while (res->next()) {
                 string currentID(res->getString("ARTID"));
-                cout << "currentID: " << currentID << endl;
+                //cout << "currentID: " << currentID << endl;
+                //cout << "email is: " << emailString << endl;
+                //cout << "our sql request L" << e
                 stmt2->execute("SELECT * FROM comments WHERE Email = '"+emailString+"' and ARTID = '"+currentID+"'");
                 do {
                   res2.reset(stmt2->getResultSet());
