@@ -101,6 +101,7 @@ int main()
                 output += "^" + res->getString("Comment");
              }
             }while (stmt ->getMoreResults());
+         output += "ENDOFCOMMENTS";
       }
     cout << output << endl;
      /*
