@@ -121,7 +121,7 @@ changeOperation(operation);
 function viewProfile(results)
 {
 	console.log("Results for viewProfile"+results);
-	var  a = results.split("NOREMORECOMMENTS");
+	var  a = results.split("NOMORECOMMENTS");
 	var commentsString = a[0];
 	var commentsSeparated = commentsString.split("ENDOFCOMMENTS");
 	for (var i = 0; i < commentsSeparated.size; i++)
