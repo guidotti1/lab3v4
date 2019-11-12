@@ -77,6 +77,7 @@ int main()
                   res2.reset(stmt2->getResultSet());
                   while (res2->next()) {
                   string currentComment(res->getString("Comment"));
+                  cout << "currentComment: " << currentComment << endl;
                   output += "^";
                   output += currentComment;
                   }
