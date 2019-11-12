@@ -63,7 +63,7 @@ int main()
     
     std::auto_ptr<sql::Statement> stmt2(con->createStatement());
     std::auto_ptr< sql::ResultSet > res2;
-    output = "^";
+    string output = "^";
     output += emailString;
     vector<string> artIDS;
     stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE Email = '"+emailString+"'");
@@ -73,13 +73,13 @@ int main()
                 string currentID(res->getString("ARTID"));
                 stmt2->execute("SELECT * FROM comments WHERE Email = '"+emailString+"' and ARTID = '"+currentID+"'");
                 do {
-                  res2.reselt(stmt2->getResultSet());
+                  res2.reset(stmt2->getResultSet());
                   while (res2->next()) {
                   string currentComment(res->getString("Comment"));
                   output += "^";
                   output += currentComment;
                   }
-                while (stmt2 ->getMoreResults());
+                }while (stmt2 ->getMoreResults());
             }
             }while (stmt ->getMoreResults());
      cout << output << endl;
