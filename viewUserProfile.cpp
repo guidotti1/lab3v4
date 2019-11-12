@@ -75,7 +75,8 @@ int main()
             res.reset(stmt->getResultSet());
             while (res->next()) {
                 artIDS.push_back(res->getString("ARTID"));
-            }while (stmt ->getMoreResults());
+            }
+        }while (stmt ->getMoreResults());
      
      
      for (int i =0; i < artIDS.size(); i++)
