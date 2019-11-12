@@ -58,6 +58,11 @@ $(document).ready(function () {
     $("#ReturnHomeBtn").click(function()
 	{
 		$("#ViewArtPage").hide();
+		$("#Home").show();
+	});
+
+    $("#ReturnHomeBtnProfile").click(function()
+	{
 	        $("#UserProfilePage").hide();
 		$("#Home").show();
 	});
@@ -143,10 +148,13 @@ function processUserLogin(results)
 		console.log("processUserLogin a.length == 1 (success)");
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
+		document.getElementById("LogInInfoProfilePage").innerHTML = "Logged in as : "+email;
 		$('#LogInBtn').hide();
 		$('#LogInBtnViewArt').hide();
+		$("#LogInBtnProfilePage").hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
+		$("#LogOutProfilePage").show();
 		$("#myModal").modal('hide');
 	}
 	else 
@@ -164,10 +172,13 @@ function userLogOut()
 	email = "";
 	document.getElementById("LogInInfo").innerHTML = "";
 	document.getElementById("LogInInfoViewArt").innerHTML = "";
+	document.getElementById("LogInInfoProfilePage").innerHTML = "";
 	$('#LogOutBtnHome').hide();
 	$('#LogOutBtnView').hide();
+	$("#LogOutProfilePage").hide();
 	$('#LogInBtn').show();
 	$('#LogInBtnViewArt').show();
+	$("#LogInBtnProfilePage").show();
 }
 
 // Build output table from ^ delimited list
