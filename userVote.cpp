@@ -70,7 +70,7 @@ int main()
     std::auto_ptr< sql::ResultSet > res;
     
     vector<voteInfo> list;
-    if (type== "vote")
+    if (typeString == "vote")
     {
         stmt->execute("SELECT * FROM votes WHERE ARTID = '"+artIDString+"' and email = '"+emailString+"'");
         do {
@@ -92,7 +92,7 @@ int main()
          }
     }
         
-    else if (type == "display")
+    else if (typeString == "display")
     {
         stmt->execute("SELECT * FROM votes WHERE ARTID = '"+artIDString+"' and voteType = 'Upvote'");
         do {
