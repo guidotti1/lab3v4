@@ -103,6 +103,43 @@ int main()
             }while (stmt ->getMoreResults());
          output += "ENDOFCOMMENTS";
       }
+    output += "NOMORECOMMENTS";
+    
+    vector<string> upvotedArt;
+    stmt->execute("SELECT * FROM votes where email = '"+email+"' AND voteType = 'Upvote'");
+    do {
+             res.reset(stmt->getResultSet());
+             while (res->next()) {
+               upvotedArt.push_back(res->getString("ARTID"));
+             }
+            }while (stmt ->getMoreResults());
+    
+    for (int i = 0; i <upvotedArt.size(); i++)
+    {
+            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]'"");
+            do {
+             res.reset(stmt->getResultSet());
+             while (res->next()) {
+                string first, last;
+                stringstream nameStream(res->getString("Author"));
+                getline(nameStream, last, ',');
+                getline(nameStream, first);
+                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+             }
+            }while (stmt ->getMoreResults());
+        
+    output += "ENDOFUPVOTES";
+    
+                          /*
+    stmt->execute("SELECT * FROM votes where email = '"+email+"' AND voteType = 'Downvote'");
+    do {
+             res.reset(stmt->getResultSet());
+             while (res->next()) {
+                output += "^" + res->getString("ARTID");
+             }
+            }while (stmt ->getMoreResults());
+            */
+    output += "ENDOFDOWNVOTES";
     cout << output << endl;
      /*
     if (typeString == "vote")
