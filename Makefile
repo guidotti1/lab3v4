@@ -13,7 +13,7 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: artApp createUserAccounts userComment userVote PutHTML PutCGI 
+all: artApp createUserAccounts userComment userVote viewUserProfile PutHTML PutCGI 
 
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
@@ -44,16 +44,24 @@ userVote.o: userVote.cpp
 	
 userVote: userVote.o
 	$(CC) userVote.o -o userVote -L/usr/local/lib -lcgicc -lmysqlcppconn
+	
+viewUserProfile.o: viewUserProfile.cpp
+	$(CC) -c $(CFLAGS) viewUserProfile.cpp
+
+viewUserProfile: viewUserProfile.o artEntry.o
+	$(CC) viewUserProfile.o artEntry.o -o viewUserProfile -L/usr/local/lib -lgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
 	chmod 757 createUserAccounts
 	chmod 757 userVote
 	chmod 757 userComment
+	chmod 757 viewUserProfile
 	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
 	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi
 	cp userComment /usr/lib/cgi-bin/$(USER)_userComment.cgi
 	cp userVote /usr/lib/cgi-bin/$(USER)_userVote.cgi
+	cp viewUserProfile /usr/lib/cgi-bin/$(USER)_viewUserProfile.cgi
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
