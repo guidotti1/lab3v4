@@ -85,10 +85,12 @@ int main()
          do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
-                string currentAuthor(res->getString("Author"));
-                string currentURL(res->getString("URL"));
-                string currentTitle(res->getString("Title"));
-                cout << "Author: " << currentAuthor << " URL: " << currentURL << " Title: " << currentTitle << endl;
+                string first, last;
+                stringstream nameStream(res->getString("Author"));
+                getline(nameStream, last, ',');
+                getline(nameStream, first);
+                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+
              }
             }while (stmt ->getMoreResults());
          
@@ -96,11 +98,11 @@ int main()
          do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
-                string currentComment(res->getString("Comment"));
-                cout << "Current comment : " << currentComment << endl;
+                output += "^" + res->getString("Comment");
              }
             }while (stmt ->getMoreResults());
       }
+    cout << output << endl;
      /*
     if (typeString == "vote")
     {
