@@ -193,6 +193,7 @@ function processResults(results) {
 }
 
 function viewArt(){
+	$('#ViewArtResults').empty();
 	$("#Home").hide();
 	$("#ViewArtPage").show();
 	console.log("WE VIEWING ART BOYS");
