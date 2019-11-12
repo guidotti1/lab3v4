@@ -260,8 +260,9 @@ function userVote()
 	
 	   else
    	{
+		type = "vote";
 		$.ajax({
-		url: '/cgi-bin/guidotti1_userVote.cgi?voteType='+vote+'&email='+email+'&ArtID='+artid,
+		url: '/cgi-bin/guidotti1_userVote.cgi?voteType='+vote+'&email='+email+'&ArtID='+artid+'&type='+type,
 		dataType: 'text',
 		success: proccessUserVote,
 		error: function(){alert("Error: Something went wrong");}
@@ -276,7 +277,7 @@ function proccessUserVote(results)
 	var a = results.split(" ");
 	if (a.length == 1)
 	{
-		
+		displayComments();
 	}
 	else 
 	{
@@ -284,9 +285,53 @@ function proccessUserVote(results)
 	}
 }
 
+function displayVotes()
+{
+  type = "display";
+  $.ajax({
+	url: '/cgi-bin/guidotti1_userVote.cgi?voteType='+vote+'&email='+email+'&ArtID='+artid+'&type='+type,
+	dataType: 'text',
+	success: viewVotes,
+	error: function(){alert("Error: Something went wrong");}
+   });
+}
+
+function viewVotes(results)
+{
+	var a = results.split("^");
+	var aLen = a.length;
+	appendH3= "<h3 class='text-center'>User votes</h3>";
+	appendH5 = "<h5 class ='text-center'>Total upvotes : "+a[1]+" Total downvotes : "+a[2]+"</h5";
+	$('#Comments').append(appendH3);
+	$('#Comments').append(appendH5);
+}
+
+function userComment(){
+    console.log("USER COMMENTING");
+    comment = $('#CommentBox').val();
+    console.log("ARTID HERE IS : "+artid);
+    console.log("Comment HERE IS : "+comment);
+    console.log("Email HERE IS : "+email);
+    type = "add";
+    if (email == "" || typeof email === "undefined")
+    {
+	    alert("You must be logged in to comment!");
+    }
+   else
+   {
+		$.ajax({
+		url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid+'&type='+type,
+		dataType: 'text',
+		success: displayComments,
+		error: function(){alert("Error: Something went wrong");}
+    		});
+   }	   
+}
+
 function displayComments()
 {
   $('#Comments').empty();
+  displayVotes();
   type = "display";
   comment = "";
   $.ajax({
@@ -316,33 +361,8 @@ function viewComments(results)
 		
 }
 
-function userComment(){
-    console.log("USER COMMENTING");
-    comment = $('#CommentBox').val();
-    console.log("ARTID HERE IS : "+artid);
-    console.log("Comment HERE IS : "+comment);
-    console.log("Email HERE IS : "+email);
-    type = "add";
-    if (email == "" || typeof email === "undefined")
-    {
-	    alert("You must be logged in to comment!");
-    }
-   else
-   {
-		$.ajax({
-		url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid+'&type='+type,
-		dataType: 'text',
-		success: processUserComment,
-		error: function(){alert("Error: Something went wrong");}
-    		});
-   }	   
-}
 
-function processUserComment()
-{
-	console.log("In process user comment!");
-	displayComments();
-}
+
 
 function clearResults() {
     $('#searchresults').empty();
