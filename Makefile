@@ -49,7 +49,7 @@ viewUserProfile.o: viewUserProfile.cpp
 	$(CC) -c $(CFLAGS) viewUserProfile.cpp
 
 viewUserProfile: viewUserProfile.o artEntry.o
-	$(CC) viewUserProfile.o artEntry.o -o viewUserProfile -L/usr/local/lib -lgicc -lmysqlcppconn
+	$(CC) viewUserProfile.o artEntry.o -o viewUserProfile -L/usr/local/lib -lcgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
