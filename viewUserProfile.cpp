@@ -74,23 +74,21 @@ int main()
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
-                string currentID(res->getString("ARTID"));
-                cout << "currentID: " << currentID << endl;
-                cout << "email is: " << emailString << endl;
-                //cout << "our sql request L" << e
-                stmt2->execute("SELECT * FROM comments WHERE Email = '"+emailString+"' and ARTID = '"+currentID+"'");
-                do {
-                  res2.reset(stmt2->getResultSet());
-                  while (res2->next()) {
-                  string currentComment(res->getString("Comment"));
-                  cout << "currentComment: " << currentComment << endl;
-                  output += "^";
-                  output += currentComment;
-                  }
-                }while (stmt2 ->getMoreResults());
-            }
+                artIDS.push_back(res->getString("ARTID"));
             }while (stmt ->getMoreResults());
-     cout << output << endl;
+     
+     
+     for (int i =0; i < artIDS.size(); i++)
+     {
+         stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
+         do {
+             res.reset(stmt->getResultSet());
+             while (res->next()) {
+                string currentComment(res->getString("Comment"));
+                cout << "Current comment : " << currentComment << endl;
+             }
+            }while (stmt ->getMoreResults());
+      }
      /*
     if (typeString == "vote")
     {
