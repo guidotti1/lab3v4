@@ -101,9 +101,9 @@ int main()
                 output += "^" + res->getString("Comment");
              }
             }while (stmt ->getMoreResults());
-         output += "ENDOFCOMMENTS";
+         output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
       }
-    output += "NOMORECOMMENTS";
+    output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
     
     vector<string> upvotedArt;
     stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Upvote'");
@@ -128,7 +128,7 @@ int main()
              }
             }while (stmt ->getMoreResults());
     }
-    output += "ENDOFUPVOTES";
+    output += "µ"; //CHARACTER SIGNIFIES END OF UPVOTES
     
            
     vector<string> downvotedArt;
@@ -154,7 +154,7 @@ int main()
              }
             }while (stmt ->getMoreResults());
     }
-    output += "ENDOFDOWNVOTES";
+    output += "€";  //CHARACTER SIGNIFIES END OF DOWNVOTES
     cout << output << endl;
     
     
