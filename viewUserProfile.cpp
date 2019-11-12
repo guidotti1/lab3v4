@@ -116,7 +116,7 @@ int main()
     
     for (int i = 0; i <upvotedArt.size(); i++)
     {
-            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+'"");
+            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
             do {
              res.reset(stmt->getResultSet());
              while (res->next()) {
@@ -127,7 +127,7 @@ int main()
                 output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
              }
             }while (stmt ->getMoreResults());
-        
+    }
     output += "ENDOFUPVOTES";
     
                           /*
