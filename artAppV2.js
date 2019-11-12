@@ -49,6 +49,7 @@ $(document).ready(function () {
 		error: function(){alert("Error: Something went wrong");}
     		});
    	});
+	
    $("#UserLogInBtn").click(function()
 	{
 		email= $('#inputEmailLogin').val();
@@ -76,8 +77,22 @@ $(document).ready(function () {
     
     $("#ViewUserProfile").click(function()
 	{
-	    	$("#Home").hide();
+
+	        if (email == "" || typeof email === "undefined")
+    		{
+	    	alert("You must be logged in to view your profile!");
+   		 }
+   		else
+   		{
+		$("#Home").hide();
 	     	$("#UserProfilePage").show();
+		$.ajax({
+			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+email,
+			dataType: 'text',
+			success: viewProfile,
+			error: function(){alert("Error: Something went wrong");}
+    			});
+   		}	   
     	});
 	    
 	   
@@ -102,6 +117,11 @@ $(document).ready(function () {
 });
 
 changeOperation(operation);
+
+function viewProfile(results)
+{
+	console.log("Results for viewProfile+"results);
+}
 
 function changeOperation(operation){
     if(operation=="Add Entry"){
