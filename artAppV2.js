@@ -127,14 +127,14 @@ function viewProfile(results)
 	console.log("a[0] :"+a[0]);
 	console.log("a[1] :"+a[1]);
 	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
-	for (var i = 0; i < commentsSeparated.length; i++)
+	for (var i = 0; i < commentsSeparated.length - 1; i++)
 	{
 		console.log("commentsSeparated[i]:"+commentsSeparated[i]);
 		var artComments = commentsSeparated[i].split("^");
-		var artistLastname = artComments[0];
-		var artistFirstname = artComments[1];
-		var artURL = artComments[2];
-		var artTitle = artComments[3];
+		var artistLastname = artComments[1];
+		var artistFirstname = artComments[2];
+		var artURL = artComments[3];
+		var artTitle = artComments[4];
 		console.log("lastname: "+artistLastname);
 		console.log("firstname: "+artistFirstname);
 		console.log("url: "+artURL);
