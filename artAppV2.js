@@ -479,7 +479,9 @@ function viewComments(results)
 		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
 		$('#Comments').append(appendDiv);
-		commenter = "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
+		//commenter = "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
+		commenter = "<h5 class='btn btn-link'> Commenter: "+a[i+1]+"</h5>"
+		
 		//commenter = "<a class='link'> Commenter: "+a[i+1]+"</a>"
 		$commenter = $(commenter).bind("click", function()
 		{
