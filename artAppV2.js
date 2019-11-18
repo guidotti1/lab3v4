@@ -121,6 +121,7 @@ changeOperation(operation);
 function viewProfile(results)
 {
 	console.log("Results for viewProfile"+results);
+	document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+email;
 	var  a = results.split("®"); //break up comments and votes
 	var commentsString = a[0];
 	console.log("a[0] :"+a[0]);
@@ -129,6 +130,22 @@ function viewProfile(results)
 	for (var i = 0; i < commentsSeparated.length; i++)
 	{
 		console.log("commentsSeparated[i]:"+commentsSeparated[i]);
+		var artComments = commensSeparated[i].split("^");
+		var artistLastname = a[0];
+		var artistFirstname = a[1];
+		var artURL = a[2];
+		var artTitle = a[3];
+		appendFigure = "<figure class='figure'>";
+		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
+        	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
+		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
+        	appendFigure += "</figure>";
+		$("#UsersComments").append(appendFigure);
+		for (var j = 4; j < artComments.length; j++)
+		{
+			
+		}
+	
 	}
 	var votesString = a[1];
 }
