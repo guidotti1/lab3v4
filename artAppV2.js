@@ -471,26 +471,28 @@ function viewComments(results)
 	for (var i = 1; i < aLen; i+=2) {
 		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
-		appendDiv += "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
-		appendDiv += a[i];
-		appendDiv += "</div>";
-		appendDiv += "</div>";
-		$appendDiv = $(appendDiv).bind("click", function()
+		$('#Comments').append(appendDiv);
+		commenter = "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
+		$commenter = $(commenter).bind("click", function()
 		{
-		var username = $('.mt-0').html();
-		u = username.split(" ");
-		finalUsername = u[2];
-		console.log("username: "+finalUsername);
-		$("#ViewArtPage").hide();
-	     	$("#UserProfilePage").show();
-		$.ajax({
-			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+finalUsername,
-			dataType: 'text',
-			success: viewProfile,
-			error: function(){alert("Error: Something went wrong");}
-    			});
+			var username = $('.mt-0').html();
+			u = username.split(" ");
+			finalUsername = u[2];
+			console.log("username: "+finalUsername);
+			$("#ViewArtPage").hide();
+			$("#UserProfilePage").show();
+			$.ajax({
+				url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+finalUsername,
+				dataType: 'text',
+				success: viewProfile,
+				error: function(){alert("Error: Something went wrong");}
+				});
 		});
-		$('#Comments').append($appendDiv);
+		$('#Comments').append($commenter);
+		appendDiv = a[i];
+		appendDiv += "</div>";
+		appendDiv += "</div>";
+		$('#Comments').append(appendDiv);
 	}
 	displayVotes();	
 }
