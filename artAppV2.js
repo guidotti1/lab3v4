@@ -120,8 +120,10 @@ changeOperation(operation);
 
 function viewProfile(results)
 {
+	$("#UsersComments").empty();
+	$("#UsersLikes").empty();
 	console.log("Results for viewProfile"+results);
-	//document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+email;
+	document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+email;
 	var  a = results.split("®"); //break up comments and votes
 	var commentsString = a[0];
 	console.log("a[0] :"+a[0]);
@@ -145,6 +147,7 @@ function viewProfile(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#UsersComments").append(appendFigure);
+		$('#UsersComments').append("<h4> Comments for this piece of art <\h4>");
 		$('#UsersComments').append("<div class='media'>");
 		
 		for (var j = 5; j < artComments.length; j++)
