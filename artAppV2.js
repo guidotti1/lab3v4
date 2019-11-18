@@ -477,9 +477,10 @@ function viewComments(results)
 		appendDiv += "</div>";
 		$appendDiv = $(appendDiv).bind("click", function()
 		{
-		console.log("a[i+1]: "+a[i+1]);
+		var username = $('.mt-0').html();
+		console.log("username: "+username);
 		$.ajax({
-			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+a[i+1],
+			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+username,
 			dataType: 'text',
 			success: viewProfile,
 			error: function(){alert("Error: Something went wrong");}
