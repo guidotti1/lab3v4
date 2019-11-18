@@ -126,7 +126,7 @@ function viewProfile(results)
 	console.log("a[0] :"+a[0]);
 	console.log("a[1] :"+a[1]);
 	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
-	for (var i = 0; i < commentsSeparated.size; i++)
+	for (var i = 0; i < commentsSeparated.length; i++)
 	{
 		console.log("commentsSeparated[i]:"+commentsSeparated[i]);
 	}
