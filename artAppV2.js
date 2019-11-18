@@ -48,14 +48,13 @@ $(document).ready(function () {
 		{
 			pass = $('#inputPWCreate').val();
 			type = "Create";
-			//console.log("yo we in here");
 			$.ajax({
 			url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
 			dataType: 'text',
 			success: processUserCreate,
 			error: function(){alert("Error: Something went wrong");}
-		}
     		});
+		}
    	});
 	
    $("#UserLogInBtn").click(function()
