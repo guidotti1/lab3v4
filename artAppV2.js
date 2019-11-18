@@ -145,7 +145,7 @@ function viewProfile(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#UsersComments").append(appendFigure);
-		$('#UsersComments')("<div class='media'>");
+		$('#UsersComments').append("<div class='media'>");
 		
 		for (var j = 5; j < artComments.length; j++)
 		{	
