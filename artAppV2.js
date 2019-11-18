@@ -123,11 +123,13 @@ function viewProfile(results)
 	$("#UsersComments").empty();
 	$("#UsersLikes").empty();
 	console.log("Results for viewProfile"+results);
-	document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+email;
-	var  a = results.split("®"); //break up comments and votes
-	var commentsString = a[0];
+	var  a = results.split("®"); //break up username we are looking at, comments and votes
+	var currentUsername = a[0]
+	document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+currentUsername;
+	var commentsString = a[1];
 	console.log("a[0] :"+a[0]);
 	console.log("a[1] :"+a[1]);
+	console.log("a[2] :"+a[1]);
 	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
 	//handles all comments for the user
 	for (var i = 0; i < commentsSeparated.length - 1; i++)
@@ -157,7 +159,7 @@ function viewProfile(results)
 	}
 	
 	//handles all votes (upvotes and downvotes) for the user
-	var votesString = a[1];
+	var votesString = a[2];
 	var votesTypeSeparated = votesString.split("µ");
 	var upvotes = votesTypeSeparated[0];
 	var u = upvotes.split("^");
