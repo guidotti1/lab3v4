@@ -171,9 +171,29 @@ function viewProfile(results)
 		console.log("firstname: "+artistFirstname);
 		console.log("url: "+artURL);
 		console.log("title: "+artTitle);
+		appendFigure = "<figure class='figure'>";
+		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
+        	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
+		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
+        	appendFigure += "</figure>";
+		$("#UsersLikes").append(appendFigure);
 	}
 		
 	var downvotes = votesTypeSeparated[1];
+	var d = downvotes.split("^");
+	for (var i = 1; i < d.length-1; i+=4)
+	{
+		var artistLastname = d[i];
+		var artistFirstname = d[i+1];
+		var artURL = d[i+2];
+		var artTitle = d[i+3];
+		appendFigure = "<figure class='figure'>";
+		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
+        	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
+		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
+        	appendFigure += "</figure>";
+		$("#UsersDislikes").append(appendFigure);
+	}
 }
 
 function changeOperation(operation){
