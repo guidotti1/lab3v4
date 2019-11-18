@@ -470,6 +470,7 @@ function viewComments(results)
 	appendH3= "<h3 class='text-center'>Comments</h3>";
 	$('#Comments').append(appendH3);
 	for (var i = 1; i < aLen; i+=2) {
+		console.log("In View comments making a new div elt.");
 		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
 		appendDiv += "<div class='mt-0'> Commenter: "+a[i+1]+"</div>"
