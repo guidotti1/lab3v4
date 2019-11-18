@@ -38,15 +38,23 @@ $(document).ready(function () {
 
    $("#createAcctButton").click(function()
 	{
+	  	
 	   	email= $('#inputEmailCreate').val();
-	        pass = $('#inputPWCreate').val();
-	        type = "Create";
-	   	//console.log("yo we in here");
-        	$.ajax({
-		url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
-		dataType: 'text',
-		success: processUserCreate,
-		error: function(){alert("Error: Something went wrong");}
+	        if(email.includes(" "))
+		{
+			alert("Username must not contain any spaces!");
+		}
+	   	else 
+		{
+			pass = $('#inputPWCreate').val();
+			type = "Create";
+			//console.log("yo we in here");
+			$.ajax({
+			url: '/cgi-bin/guidotti1_createUserAccounts.cgi?email='+email+'&password='+pass+'&type='+type,
+			dataType: 'text',
+			success: processUserCreate,
+			error: function(){alert("Error: Something went wrong");}
+		}
     		});
    	});
 	
