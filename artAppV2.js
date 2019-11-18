@@ -121,7 +121,7 @@ changeOperation(operation);
 function viewProfile(results)
 {
 	console.log("Results for viewProfile"+results);
-	document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+email;
+	//document.getElementById("PutUsernameHere").innerHTML = "Viewing the profile of : "+email;
 	var  a = results.split("®"); //break up comments and votes
 	var commentsString = a[0];
 	console.log("a[0] :"+a[0]);
