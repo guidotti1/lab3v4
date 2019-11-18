@@ -478,6 +478,7 @@ function viewComments(results)
 			var username = $(this).html();
 			u = username.split(":");
 			finalUsername = u[1];
+			finalUsername = finalUsername.substring(1)
 			console.log("username: "+finalUsername);
 			$("#ViewArtPage").hide();
 			$("#UserProfilePage").show();
