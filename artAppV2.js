@@ -123,6 +123,8 @@ function viewProfile(results)
 	console.log("Results for viewProfile"+results);
 	var  a = results.split("®"); //break up comments and votes
 	var commentsString = a[0];
+	console.log("a[0] :"+a[0]);
+	console.log("a[1] :"+a[1]);
 	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
 	for (var i = 0; i < commentsSeparated.size; i++)
 	{
@@ -253,7 +255,6 @@ function viewArt(){
 	$('#ViewArtResults').empty();
 	$("#Home").hide();
 	$("#ViewArtPage").show();
-	console.log("WE VIEWING ART BOYS");
 	var row = $(this).parents("tr");
 	//console.log("Title on the record : "+ $(row).find('.Title').text());
 	Title = $(row).find('.Title').text();
