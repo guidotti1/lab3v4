@@ -154,7 +154,7 @@ int main()
              }
             }while (stmt ->getMoreResults());
     }
-    output += "€";  //CHARACTER SIGNIFIES END OF DOWNVOTES
+    //output += "€";  //CHARACTER SIGNIFIES END OF DOWNVOTES
     cout << output << endl;
     
     
