@@ -472,7 +472,7 @@ function viewComments(results)
 	for (var i = 1; i < aLen; i+=2) {
 		appendDiv = "<div class='media'>";
 		appendDiv += "<div class='media-body'>";
-		appendDiv += "<a class='mt-0'> Commenter: "+a[i+1]+"</a>"
+		appendDiv += "<div class='mt-0'> Commenter: "+a[i+1]+"</div>"
 		appendDiv += a[i];
 		appendDiv += "</div>";
 		appendDiv += "</div>";
