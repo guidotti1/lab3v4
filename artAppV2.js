@@ -479,7 +479,7 @@ function viewComments(results)
 		{
 		var username = $('.mt-0').html();
 		u = username.split(" ");
-		finalUsername = u[1];
+		finalUsername = u[2];
 		console.log("username: "+finalUsername);
 		$("#ViewArtPage").hide();
 	     	$("#UserProfilePage").show();
