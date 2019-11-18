@@ -145,10 +145,15 @@ function viewProfile(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#UsersComments").append(appendFigure);
+		appendDiv = "<div class='media'>";
+		appendDiv += "<div class='media-body'>";
 		for (var j = 4; j < artComments.length; j++)
-		{
-			
+		{	
+			appendDiv += artComments[j];
 		}
+		appendDiv += "</div>";
+		appendDiv += "</div>";
+		$('#UsersComments').append(appendDiv);
 	
 	}
 	var votesString = a[1];
