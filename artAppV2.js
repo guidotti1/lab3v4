@@ -135,6 +135,10 @@ function viewProfile(results)
 		var artistFirstname = artComments[1];
 		var artURL = artComments[2];
 		var artTitle = artComments[3];
+		console.log("lastname: "+artistLastname);
+		console.log("firstname: "+artistFirstname);
+		console.log("url: "+artURL);
+		console.log("title: "+artTitle);
 		appendFigure = "<figure class='figure'>";
 		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
         	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
