@@ -477,7 +477,7 @@ function viewComments(results)
 		appendDiv += "</div>";
 		$appendDiv = $(appendDiv).bind("click", function()
 		{
-		console.log("a[i+1]: "a[i+1]);
+		console.log("a[i+1]: "+a[i+1]);
 		$.ajax({
 			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+a[i+1],
 			dataType: 'text',
