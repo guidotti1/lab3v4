@@ -475,7 +475,8 @@ function viewComments(results)
 		commenter = "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
 		$commenter = $(commenter).bind("click", function()
 		{
-			var username = $('.mt-0').html();
+			//var username = $('.mt-0').html();
+			var username = $(this).html();
 			u = username.split(" ");
 			finalUsername = u[2];
 			console.log("username: "+finalUsername);
