@@ -342,15 +342,12 @@ function viewArt(){
 	commentBox += "</div>";
 	commentBox += "</div>";
 	commentButton =  "<button class='btn btn-primary pull-right' type='button' id = 'SubmitCommentBtn' >Submit Comment</button>";
-	//commentButton += "</div>";
 	$commentButton = $(commentButton).bind("click", function()
 		{
 		userComment();
 		});
-	//upvoteButton = "<div class = 'col-sm-6'>";
 	upvoteButton = "<button class='btn btn-primary btn-sm' id = 'Upvote'><span class='glyphicon glyphicon-arrow-up'></span> Upvote</button>";
 	downvoteButton = "<button class='btn btn-danger btn-sm' id = 'Downvote'><span class='glyphicon glyphicon-arrow-down'></span> Downvote </button>";
-	//downvoteButton += "</div>";
 	$upvoteButton = $(upvoteButton).bind("click", function()
 		{
 		vote = "Upvote";
@@ -363,7 +360,6 @@ function viewArt(){
 		userVote();
 		});
 	artid = $(this).attr('ID');
-	//var id = $(row).find('.btn btn-primary btn-sm view').id;
 	console.log("ID HERE IS : "+artid);
 	$('#ViewArtResults').append(appendFigure);
 	$('#ViewArtResults').append(commentBox);
@@ -479,7 +475,16 @@ function viewComments(results)
 		appendDiv += a[i];
 		appendDiv += "</div>";
 		appendDiv += "</div>";
-		$('#Comments').append(appendDiv);
+		$appendDiv = $(appendDivn).bind("click", function()
+		{
+		$.ajax({
+			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+a[i+1],
+			dataType: 'text',
+			success: viewProfile,
+			error: function(){alert("Error: Something went wrong");}
+    			});
+		});
+		$('#Comments').append($appendDiv);
 	}
 	displayVotes();	
 }
