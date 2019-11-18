@@ -129,6 +129,7 @@ function viewProfile(results)
 {
 	$("#UsersComments").empty();
 	$("#UsersLikes").empty();
+	$("#UsersDislikes").empty();
 	console.log("Results for viewProfile"+results);
 	var  a = results.split("®"); //break up username we are looking at, comments and votes
 	var currentUsername = a[0]
