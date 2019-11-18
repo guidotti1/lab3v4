@@ -130,7 +130,7 @@ function viewProfile(results)
 	for (var i = 0; i < commentsSeparated.length; i++)
 	{
 		console.log("commentsSeparated[i]:"+commentsSeparated[i]);
-		var artComments = commensSeparated[i].split("^");
+		var artComments = commentsSeparated[i].split("^");
 		var artistLastname = a[0];
 		var artistFirstname = a[1];
 		var artURL = a[2];
