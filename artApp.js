@@ -139,6 +139,7 @@ $(document).ready(function () {
        {
 		$("#UserFriendsPage").show();
 		$("#Home").hide();
+	   	$("#AddFriendBtn").hide();
 		if (email == "" || typeof email === "undefined")
     		{
 		alert("You must be logged in to view your friends!");
@@ -194,6 +195,7 @@ function processAddFriends(results)
 
 function processViewFriends(results)
 {
+	$("#UsersFriendsResults").empty();
 	var a = results.split("^");
 	for (var i = 0; i < a.length - 1; i++)
 	{
