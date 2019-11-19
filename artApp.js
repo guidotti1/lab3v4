@@ -181,7 +181,7 @@ function processAddFriends(results)
 {
 	console.log("processFriend");
 	console.log("Results: "+results);
-	var a = results.split(" ")
+	var a = results.split(" ");
 	if (a.length() == 1)
 	{
 		console.log("Friend added succesfully");
