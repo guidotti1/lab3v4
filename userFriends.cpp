@@ -64,93 +64,27 @@ int main()
     std::auto_ptr< sql::ResultSet > res;
     
     string output = "";
-    output += emailString +"®";
-    vector<string> artIDS;
-    stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE Email = '"+emailString+"'");
+    
+    vector<Friend> list;
+    stmt->execute("SELECT friendID ARTID FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
-                artIDS.push_back(res->getString("ARTID"));
+                Friend entry(res->getString("receiveEmail"), res->getString("sendEmail"));
+                list.push_back(entry);
             }
         }while (stmt ->getMoreResults());
      
-     
-     for (int i =0; i < artIDS.size(); i++)
+     if (list.size() != 0)
      {
-         stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
-         do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                string first, last;
-                stringstream nameStream(res->getString("Author"));
-                getline(nameStream, last, ',');
-                getline(nameStream, first);
-                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+            output += "You already have added that profile";
+     }
+    else 
+    {
+            stmt->execute("INSERT INTO Friends(sendEmail, receiveEmail) VALUES('"+sendString+"', '"+receiveString+"'')");
+            output += "Success";
+    }
 
-             }
-            }while (stmt ->getMoreResults());
-         
-         stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
-         do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                output += "^" + res->getString("Comment");
-             }
-            }while (stmt ->getMoreResults());
-         output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
-      }
-    output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
-    
-    vector<string> upvotedArt;
-    stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Upvote'");
-    do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-               upvotedArt.push_back(res->getString("ARTID"));
-             }
-        }while (stmt ->getMoreResults());
-    
-    for (int i = 0; i <upvotedArt.size(); i++)
-    {
-            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
-            do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                string first, last;
-                stringstream nameStream(res->getString("Author"));
-                getline(nameStream, last, ',');
-                getline(nameStream, first);
-                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
-             }
-            }while (stmt ->getMoreResults());
-    }
-    output += "µ"; //CHARACTER SIGNIFIES END OF UPVOTES
-    
-           
-    vector<string> downvotedArt;
-    stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Downvote'");
-    do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-               downvotedArt.push_back(res->getString("ARTID"));
-             }
-        }while (stmt ->getMoreResults());
-    
-    for (int i = 0; i <upvotedArt.size(); i++)
-    {
-            stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
-            do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                string first, last;
-                stringstream nameStream(res->getString("Author"));
-                getline(nameStream, last, ',');
-                getline(nameStream, first);
-                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
-             }
-            }while (stmt ->getMoreResults());
-    }
-    //output += "€";  //CHARACTER SIGNIFIES END OF DOWNVOTES
     cout << output << endl;
     
     
