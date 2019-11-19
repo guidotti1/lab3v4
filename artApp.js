@@ -5,6 +5,7 @@ var email;
 var pass;
 var artid;
 var vote;
+var lastCommentId;
 
 $(document).ready(function () {
     $('.editdata').hide();
@@ -585,7 +586,8 @@ function userComment(){
 
 function displayComments(results)
 {
-  console.log("Primary results : "+results);
+  lastCommentId = results;
+  console.log("lastCommentId: "+lastCommentId);
   $('#Comments').empty();
   type = "display";
   comment = "";
