@@ -57,9 +57,10 @@ int main()
     
     form_iterator type = cgi.getElement("type");
     string typeString = **receive;
-
-
+  
     cout << "Content-Type: text/plain\n\n";
+    cout << typeString << endl;
+
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
