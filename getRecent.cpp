@@ -90,6 +90,8 @@ int main()
     string output = "";
 
     vector<string> artIDS;
+    cout << "the request we are making : " << endl;
+    cout << "SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'" << endl;
     stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
     do {
             res.reset(stmt->getResultSet());
@@ -97,6 +99,7 @@ int main()
                 artIDS.push_back(res->getString("ARTID"));
             }
         }while (stmt ->getMoreResults());
+    
      for (int i = 0; i < artIDS.size(); i++)
      {
          cout << "artIDS[i] : " << artIDS[i] << endl;
