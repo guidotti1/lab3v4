@@ -140,7 +140,7 @@ $(document).ready(function () {
 
 		if (email == "" || typeof email === "undefined")
     		{
-		alert("You must be logged in to view your friends!");
+			alert("You must be logged in to view your friends!");
    		}
 	   	else 
 		{
@@ -300,11 +300,41 @@ function viewProfile(results)
 		$("#UsersDislikes").append(appendFigure);
 	}
 	if (email !== currentUsername)
-	{
-		$("#AddFriendBtn").show();
+	{	
+		type = "retrieve";
+			$.ajax({
+			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+currentUsername+'&type='+type,
+			dataType: 'text',
+			success: checkFriend(currentUsername),
+			error: function(){alert("Error: Something went wrong");}
+    			});
 	}
 }
 
+function checkFriend(results, current)
+{
+	$("#AddFriendBtn").show();
+	var a = results.split(" ");
+	if (a.length == 1)
+	{
+		var b = a.split("^");
+		for (int i = 0; i < b.length - 1; b++)
+		{
+			if (b[i] == current)
+			{
+				console.log("Already friends with this acct");
+				$("#AddFriendBtn").hide();
+			}
+		}
+		
+	}
+	else 
+	{
+		
+		//
+	}
+		
+}
 function changeOperation(operation){
     if(operation=="Add Entry"){
 	console.log("Add Entry");
