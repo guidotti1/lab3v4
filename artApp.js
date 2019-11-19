@@ -108,7 +108,7 @@ $(document).ready(function () {
 		if (email == "" || typeof email === "undefined")
     		{
 		alert("You must be logged in to add as a friend!");
-   		 }
+   		}
 	   	else 
 		{
 			var send = email;
@@ -121,7 +121,7 @@ $(document).ready(function () {
 			success: viewProfile,
 			error: function(){alert("Error: Something went wrong");}
     			});
-			
+		}	
        });
 	    
 	    
