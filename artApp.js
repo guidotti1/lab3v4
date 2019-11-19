@@ -301,40 +301,30 @@ function viewProfile(results)
 	}
 	if (email !== currentUsername)
 	{	
-		type = "retrieve";
+		type = "check";
 			$.ajax({
 			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+currentUsername+'&type='+type,
 			dataType: 'text',
-			success: checkFriend(currentUsername),
+			success: checkFriend,
 			error: function(){alert("Error: Something went wrong");}
     			});
 	}
 }
 
-function checkFriend(results, current)
+function checkFriend(results)
 {
-	$("#AddFriendBtn").show();
 	var a = results.split(" ");
 	if (a.length == 1)
 	{
-		var b = results.split("^");
-		for (var i = 0; i < b.length - 1; i++)
-		{
-			if (b[i] == current)
-			{
-				console.log("Already friends with this acct");
-				$("#AddFriendBtn").hide();
-			}
-		}
-		
+		console.log("You are friends with this acct");
 	}
 	else 
 	{
-		
-		//
-	}
-		
+		$("#AddFriendBtn").show();
+		console.log("Not friends with this acct");
+	}	
 }
+
 function changeOperation(operation){
     if(operation=="Add Entry"){
 	console.log("Add Entry");
