@@ -113,8 +113,10 @@ $(document).ready(function () {
 		{
 			var send = email;
 			var receive = document.getElementById('PutUsernameHere').innerHTML;
+			var r = receive.split(" ");
+			var r2 = r[r.length-1];
 			console.log("Send email: "+send);
-			console.log("Receive email: "+receive);
+			console.log("Receive email: "+r2);
 			$.ajax({
 			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+email,
 			dataType: 'text',
