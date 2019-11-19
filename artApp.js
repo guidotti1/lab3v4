@@ -192,6 +192,30 @@ function processAddFriends(results)
 	}
 }
 
+function processViewFriends(results)
+{
+	var a = results.split(" ");
+	for (var i = 0; i < a.length - 1; i++)
+	{
+		friend = "<h5 class='btn btn-link'>"+a[i]+"</h5>"
+		$friend = $(friend).bind("click", function()
+		{
+			var friendUsername = $(this).html();
+			console.log("friendUsername: "+friendUsername);
+			$("#UserFriendsPage").hide();
+			$("#UserProfilePage").show();
+			$.ajax({
+				url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+friendUsername,
+				dataType: 'text',
+				success: viewProfile,
+				error: function(){alert("Error: Something went wrong");}
+				});
+		});
+		$("#UsersFriendsResults").append($friend);
+	}
+	
+}
+
 function viewProfile(results)
 {
 	$("#UsersComments").empty();
@@ -559,8 +583,6 @@ function viewComments(results)
 		$('#Comments').append(appendDiv);
 		//commenter = "<h5 class='mt-0'> Commenter: "+a[i+1]+"</h5>"
 		commenter = "<h5 class='btn btn-link'> Commenter: "+a[i+1]+"</h5>"
-		
-		//commenter = "<a class='link'> Commenter: "+a[i+1]+"</a>"
 		$commenter = $(commenter).bind("click", function()
 		{
 			var username = $(this).html();
