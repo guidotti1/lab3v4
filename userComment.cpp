@@ -88,7 +88,7 @@ int main()
             }while (stmt2 ->getMoreResults());
         
         //const char *path="/3lab";
-        ofstream recentCommentFile();
+        ofstream recentCommentFile;
         recentCommentFile.open("guidotti1_out.txt");
         recentCommentFile << recentID << endl;
         recentCommentFile.close();
