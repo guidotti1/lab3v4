@@ -186,9 +186,10 @@ function processAddFriends(results)
 	if (a.length == 1)
 	{
 		console.log("Friend added succesfully");
+	        $("#AddFriendBtn").hide();
 	}
 	else
-	{
+	{ 
 		alert("You've already added this account as a friend!");
 	}
 }
