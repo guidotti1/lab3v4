@@ -14,6 +14,7 @@ $(document).ready(function () {
     $("#LogOutBtnView").hide();
     $("#LogOutBtnHome").hide();
     $("#LogOutProfilePage").hide();
+    $("#AddFriendBtn").hide();
     $("#LogOutBtnView").click(function()
 	{
 	    userLogOut();
@@ -101,6 +102,28 @@ $(document).ready(function () {
     			});
    		}	   
     	});
+	
+    $("#AddFriendBtn").click(function()
+       {
+		if (email == "" || typeof email === "undefined")
+    		{
+		alert("You must be logged in to add as a friend!");
+   		 }
+	   	else 
+		{
+			var send = email;
+			var receive = document.getElementById('PutUsernameHere').innerHTML;
+			console.log("Send email: "+send);
+			console.log("Receive email: "+receive);
+			$.ajax({
+			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+email,
+			dataType: 'text',
+			success: viewProfile,
+			error: function(){alert("Error: Something went wrong");}
+    			});
+			
+       });
+	    
 	    
 	   
 	    
@@ -203,6 +226,10 @@ function viewProfile(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#UsersDislikes").append(appendFigure);
+	}
+	if (email !== currentUsername)
+	{
+		$("#AddFriendBtn").show();
 	}
 }
 
