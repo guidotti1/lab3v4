@@ -114,7 +114,7 @@ $(document).ready(function () {
 			var receive = document.getElementById('PutUsernameHere').innerHTML;
 			var r = receive.split(" ");
 			var r2 = r[r.length-1];
-			var type = "add";
+			type = "add";
 			$.ajax({
 			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2+'&type='+type,
 			dataType: 'text',
@@ -133,7 +133,7 @@ $(document).ready(function () {
 	   	else 
 		{
 			var r2 = "empty";
-			var type = "retrieve";
+			type = "retrieve";
 			$.ajax({
 			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2+'&type='+type,
 			dataType: 'text',
