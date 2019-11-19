@@ -77,6 +77,7 @@ int main()
             res.reset(stmt->getResultSet());
             while (res->next()) {
                recentID = res->getString("CommentID");
+                cout << "recentID : " << recentID << endl;
             }
             }while (stmt ->getMoreResults());
         
