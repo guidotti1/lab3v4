@@ -80,7 +80,8 @@ int main()
             }
             }while (stmt ->getMoreResults());
         
-        ofstream recentCommentFile;
+        const char *path="/3lab";
+        ofstream recentCommentFile(path);
         recentCommentFile.open("out.txt");
         recentCommentFile << recentID << endl;
         recentCommentFile.close();
