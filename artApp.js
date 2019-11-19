@@ -16,6 +16,7 @@ $(document).ready(function () {
     $("#LogOutBtnHome").hide();
     $("#LogOutProfilePage").hide();
     $("#LogOutBtnFriends").hide();
+    $("#LogOutRecentPage").hide();
     $("#AddFriendBtn").hide();
     $("#LogOutBtnView").click(function()
 	{
@@ -32,6 +33,11 @@ $(document).ready(function () {
    	});
 	    	
     $("#LogOutBtnFriends").click(function()
+        {
+	    userLogOut();
+   	});
+	
+    $("#LogOutRecentPage").click(function()
         {
 	    userLogOut();
    	});
@@ -87,6 +93,12 @@ $(document).ready(function () {
     $("#ReturnHomeBtnProfile").click(function()
 	{
 	        $("#UserProfilePage").hide();
+		$("#Home").show();
+	});
+	
+   $("#ReturnHomeRecentPage").click(function()
+	{
+	        $("#RecentPage").hide();
 		$("#Home").show();
 	});
     
@@ -158,7 +170,12 @@ $(document).ready(function () {
 		}	
 	   
        });
-	   
+	
+   $("#ViewRecent").click(function()
+      {
+	   $("#RecentPage").show();
+	   $("#Home").hide();
+      });
 	   
     $(".dropdown-menu a").click(function(){
 	console.log("pick!"+$(this).text());
@@ -361,9 +378,13 @@ function processUserCreate(results)
 		$('#LogInBtn').hide();
 		$('#LogInBtnViewArt').hide();
 		$("#LogInBtnProfilePage").hide();
+		$("#LogInBtnFriends").hide();
+		$("#LogInRecentPage").hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
 		$("#LogOutProfilePage").show();
+		$("#LogOutBtnFriends").show();
+		$("#LogOutRecentPage").show();
 	}
 	else
 	{
@@ -385,14 +406,17 @@ function processUserLogin(results)
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoProfilePage").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoFriends").innerHTML = "Logged in as : "+email;
+		document.getElementById("LogInInfoRecentPage").innerHTML = "Logged in as : "+email;
 		$('#LogInBtn').hide();
 		$('#LogInBtnViewArt').hide();
 		$("#LogInBtnProfilePage").hide();
 		$("#LogInBtnFriends").hide();
+		$("#LogInRecentPage").hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
 		$("#LogOutProfilePage").show();
 		$("#LogOutBtnFriends").show();
+		$("#LogOutRecentPage").show();
 		$("#myModal").modal('hide');
 	}
 	else 
@@ -412,14 +436,17 @@ function userLogOut()
 	document.getElementById("LogInInfoViewArt").innerHTML = "";
 	document.getElementById("LogInInfoProfilePage").innerHTML = "";
 	document.getElementById("LogInInfoFriends").innerHTML = "";
+	document.getElementById("LogInInfoRecentPage").innerHTML = "";
 	$('#LogInBtn').show();
 	$('#LogInBtnViewArt').show();
 	$("#LogInBtnProfilePage").show();
 	$("#LogInBtnFriends").show();
+	$("#LogInRecentPage").show();
 	$("#LogOutBtnView").hide();
 	$("#LogOutBtnHome").hide();
 	$("#LogOutProfilePage").hide();
 	$("#LogOutBtnFriends").hide();
+	$("#LogOutRecentPage").hide();
 }
 
 // Build output table from ^ delimited list
