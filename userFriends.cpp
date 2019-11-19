@@ -93,6 +93,8 @@ int main()
     
     else if (typeString == "retrieve")
     {
+        cout << "typeString = retrieve" << endl;
+        cout << "sendString : " << sendString << endl;
         stmt->execute("SELECT * FROM Friends WHERE sendEmail = '"+sendString+"'");
         do {
                 res.reset(stmt->getResultSet());
