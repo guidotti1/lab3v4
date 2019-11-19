@@ -42,43 +42,67 @@ int main()
     const string pass=PASS;
 
     Cgicc cgi;
-    //form_iterator vote = cgi.getElement("voteType");
-    //string voteString = **vote;
 
-    form_iterator email = cgi.getElement("email");
-    string emailString = **email;
 
-    //form_iterator artID = cgi.getElement("ArtID");
-    //string artIDString = ** artID;
+    form_iterator lastcomment = cgi.getElement("lastcomment");
+    string lastcommentString = **lastcomment;
     
-    //form_iterator type = cgi.getElement("type");
-    //string typeString = **type;
+    
+    int lastCommentInt;
+   
+    
+    istringstream iss (lastcommentString);
+    iss >> lastCommentInt;
+    int fiveCommentsAgoInt = lastComment - 5;
+    stringstream ss;
+    ss << fiveCommentsAgoInt;
+    string fiveCommentsAgoString = ss.str();
+     /*
+    vector <int> lastFiveCommentIDSInt;
+    for (int i = 0; i < 5; i ++)
+    {
+           lastFiveCommentIDSInt.push_back(lastCommentInt - i);
+    }
 
+    vector<string> lastFiveCOmmentIDSString;
+    for (int i = 0; i < lastFiveCommentIDSInt.size(); i++)
+    {
+        stringstream ss;
+        ss << lastFiveCommentIDSInt[i];
+        lastFiveCOmmentIDSString.push_back(ss.str());
+    }
+    */
+        
     cout << "Content-Type: text/plain\n\n";
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
-    
+    /*
     sql::Driver* driver2 = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con2(driver2->connect(url, user, pass));
     con2->setSchema(database);
     std::auto_ptr<sql::Statement> stmt2(con2->createStatement());
     std::auto_ptr< sql::ResultSet > res2;
+    */
     //cout << "EMAIL IS : " << emailString << endl;
     string output = "";
-    output += emailString +"®";
+
     vector<string> artIDS;
-    stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE Email = '"+emailString+"'");
+    stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
                 artIDS.push_back(res->getString("ARTID"));
             }
         }while (stmt ->getMoreResults());
-     
-     
+     for (int i = 0; i < artIDS.size(); i++)
+     {
+         cout << "artIDS[i] : " << artIDS[i] << endl;
+     }
+         
+     /*
      for (int i =0; i < artIDS.size(); i++)
      {
          stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
@@ -157,7 +181,7 @@ int main()
     //output += "€";  //CHARACTER SIGNIFIES END OF DOWNVOTES
     cout << output << endl;
     
-    
+    */
     return 0;
 }
 
