@@ -316,6 +316,7 @@ function checkFriend(results)
 	var a = results.split(" ");
 	if (a.length == 1)
 	{
+		$("#AddFriendBtn").hide();
 		console.log("You are friends with this acct");
 	}
 	else 
