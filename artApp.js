@@ -14,6 +14,7 @@ $(document).ready(function () {
     $("#LogOutBtnView").hide();
     $("#LogOutBtnHome").hide();
     $("#LogOutProfilePage").hide();
+    $("#LogOutBtnFriends").hide();
     $("#AddFriendBtn").hide();
     $("#LogOutBtnView").click(function()
 	{
@@ -28,7 +29,11 @@ $(document).ready(function () {
         {
 	    userLogOut();
    	});
-	    
+	    	
+    $("#LogOutBtnFriends").click(function()
+        {
+	    userLogOut();
+   	});
 	    
     $("#createAcct").click(function()
 	{
@@ -83,6 +88,12 @@ $(document).ready(function () {
 		$("#Home").show();
 	});
     
+    $("#ReturnHomeBtnFriends").click(function()
+	{
+	        $("#UserFriendsPage").hide();
+		$("#Home").show();
+	});
+	
     $("#ViewUserProfile").click(function()
 	{
 
@@ -316,12 +327,15 @@ function processUserLogin(results)
 		document.getElementById("LogInInfo").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoViewArt").innerHTML = "Logged in as : "+email;
 		document.getElementById("LogInInfoProfilePage").innerHTML = "Logged in as : "+email;
+		document.getElementById("LogInInfoFriends").innerHTML = "Logged in as : "+email;
 		$('#LogInBtn').hide();
 		$('#LogInBtnViewArt').hide();
 		$("#LogInBtnProfilePage").hide();
+		$("#LogInBtnFriends").hide();
 	        $("#LogOutBtnView").show();
                 $("#LogOutBtnHome").show();
 		$("#LogOutProfilePage").show();
+		$("#LogOutBtnFriends").show();
 		$("#myModal").modal('hide');
 	}
 	else 
@@ -340,12 +354,15 @@ function userLogOut()
 	document.getElementById("LogInInfo").innerHTML = "";
 	document.getElementById("LogInInfoViewArt").innerHTML = "";
 	document.getElementById("LogInInfoProfilePage").innerHTML = "";
-	$('#LogOutBtnHome').hide();
-	$('#LogOutBtnView').hide();
-	$("#LogOutProfilePage").hide();
-	$('#LogInBtn').show();
-	$('#LogInBtnViewArt').show();
-	$("#LogInBtnProfilePage").show();
+	document.getElementById("LogInInfoFriends").innerHTML = "Logged in as : "+email;
+	$('#LogInBtn').hide();
+	$('#LogInBtnViewArt').hide();
+	$("#LogInBtnProfilePage").hide();
+	$("#LogInBtnFriends").hide();
+	$("#LogOutBtnView").show();
+	$("#LogOutBtnHome").show();
+	$("#LogOutProfilePage").show();
+	$("#LogOutBtnFriends").show();
 }
 
 // Build output table from ^ delimited list
