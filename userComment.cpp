@@ -80,9 +80,9 @@ int main()
             }while (stmt ->getMoreResults());
         
         ofstream recentCommentFile;
-        myfile.open("out.txt");
-        myfile << recentID << endl;
-        myfile.close();
+        recentCommentFile.open("out.txt");
+        recentCommentFile << recentID << endl;
+        recentCommentFile.close();
     }
     else if (typeString == "display")
     {
