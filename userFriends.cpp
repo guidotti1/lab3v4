@@ -81,7 +81,7 @@ int main()
      }
     else 
     {
-            stmt->execute("INSERT INTO Friends(sendEmail, receiveEmail) VALUES('"+sendString+"', '"+receiveString+"'')");
+            stmt->execute("INSERT INTO Friends(sendEmail, receiveEmail) VALUES('"+sendString+"', '"+receiveString+"')");
             output += "Success";
     }
 
