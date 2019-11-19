@@ -137,14 +137,15 @@ $(document).ready(function () {
 
    $("#ViewUserFriends").click(function()
        {
-		$("#UserFriendsPage").show();
-		$("#Home").hide();
+
 		if (email == "" || typeof email === "undefined")
     		{
 		alert("You must be logged in to view your friends!");
    		}
 	   	else 
 		{
+			$("#UserFriendsPage").show();
+			$("#Home").hide();
 			var r2 = "empty";
 			type = "retrieve";
 			$.ajax({
@@ -194,7 +195,7 @@ function processAddFriends(results)
 
 function processViewFriends(results)
 {
-	$("#AddFriendBtn").hide();
+	
 	$("#UsersFriendsResults").empty();
 	var a = results.split("^");
 	for (var i = 0; i < a.length - 1; i++)
@@ -202,6 +203,7 @@ function processViewFriends(results)
 		friend = "<h5 class='btn btn-link'>"+a[i]+"</h5>"
 		$friend = $(friend).bind("click", function()
 		{
+			$("#AddFriendBtn").hide();
 			var friendUsername = $(this).html();
 			console.log("friendUsername: "+friendUsername);
 			$("#UserFriendsPage").hide();
