@@ -56,7 +56,7 @@ int main()
     string receiveString = **receive;
     
     form_iterator type = cgi.getElement("type");
-    string typeString = **receive;
+    string typeString = **type;
   
     cout << "Content-Type: text/plain\n\n";
     cout << typeString << endl;
