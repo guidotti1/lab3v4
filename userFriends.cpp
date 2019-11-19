@@ -54,6 +54,9 @@ int main()
 
     form_iterator receive = cgi.getElement("receive");
     string receiveString = **receive;
+    
+    form_iterator type = cgi.getElement("type");
+    string typeString = **receive;
 
 
     cout << "Content-Type: text/plain\n\n";
@@ -66,23 +69,51 @@ int main()
     string output = "";
     
     vector<Friend> list;
-    stmt->execute("SELECT * FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
-    do {
-            res.reset(stmt->getResultSet());
-            while (res->next()) {
-                Friend entry(res->getString("receiveEmail"), res->getString("sendEmail"));
-                list.push_back(entry);
-            }
-        }while (stmt ->getMoreResults());
-     cout << "list.size(): " << list.size() << endl;
-     if (list.size() > 0)
-     {
-            output += "You already have added that profile";
-     }
-    else 
+    if (typeString == "add")
     {
-            stmt->execute("INSERT INTO Friends(sendEmail, receiveEmail) VALUES('"+sendString+"', '"+receiveString+"')");
-            output += "Success";
+        
+        stmt->execute("SELECT * FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
+        do {
+                res.reset(stmt->getResultSet());
+                while (res->next()) {
+                    Friend entry(res->getString("receiveEmail"), res->getString("sendEmail"));
+                    list.push_back(entry);
+                }
+            }while (stmt ->getMoreResults());
+         if (list.size() > 0)
+         {
+                output += "You already have added that profile";
+         }
+        else 
+        {
+                stmt->execute("INSERT INTO Friends(sendEmail, receiveEmail) VALUES('"+sendString+"', '"+receiveString+"')");
+                output += "Success";
+        }
+    }
+    
+    else if (typeString == "retrieve")
+    {
+        stmt->execute("SELECT * FROM Friends WHERE sendEmail = '"+sendString+"'");
+        do {
+                res.reset(stmt->getResultSet());
+                while (res->next()) {
+                    Friend entry(res->getString("receiveEmail"), res->getString("sendEmail"));
+                    list.push_back(entry);
+                }
+            }while (stmt ->getMoreResults());
+         if (list.size() == 0)
+         {
+                output += "No friends added";
+         }
+        else 
+        {
+                for (int i = 0; i < list.size(); i++)
+                {
+                    output += list[i].receive;
+                    output += " ";
+                }
+        }
+        
     }
 
     cout << output << endl;
