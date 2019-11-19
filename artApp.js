@@ -154,7 +154,7 @@ function processFriend(results)
 {
 	console.log("processFriend");
 	console.log("Results: "+results);
-});
+}
 
 function viewProfile(results)
 {
