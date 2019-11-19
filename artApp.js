@@ -318,7 +318,7 @@ function checkFriend(results, current)
 	if (a.length == 1)
 	{
 		var b = a.split("^");
-		for (int i = 0; i < b.length - 1; b++)
+		for (int i = 0; i < b.length - 1; i++)
 		{
 			if (b[i] == current)
 			{
