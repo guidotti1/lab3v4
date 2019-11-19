@@ -66,7 +66,7 @@ int main()
     con2->setSchema(database);
     std::auto_ptr<sql::Statement> stmt2(con2->createStatement());
     std::auto_ptr< sql::ResultSet > res2;
-    
+    cout << "EMAIL IS : " << emailString << endl;
     string output = "";
     output += emailString +"®";
     vector<string> artIDS;
