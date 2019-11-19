@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <string>
 
+
 // Stuff for AJAX
 #include "cgicc/Cgicc.h"
 #include "cgicc/HTTPHTMLHeader.h"
@@ -69,6 +70,19 @@ int main()
     if (typeString == "add")
     {
         stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
+        //USED TO GET THE MOST RECENT COMMENTID
+        stmt->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"' and Comment = '"commentString+"' and Email = '"emailString"'");
+        do {
+            res.reset(stmt->getResultSet());
+            while (res->next()) {
+                string recentID = res->getString("CommentID");
+            }
+            }while (stmt ->getMoreResults());
+        
+        ofstream recentCommentFile;
+        myfile.open("out.txt");
+        myfile << recentID << endl;
+        myfile.close();
     }
     else if (typeString == "display")
     {
@@ -88,6 +102,8 @@ int main()
              }
         cout << output << endl;           
     }
+    
+   
     return 0;
 }
 
