@@ -118,7 +118,7 @@ $(document).ready(function () {
 			console.log("Send email: "+send);
 			console.log("Receive email: "+r2);
 			$.ajax({
-			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?send='+email+'&receive='+r2,
+			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2,
 			dataType: 'text',
 			success: processFriend,
 			error: function(){alert("Error: Something went wrong");}
