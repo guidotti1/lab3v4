@@ -30,6 +30,9 @@
 	 <li class="nav-item active">
 	     <a class="nav-link" href="#" id = "ViewUserFriends">Your Friends<span class="sr-only">(current)</span></a>
 	  </li>
+	 <li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
+	  </li>
 	  <li class="nav-item dropdown">
 	    <a class="nav-link dropdown-toggle selection" href="#" id="searchtype" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	      Find Last
@@ -167,6 +170,54 @@
 	   <div class="jumbotron">
              <div class="container results">
 	       <div id="UsersDislikes"></div>
+	     </div>
+	   </div>
+         </div>
+      </div>
+  </div>
+	  
+    <div class="container page" id="RecentPage" style="display:none;">
+     <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "RecentPageNav">
+      <a class="navbar-brand" href="#">Art app</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+	  <li class="nav-item active">
+	    <a class="nav-link" href="https://cslab.kenyon.edu">CS Lab <span class="sr-only">(current)</span></a>
+	  </li>
+         <li class="nav-item active">
+            <a class="nav-link" href="#" id = "ReturnHomeRecentPage">Home <span class="sr-only">(current)</span></a>
+      	 </li>
+	</ul>
+        <p class="navbar-text" id = "LogInInfoRecentPage"></p> 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInRecentPage" >Login! </button>
+        <button type="button" class="btn btn-primary" id = "LogOutRecentPage" >Log out!</button>
+      </div>
+      </nav>
+	    
+      <div class="row">
+    	<div class="col-sm-6">
+	 <h4> Recent Comments </h4>
+    	   <div class="jumbotron">
+             <div class="container results">
+	       <div id="RecentComments"></div>
+	     </div>
+	   </div>
+         </div>
+	<div class="col-sm-6">
+	  <h4> Recent Likes </h4>
+    	   <div class="jumbotron">
+             <div class="container results">
+	       <div id="RecentLikes"></div>
+	     </div>
+	   </div>
+	  <h4> Recent Dislikes </h4>
+	   <div class="jumbotron">
+             <div class="container results">
+	       <div id="RecentDislikes"></div>
 	     </div>
 	   </div>
          </div>
