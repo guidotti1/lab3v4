@@ -83,16 +83,18 @@ int main()
             res.reset(stmt2->getResultSet());
             while (res->next()) {
                recentID = res->getString("CommentID");
-               cout << "recentID : " << recentID << endl;
+               cout << recentID << endl;
             }
             }while (stmt2 ->getMoreResults());
         
+        /*
         const char *path="/usr/lib/cgi-bin";
         ofstream recentCommentFile(path);
         recentCommentFile.open("guidotti1_out.txt");
         recentCommentFile << recentID << endl;
         recentCommentFile.close();
         cout << "recentID after alter : " << recentID << endl;
+        */
     }
     else if (typeString == "display")
     {
