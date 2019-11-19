@@ -583,8 +583,9 @@ function userComment(){
    }	   
 }
 
-function displayComments()
+function displayComments(results)
 {
+  console.log("Primary results : "+results);
   $('#Comments').empty();
   type = "display";
   comment = "";
