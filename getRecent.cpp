@@ -19,8 +19,6 @@
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
-#include "artEntry.h"
-
 
 #define XML_USE_STL
 
@@ -49,44 +47,20 @@ int main()
     
     
     int lastCommentInt;
-   
-    
     istringstream iss (lastcommentString);
     iss >> lastCommentInt;
     int fiveCommentsAgoInt = lastCommentInt - 5;
     stringstream ss;
     ss << fiveCommentsAgoInt;
     string fiveCommentsAgoString = ss.str();
-     /*
-    vector <int> lastFiveCommentIDSInt;
-    for (int i = 0; i < 5; i ++)
-    {
-           lastFiveCommentIDSInt.push_back(lastCommentInt - i);
-    }
 
-    vector<string> lastFiveCOmmentIDSString;
-    for (int i = 0; i < lastFiveCommentIDSInt.size(); i++)
-    {
-        stringstream ss;
-        ss << lastFiveCommentIDSInt[i];
-        lastFiveCOmmentIDSString.push_back(ss.str());
-    }
-    */
-        
     cout << "Content-Type: text/plain\n\n";
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
-    /*
-    sql::Driver* driver2 = sql::mysql::get_driver_instance();
-    std::auto_ptr<sql::Connection> con2(driver2->connect(url, user, pass));
-    con2->setSchema(database);
-    std::auto_ptr<sql::Statement> stmt2(con2->createStatement());
-    std::auto_ptr< sql::ResultSet > res2;
-    */
-    //cout << "EMAIL IS : " << emailString << endl;
+
     string output = "";
 
     vector<string> artIDS;
@@ -105,86 +79,7 @@ int main()
          cout << "artIDS[i] : " << artIDS[i] << endl;
      }
          
-     /*
-     for (int i =0; i < artIDS.size(); i++)
-     {
-         stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
-         do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                string first, last;
-                stringstream nameStream(res->getString("Author"));
-                getline(nameStream, last, ',');
-                getline(nameStream, first);
-                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
 
-             }
-            }while (stmt ->getMoreResults());
-         
-         stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
-         do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                output += "^" + res->getString("Comment");
-             }
-            }while (stmt ->getMoreResults());
-         output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
-      }
-    output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
-    
-    vector<string> upvotedArt;
-    stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Upvote'");
-    do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-               upvotedArt.push_back(res->getString("ARTID"));
-             }
-        }while (stmt ->getMoreResults());
-    
-    for (int i = 0; i <upvotedArt.size(); i++)
-    {
-            stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
-            do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                string first, last;
-                stringstream nameStream(res->getString("Author"));
-                getline(nameStream, last, ',');
-                getline(nameStream, first);
-                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
-             }
-            }while (stmt ->getMoreResults());
-    }
-    output += "µ"; //CHARACTER SIGNIFIES END OF UPVOTES
-    
-           
-    vector<string> downvotedArt;
-    stmt->execute("SELECT * FROM votes where email = '"+emailString+"' AND voteType = 'Downvote'");
-    do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-               downvotedArt.push_back(res->getString("ARTID"));
-             }
-        }while (stmt ->getMoreResults());
-    
-    for (int i = 0; i <downvotedArt.size(); i++)
-    {
-            stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
-            do {
-             res.reset(stmt->getResultSet());
-             while (res->next()) {
-                string first, last;
-                stringstream nameStream(res->getString("Author"));
-                getline(nameStream, last, ',');
-                getline(nameStream, first);
-                output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
-             }
-            }while (stmt ->getMoreResults());
-    }
-    //output += "€";  //CHARACTER SIGNIFIES END OF DOWNVOTES
-    cout << output << endl;
-    
-    */
     return 0;
 }
 
