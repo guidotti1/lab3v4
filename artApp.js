@@ -172,15 +172,15 @@ $(document).ready(function () {
 	
    $("#ViewRecent").click(function()
       {
-	$("#RecentPage").show();
-	$("#Home").hide();
-	console.log("Sending the lastCommendId of : "+lastCommentId);
-	$.ajax({
-	url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId,
-	dataType: 'text',
-	success: processRecent,
-	error: function(){alert("Error: Something went wrong");}
-	});
+		$("#RecentPage").show();
+		$("#Home").hide();
+		console.log("Sending the lastCommendId of : "+lastCommentId);
+		$.ajax({
+		url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId,
+		dataType: 'text',
+		success: processRecent,
+		error: function(){alert("Error: Something went wrong");}
+		});
       });
 	   
     $(".dropdown-menu a").click(function(){
