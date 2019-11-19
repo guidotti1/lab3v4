@@ -87,9 +87,9 @@ int main()
             }
             }while (stmt2 ->getMoreResults());
         
-        const char *path="/3lab";
-        ofstream recentCommentFile(path);
-        recentCommentFile.open("out.txt");
+        //const char *path="/3lab";
+        ofstream recentCommentFile();
+        recentCommentFile.open("guidotti1_out.txt");
         recentCommentFile << recentID << endl;
         recentCommentFile.close();
         cout << "recentID after alter : " << recentID << endl;
