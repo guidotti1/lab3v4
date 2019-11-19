@@ -76,6 +76,7 @@ $(document).ready(function () {
 		error: function(){alert("Error: Something went wrong");}
     		});
 	   });
+	
     $("#ReturnHomeBtn").click(function()
 	{
 		$("#ViewArtPage").hide();
@@ -96,7 +97,6 @@ $(document).ready(function () {
 	
     $("#ViewUserProfile").click(function()
 	{
-
 	        if (email == "" || typeof email === "undefined")
     		{
 	    	alert("You must be logged in to view your profile!");
@@ -137,6 +137,8 @@ $(document).ready(function () {
 
    $("#ViewUserFriends").click(function()
        {
+		$("#UserFriendsPage").show();
+		$("#Home").hide();
 		if (email == "" || typeof email === "undefined")
     		{
 		alert("You must be logged in to view your friends!");
