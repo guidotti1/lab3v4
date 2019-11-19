@@ -51,7 +51,6 @@ $(document).ready(function () {
 
    $("#createAcctButton").click(function()
 	{
-	  	
 	   	email= $('#inputEmailCreate').val();
 	        if(email.includes(" "))
 		{
@@ -175,7 +174,7 @@ $(document).ready(function () {
       {
 	$("#RecentPage").show();
 	$("#Home").hide();
-	   
+	console.log("Sending the lastCommendId of : "+lastCommentId);
 	$.ajax({
 	url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId,
 	dataType: 'text',
