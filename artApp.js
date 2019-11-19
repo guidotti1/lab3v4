@@ -129,7 +129,7 @@ $(document).ready(function () {
 			$.ajax({
 			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2+'&type='+type,
 			dataType: 'text',
-			success: processFriend,
+			success: processAddFriends,
 			error: function(){alert("Error: Something went wrong");}
     			});
 		}	
@@ -150,7 +150,7 @@ $(document).ready(function () {
 			$.ajax({
 			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2+'&type='+type,
 			dataType: 'text',
-			success: processFriend,
+			success: processViewFriends,
 			error: function(){alert("Error: Something went wrong");}
     			});
 		}	
@@ -177,10 +177,19 @@ $(document).ready(function () {
 
 changeOperation(operation);
 
-function processFriend(results)
+function processAddFriends(results)
 {
 	console.log("processFriend");
 	console.log("Results: "+results);
+	var a = results.split(" ")
+	if (a.size() == 1)
+	{
+		console.log("Friend added succesfully");
+	}
+	else
+	{
+		alert("You've already added this account as a friend!");
+	}
 }
 
 function viewProfile(results)
