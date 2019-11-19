@@ -72,10 +72,11 @@ int main()
         stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
         //USED TO GET THE MOST RECENT COMMENTID
         stmt->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"' and Comment = '"+commentString+"' and Email = '"+emailString+"'");
+        string recentID = "";
         do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
-                string recentID = res->getString("CommentID");
+               recentID = res->getString("CommentID");
             }
             }while (stmt ->getMoreResults());
         
