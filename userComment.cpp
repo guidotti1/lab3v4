@@ -65,20 +65,25 @@ int main()
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
-    std::auto_ptr<sql::Statement> stmt(con->createStatement());
-    std::auto_ptr<sql::Statement> stmt2(con->createStatement());
+    std::auto_ptr<sql::Statement> stmt(con->createStatement());    
     std::auto_ptr< sql::ResultSet > res;
+    
+    sql::Driver* driver2 = sql::mysql::get_driver_instance();
+    std::auto_ptr<sql::Connection> con2(driver2->connect(url, user, pass));
+    con2->setSchema(database);
+    std::auto_ptr<sql::Statement> stmt2(con2->createStatement());
+   
     if (typeString == "add")
     {
         stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
         //USED TO GET THE MOST RECENT COMMENTID
         stmt2->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"' and Comment = '"+commentString+"' and Email = '"+emailString+"'");
-        string recentID = "";
+        string recentID = "placeholder";
         do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
                recentID = res->getString("CommentID");
-                cout << "recentID : " << recentID << endl;
+               cout << "recentID : " << recentID << endl;
             }
             }while (stmt ->getMoreResults());
         
@@ -87,6 +92,7 @@ int main()
         recentCommentFile.open("out.txt");
         recentCommentFile << recentID << endl;
         recentCommentFile.close();
+        cout << "recentID after alter : " << recentID << endl;
     }
     else if (typeString == "display")
     {
