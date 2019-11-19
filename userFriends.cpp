@@ -115,6 +115,27 @@ int main()
         }
         
     }
+    
+    else if (typeString == "check")
+    {
+        stmt->execute("SELECT * FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
+        do {
+                res.reset(stmt->getResultSet());
+                while (res->next()) {
+                    Friend entry(res->getString("receiveEmail"), res->getString("sendEmail"));
+                    list.push_back(entry);
+                }
+            }while (stmt ->getMoreResults());
+         if (list.size() == 0)
+         {
+                output += "Not friends";
+         }
+        else 
+        {
+                output += "Yes";
+        }
+        
+    }
 
     cout << output << endl;
     
