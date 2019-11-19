@@ -66,12 +66,13 @@ int main()
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
+    std::auto_ptr<sql::Statement> stmt2(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
     if (typeString == "add")
     {
         stmt->execute("INSERT INTO comments(Email, ARTID, Comment) VALUES('"+emailString+"', '"+artIDString+"', '"+commentString+"')");
         //USED TO GET THE MOST RECENT COMMENTID
-        stmt->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"' and Comment = '"+commentString+"' and Email = '"+emailString+"'");
+        stmt2->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"' and Comment = '"+commentString+"' and Email = '"+emailString+"'");
         string recentID = "";
         do {
             res.reset(stmt->getResultSet());
