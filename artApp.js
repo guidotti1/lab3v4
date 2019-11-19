@@ -118,9 +118,9 @@ $(document).ready(function () {
 			console.log("Send email: "+send);
 			console.log("Receive email: "+r2);
 			$.ajax({
-			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?email='+email,
+			url: '/cgi-bin/guidotti1_viewUserProfile.cgi?send='+email+'&receive='+r2,
 			dataType: 'text',
-			success: viewProfile,
+			success: processFriend,
 			error: function(){alert("Error: Something went wrong");}
     			});
 		}	
@@ -149,6 +149,12 @@ $(document).ready(function () {
 });
 
 changeOperation(operation);
+
+function processFriend(results)
+{
+	console.log("processFriend");
+	console.log("Results: "+results);
+});
 
 function viewProfile(results)
 {
