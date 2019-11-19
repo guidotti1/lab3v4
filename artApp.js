@@ -173,8 +173,15 @@ $(document).ready(function () {
 	
    $("#ViewRecent").click(function()
       {
-	   $("#RecentPage").show();
-	   $("#Home").hide();
+	$("#RecentPage").show();
+	$("#Home").hide();
+	   
+	$.ajax({
+	url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId,
+	dataType: 'text',
+	success: processRecent,
+	error: function(){alert("Error: Something went wrong");}
+	});
       });
 	   
     $(".dropdown-menu a").click(function(){
@@ -195,6 +202,12 @@ $(document).ready(function () {
 });
 
 changeOperation(operation);
+
+function processRecent(results)
+{
+	console.log("processRecent!");
+	console.log("Process recent results : "+results);
+}
 
 function processAddFriends(results)
 {
