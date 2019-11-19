@@ -13,7 +13,7 @@ CFLAGS= -std=c++14  -Wno-deprecated-declarations
 
 RM= /bin/rm -f
 
-all: artApp createUserAccounts userComment userVote viewUserProfile userFriends PutHTML PutCGI 
+all: artApp createUserAccounts userComment userVote viewUserProfile getRecent userFriends PutHTML PutCGI 
 
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
@@ -56,6 +56,12 @@ userFriends.o: userFriends.cpp
 
 userFriends: userFriends.o 
 	$(CC) userFriends.o  -o userFriends -L/usr/local/lib -lcgicc -lmysqlcppconn
+	
+getRecent.o: getRecent.cpp
+	$(CC) -c $(CFLAGS) getRecent.cpp
+
+getRecent: getRecent.o 
+	$(CC) getRecent.o  -o getRecent -L/usr/local/lib -lcgicc -lmysqlcppconn
 
 PutCGI: artApp
 	chmod 757 artApp
@@ -64,12 +70,15 @@ PutCGI: artApp
 	chmod 757 userComment
 	chmod 757 viewUserProfile
 	chmod 757 userFriends
+	chmod 757 getRecent
 	cp artApp /usr/lib/cgi-bin/$(USER)_artApp.cgi 
 	cp createUserAccounts /usr/lib/cgi-bin/$(USER)_createUserAccounts.cgi
 	cp userComment /usr/lib/cgi-bin/$(USER)_userComment.cgi
 	cp userVote /usr/lib/cgi-bin/$(USER)_userVote.cgi
 	cp viewUserProfile /usr/lib/cgi-bin/$(USER)_viewUserProfile.cgi
 	cp userFriends /usr/lib/cgi-bin/$(USER)_userFriends.cgi
+	cp userFriends /usr/lib/cgi-bin/$(USER)_getRecent.cgi
+
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
