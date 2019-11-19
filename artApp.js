@@ -194,7 +194,7 @@ function processAddFriends(results)
 
 function processViewFriends(results)
 {
-	var a = results.split(" ");
+	var a = results.split("^");
 	for (var i = 0; i < a.length - 1; i++)
 	{
 		friend = "<h5 class='btn btn-link'>"+a[i]+"</h5>"
