@@ -111,20 +111,39 @@ $(document).ready(function () {
    		}
 	   	else 
 		{
-			var send = email;
 			var receive = document.getElementById('PutUsernameHere').innerHTML;
 			var r = receive.split(" ");
 			var r2 = r[r.length-1];
-			console.log("Send email: "+send);
-			console.log("Receive email: "+r2);
+			var type = "add";
 			$.ajax({
-			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2,
+			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2+'&type='+type,
 			dataType: 'text',
 			success: processFriend,
 			error: function(){alert("Error: Something went wrong");}
     			});
 		}	
        });
+
+   $("#ViewUserFriends").click(function()
+       {
+		if (email == "" || typeof email === "undefined")
+    		{
+		alert("You must be logged in to view your friends!");
+   		}
+	   	else 
+		{
+			var r2 = "empty";
+			var type = "retrieve";
+			$.ajax({
+			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+r2+'&type='+type,
+			dataType: 'text',
+			success: processFriend,
+			error: function(){alert("Error: Something went wrong");}
+    			});
+		}	
+	   
+       });
+	   
 	    
 	    
 	   
