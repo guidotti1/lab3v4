@@ -80,12 +80,12 @@ int main()
         stmt2->execute("SELECT * FROM comments WHERE ARTID = '"+artIDString+"' and Comment = '"+commentString+"' and Email = '"+emailString+"'");
         string recentID = "placeholder";
         do {
-            res.reset(stmt->getResultSet());
+            res.reset(stmt2->getResultSet());
             while (res->next()) {
                recentID = res->getString("CommentID");
                cout << "recentID : " << recentID << endl;
             }
-            }while (stmt ->getMoreResults());
+            }while (stmt2 ->getMoreResults());
         
         const char *path="/3lab";
         ofstream recentCommentFile(path);
