@@ -66,7 +66,7 @@ int main()
     string output = "";
     
     vector<Friend> list;
-    stmt->execute("SELECT friendID FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
+    stmt->execute("SELECT * FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
@@ -74,8 +74,8 @@ int main()
                 list.push_back(entry);
             }
         }while (stmt ->getMoreResults());
-     
-     if (list.size() != 0)
+     cout << "list.size(): " << list.size() << endl;
+     if (list.size() > 0)
      {
             output += "You already have added that profile";
      }
