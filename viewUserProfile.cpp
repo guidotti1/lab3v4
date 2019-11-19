@@ -66,7 +66,7 @@ int main()
     con2->setSchema(database);
     std::auto_ptr<sql::Statement> stmt2(con2->createStatement());
     std::auto_ptr< sql::ResultSet > res2;
-    cout << "EMAIL IS : " << emailString << endl;
+    //cout << "EMAIL IS : " << emailString << endl;
     string output = "";
     output += emailString +"®";
     vector<string> artIDS;
@@ -140,7 +140,7 @@ int main()
              }
         }while (stmt ->getMoreResults());
     
-    for (int i = 0; i <upvotedArt.size(); i++)
+    for (int i = 0; i <downvotedArt.size(); i++)
     {
             stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
             do {
