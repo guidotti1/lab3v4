@@ -53,7 +53,7 @@ int main()
     
     istringstream iss (lastcommentString);
     iss >> lastCommentInt;
-    int fiveCommentsAgoInt = lastComment - 5;
+    int fiveCommentsAgoInt = lastCommentInt - 5;
     stringstream ss;
     ss << fiveCommentsAgoInt;
     string fiveCommentsAgoString = ss.str();
