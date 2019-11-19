@@ -66,7 +66,7 @@ int main()
     string output = "";
     
     vector<Friend> list;
-    stmt->execute("SELECT friendID ARTID FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
+    stmt->execute("SELECT friendID FROM Friends WHERE sendEmail = '"+sendString+"' and receiveEmail = '"+receiveString+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
