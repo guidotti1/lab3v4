@@ -7,7 +7,6 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <stringstream> 
 
 // Stuff for AJAX
 #include "cgicc/Cgicc.h"
