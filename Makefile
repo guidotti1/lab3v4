@@ -77,7 +77,7 @@ PutCGI: artApp
 	cp userVote /usr/lib/cgi-bin/$(USER)_userVote.cgi
 	cp viewUserProfile /usr/lib/cgi-bin/$(USER)_viewUserProfile.cgi
 	cp userFriends /usr/lib/cgi-bin/$(USER)_userFriends.cgi
-	cp userFriends /usr/lib/cgi-bin/$(USER)_getRecent.cgi
+	cp getRecent /usr/lib/cgi-bin/$(USER)_getRecent.cgi
 
 
 	echo "Current contents of your cgi-bin directory: "
