@@ -44,7 +44,8 @@ int main()
 
     form_iterator lastcomment = cgi.getElement("lastcomment");
     string lastcommentString = **lastcomment;
-    
+        cout << "Content-Type: text/plain\n\n";
+    cout << "123123123123 " << endl;
     
     int lastCommentInt;
     istringstream iss (lastcommentString);
@@ -54,8 +55,7 @@ int main()
     ss << fiveCommentsAgoInt;
     string fiveCommentsAgoString = ss.str();
 
-    cout << "Content-Type: text/plain\n\n";
-    cout << "123123123123 " << endl;
+
     sql::Driver* driver = sql::mysql::get_driver_instance();
     std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
     con->setSchema(database);
