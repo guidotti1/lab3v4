@@ -7,6 +7,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <stringstream> 
 
 // Stuff for AJAX
 #include "cgicc/Cgicc.h"
@@ -44,7 +45,7 @@ int main()
 
     form_iterator lastcomment = cgi.getElement("lastcomment");
     string lastcommentString = **lastcomment;
-        cout << "Content-Type: text/plain\n\n";
+    cout << "Content-Type: text/plain\n\n";
     cout << "123123123123 " << endl;
     
     int lastCommentInt;
