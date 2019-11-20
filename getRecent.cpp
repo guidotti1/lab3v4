@@ -47,7 +47,7 @@ int main()
     string lastcommentString = **lastcomment;
     cout << "Content-Type: text/plain\n\n";
     cout << "123123123123 " << endl;
-    
+    exit(0);
     int lastCommentInt;
     istringstream iss (lastcommentString);
     iss >> lastCommentInt;
