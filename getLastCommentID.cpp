@@ -46,7 +46,7 @@ int main()
     string lastcommentString = **lastcomment;
     cout << "Content-Type: text/plain\n\n";
 
-    string commentIDZero = "0";
+    string commentIDZero = lastcommentString;
 
 
     sql::Driver* driver = sql::mysql::get_driver_instance();
