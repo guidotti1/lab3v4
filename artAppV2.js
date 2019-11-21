@@ -364,7 +364,7 @@ function processRecent(results)
 	$("#RecentDislikes").empty();
 	console.log("Results for processRecent: "+results);
 	var  a = results.split("®"); //break up username we are looking at, comments and votes
-	var commentsString = a[0];
+	var commentsString = a[1];
 	console.log("a[0] :"+a[0]);
 	console.log("a[1] :"+a[1]);
 	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
