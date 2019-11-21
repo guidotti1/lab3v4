@@ -18,6 +18,14 @@ $(document).ready(function () {
     $("#LogOutBtnFriends").hide();
     $("#LogOutRecentPage").hide();
     $("#AddFriendBtn").hide();
+	
+    $.ajax({
+	url: '/cgi-bin/guidotti1_getLastCommentID.cgi?lastcomment='+0,
+	dataType: 'text',
+	success: initLastCommentId,
+	error: function(){alert("Error: Something went wrong");}
+     });
+	
     $("#LogOutBtnView").click(function()
 	{
 	    userLogOut();
@@ -202,10 +210,16 @@ $(document).ready(function () {
 
 changeOperation(operation);
 
+/*
 function processRecent(results)
 {
 	console.log("processRecent!");
 	console.log("Process recent results : "+results);
+}
+*/
+function initLastCommentId(results)
+{
+	lastCommentId = results;
 }
 
 function processAddFriends(results)
@@ -341,6 +355,96 @@ function viewProfile(results)
     			});
 	}
 }
+
+function processRecent(results)
+{
+	$("#RecentComments").empty();
+	$("#RecentLikes").empty();
+	$("#RecentDislikes").empty();
+	console.log("Results for viewProfile"+results);
+	var  a = results.split("®"); //break up username we are looking at, comments and votes
+	var commentsString = a[0];
+	console.log("a[0] :"+a[0]);
+	console.log("a[1] :"+a[1]);
+	var commentsSeparated = commentsString.split("‰"); //break up comments by painting 
+	//handles all comments for the user
+	for (var i = 0; i < commentsSeparated.length - 1; i++)
+	{
+		var artComments = commentsSeparated[i].split("^");
+		var artistLastname = artComments[1];
+		var artistFirstname = artComments[2];
+		var artURL = artComments[3];
+		var artTitle = artComments[4];
+		appendFigure = "<figure class='figure'>";
+		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
+        	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
+		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
+        	appendFigure += "</figure>";
+		$("#RecentComments").append(appendFigure);
+		$('#RecentComments').append("<h4> Comments for this piece of art <\h4>");
+		$('#RecentComments').append("<div class='media'>");
+		
+		for (var j = 5; j < artComments.length; j++)
+		{	
+			appendDiv = "<div class='media-body'>";
+			appendDiv += artComments[j];
+			appendDiv += "</div>";
+			$('#RecentComments').append(appendDiv);
+		}	
+		$('#RecentComments').append("</div>");	
+	}
+	/*
+	//handles all votes (upvotes and downvotes) for the user
+	var votesString = a[2];
+	var votesTypeSeparated = votesString.split("µ");
+	var upvotes = votesTypeSeparated[0];
+	var u = upvotes.split("^");
+	for (var i = 1; i < u.length-1; i+=4)
+	{
+		var artistLastname = u[i];
+		var artistFirstname = u[i+1];
+		var artURL = u[i+2];
+		var artTitle = u[i+3];
+		console.log("lastname: "+artistLastname);
+		console.log("firstname: "+artistFirstname);
+		console.log("url: "+artURL);
+		console.log("title: "+artTitle);
+		appendFigure = "<figure class='figure'>";
+		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
+        	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
+		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
+        	appendFigure += "</figure>";
+		$("#UsersLikes").append(appendFigure);
+	}
+		
+	var downvotes = votesTypeSeparated[1];
+	var d = downvotes.split("^");
+	for (var i = 1; i < d.length-1; i+=4)
+	{
+		var artistLastname = d[i];
+		var artistFirstname = d[i+1];
+		var artURL = d[i+2];
+		var artTitle = d[i+3];
+		appendFigure = "<figure class='figure'>";
+		appendFigure += "<img src='"+artURL+"' class='img-fluid' alt='Responsive image'>";
+        	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
+		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
+        	appendFigure += "</figure>";
+		$("#UsersDislikes").append(appendFigure);
+	}
+	if (email !== currentUsername)
+	{	
+		type = "check";
+			$.ajax({
+			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+currentUsername+'&type='+type,
+			dataType: 'text',
+			success: checkFriend,
+			error: function(){alert("Error: Something went wrong");}
+    			});
+	}
+	*//
+}
+
 
 function checkFriend(results)
 {
