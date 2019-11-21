@@ -116,8 +116,10 @@ int main()
     
             output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
     
-    /*
+    
             string voterIDZero = "0";
+            cout << "First voteID request " << endl;
+            cout << "SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'" << endl;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
             string voteID = " ";
              do {
@@ -138,6 +140,8 @@ int main()
     
 
             vector<string> upvotedArt;
+            cout << "Upvote art request " << endl;
+            cout << "SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'" << endl;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
             do {
                      res.reset(stmt->getResultSet());
@@ -148,6 +152,8 @@ int main()
 
             for (int i = 0; i <upvotedArt.size(); i++)
             {
+                    cout << "Nested upvoted art request " << endl;
+                    cout << "SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'" << endl;
                     stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
                     do {
                      res.reset(stmt->getResultSet());
@@ -164,6 +170,8 @@ int main()
 
 
             vector<string> downvotedArt;
+            cout << "Downvoted art request " << endl; 
+            cout << "SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'" << endl;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
             do {
                      res.reset(stmt->getResultSet());
@@ -174,6 +182,8 @@ int main()
 
             for (int i = 0; i <downvotedArt.size(); i++)
             {
+                    cout << "Nested downvoted art request " << endl;
+                    cout << "SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'" << endl;
                     stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
                     do {
                      res.reset(stmt->getResultSet());
@@ -186,7 +196,7 @@ int main()
                      }
                     }while (stmt ->getMoreResults());
             }
-            */
+            
     cout << output << endl;
           
     return 0;
