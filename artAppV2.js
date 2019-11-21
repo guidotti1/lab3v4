@@ -394,7 +394,7 @@ function processRecent(results)
 		}	
 		$('#RecentComments').append("</div>");	
 	}
-	/*
+	
 	//handles all votes (upvotes and downvotes) for the user
 	var votesString = a[2];
 	var votesTypeSeparated = votesString.split("µ");
@@ -415,7 +415,7 @@ function processRecent(results)
         	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
-		$("#UsersLikes").append(appendFigure);
+		$("#RecentLikes").append(appendFigure);
 	}
 		
 	var downvotes = votesTypeSeparated[1];
@@ -431,19 +431,9 @@ function processRecent(results)
         	appendFigure += "<figcaption class='figure-caption text-right'>'"+artTitle+"'</figcaption>";
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
-		$("#UsersDislikes").append(appendFigure);
+		$("#RecentDislikes").append(appendFigure);
 	}
-	if (email !== currentUsername)
-	{	
-		type = "check";
-			$.ajax({
-			url: '/cgi-bin/guidotti1_userFriends.cgi?send='+email+'&receive='+currentUsername+'&type='+type,
-			dataType: 'text',
-			success: checkFriend,
-			error: function(){alert("Error: Something went wrong");}
-    			});
-	}
-	*/
+
 }
 
 
