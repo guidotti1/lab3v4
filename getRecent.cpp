@@ -45,7 +45,6 @@ int main()
     form_iterator lastcomment = cgi.getElement("lastcomment");
     string lastcommentString = **lastcomment;
     cout << "Content-Type: text/plain\n\n";
-    cout << "123123123123 " << endl;
     //exit(0);
     int lastCommentInt;
     istringstream iss (lastcommentString);
@@ -65,8 +64,7 @@ int main()
     string output = "";
 
     vector<string> artIDS;
-    //cout << "the request we are making : " << endl;
-    //cout << "SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'" << endl;
+
     stmt->execute("SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
     do {
             res.reset(stmt->getResultSet());
@@ -75,13 +73,7 @@ int main()
             }
         }while (stmt ->getMoreResults());
     
-    /*
-     for (int i = 0; i < artIDS.size(); i++)
-     {
-         cout << "artIDS[i] : " << artIDS[i] << endl;
-     }
-      */   
-    
+
     
     for (int i =0; i < artIDS.size(); i++)
          {
@@ -107,7 +99,6 @@ int main()
                 }while (stmt ->getMoreResults());
              output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
           }
-    cout << "Sending output " << endl;
     cout << output << endl;
           
     return 0;
