@@ -395,6 +395,7 @@ function processRecent(results)
 		$('#RecentComments').append("</div>");	
 	}
 	
+	/*
 	//handles all votes (upvotes and downvotes) for the user
 	var votesString = a[0];
 	var votesTypeSeparated = votesString.split("µ");
@@ -433,6 +434,7 @@ function processRecent(results)
         	appendFigure += "</figure>";
 		$("#RecentDislikes").append(appendFigure);
 	}
+	*/
 
 }
 
