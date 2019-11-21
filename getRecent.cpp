@@ -81,7 +81,7 @@ int main()
          {
             string nextCommentString;
             stringstream ss2;
-            ss2 << lastCommentInt;
+            ss2 << nextCommentInt;
             nextCommentString = ss2.str();
         
             cout << "first request being made " << endl;
