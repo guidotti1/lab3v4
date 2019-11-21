@@ -66,7 +66,7 @@ int main()
 
     vector<string> artIDS;
     cout << "the request we are making : " << endl;
-    cout << "SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'" << endl;
+    cout << "SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'" << endl;
     stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
     do {
             res.reset(stmt->getResultSet());
@@ -75,12 +75,36 @@ int main()
             }
         }while (stmt ->getMoreResults());
     
+    /*
      for (int i = 0; i < artIDS.size(); i++)
      {
          cout << "artIDS[i] : " << artIDS[i] << endl;
      }
-         
+      */   
+    for (int i =0; i < artIDS.size(); i++)
+         {
+             stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
+             do {
+                 res.reset(stmt->getResultSet());
+                 while (res->next()) {
+                    string first, last;
+                    stringstream nameStream(res->getString("Author"));
+                    getline(nameStream, last, ',');
+                    getline(nameStream, first);
+                    output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
 
+                 }
+                }while (stmt ->getMoreResults());
+
+             stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
+             do {
+                 res.reset(stmt->getResultSet());
+                 while (res->next()) {
+                    output += "^" + res->getString("Comment");
+                 }
+                }while (stmt ->getMoreResults());
+             output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
+          }
     return 0;
 }
 
