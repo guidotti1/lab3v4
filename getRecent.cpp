@@ -63,7 +63,7 @@ int main()
     std::auto_ptr<sql::Statement> stmt(con->createStatement());
     std::auto_ptr< sql::ResultSet > res;
 
-    string output = "";
+    string output = "®";
 
     vector<string> artIDS;
 
@@ -84,8 +84,8 @@ int main()
             ss2 << nextCommentInt;
             nextCommentString = ss2.str();
         
-            cout << "first request being made " << endl;
-            cout << "SELECT * FROM art where ARTID = '"+artIDS[i]+"'" << endl;
+            //cout << "first request being made " << endl;
+            //cout << "SELECT * FROM art where ARTID = '"+artIDS[i]+"'" << endl;
             stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
             do {
                  res.reset(stmt->getResultSet());
@@ -99,8 +99,8 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
 
-             cout << "second request being made " << endl;
-             cout << "SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'" << endl;
+             //cout << "second request being made " << endl;
+             //cout << "SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'" << endl;
              stmt->execute("SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
