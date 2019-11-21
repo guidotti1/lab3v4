@@ -65,9 +65,9 @@ int main()
     string output = "";
 
     vector<string> artIDS;
-    cout << "the request we are making : " << endl;
-    cout << "SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'" << endl;
-    stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
+    //cout << "the request we are making : " << endl;
+    //cout << "SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'" << endl;
+    stmt->execute("SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
