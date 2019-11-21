@@ -81,6 +81,8 @@ int main()
          cout << "artIDS[i] : " << artIDS[i] << endl;
      }
       */   
+    
+    /*
     for (int i =0; i < artIDS.size(); i++)
          {
              stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
@@ -96,7 +98,7 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
 
-             stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
+             //stmt->execute("SELECT * FROM comments where Email = '"+emailString+"' AND ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
                  while (res->next()) {
@@ -105,6 +107,7 @@ int main()
                 }while (stmt ->getMoreResults());
              output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
           }
+          */
     return 0;
 }
 
