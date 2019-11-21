@@ -219,6 +219,7 @@ function processRecent(results)
 */
 function initLastCommentId(results)
 {
+	console.log("initLastCommentID results : "+results);
 	lastCommentId = results;
 }
 
