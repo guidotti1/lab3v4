@@ -93,7 +93,7 @@ PutCGI: artApp
 
 PutHTML:
 	cp artApp.html /var/www/html/class/softdev/$(USER)/artApp3
-	cp artApp.js /var/www/html/class/softdev/$(USER)/artApp3
+	cp artAppV2.js /var/www/html/class/softdev/$(USER)/artApp3
 	cp artApp.css /var/www/html/class/softdev/$(USER)/artApp3
 
 
