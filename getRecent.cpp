@@ -116,6 +116,7 @@ int main()
     
             output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
     
+    /*
             string voterIDZero = "0";
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
             string voteID = " ";
@@ -185,6 +186,7 @@ int main()
                      }
                     }while (stmt ->getMoreResults());
             }
+            */
     cout << output << endl;
           
     return 0;
