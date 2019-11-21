@@ -67,7 +67,7 @@ int main()
 
     vector<string> artIDS;
 
-    stmt->execute("SELECT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
+    stmt->execute("SELECT DISTINCT ARTID FROM comments WHERE CommentID >= '"+fiveCommentsAgoString+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
