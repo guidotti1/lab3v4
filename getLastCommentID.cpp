@@ -58,8 +58,8 @@ int main()
     string output = "";
 
     vector<string> commentIDS;
-    cout << "the request we are making : " << endl;
-    cout << "SELECT CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'" << endl;
+    //cout << "the request we are making : " << endl;
+    //cout << "SELECT CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'" << endl;
     stmt->execute("SELECT CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'");
     do {
             res.reset(stmt->getResultSet());
@@ -67,12 +67,13 @@ int main()
                 commentIDS.push_back(res->getString("CommentID"));
             }
         }while (stmt ->getMoreResults());
-    
+    /*
 
     for (int i = 0 ; i< commentIDS.size(); i++)
     {
         cout << "CommentIDS[i] : " << commentIDS[i] << endl;
     }
+    */
 
     output += commentIDS[commentIDS.size()-1];
     cout << output << endl;
