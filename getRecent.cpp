@@ -85,7 +85,7 @@ int main()
             nextCommentString = ss2.str();
         
             cout << "first request being made " << endl;
-            cout << "SELECT * FROM art where ARTID = '"+artIDS[i]+"'" << endll
+            cout << "SELECT * FROM art where ARTID = '"+artIDS[i]+"'" << endl;
             stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
             do {
                  res.reset(stmt->getResultSet());
