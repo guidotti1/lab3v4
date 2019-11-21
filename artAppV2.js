@@ -362,7 +362,7 @@ function processRecent(results)
 	$("#RecentComments").empty();
 	$("#RecentLikes").empty();
 	$("#RecentDislikes").empty();
-	console.log("Results for viewProfile"+results);
+	console.log("Results for processRecent: "+results);
 	var  a = results.split("®"); //break up username we are looking at, comments and votes
 	var commentsString = a[0];
 	console.log("a[0] :"+a[0]);
