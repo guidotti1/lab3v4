@@ -163,7 +163,7 @@ int main()
 
 
             vector<string> downvotedArt;
-            stmt->execute("SELECT voteID FROM votes where voteID = '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
+            stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
             do {
                      res.reset(stmt->getResultSet());
                      while (res->next()) {
