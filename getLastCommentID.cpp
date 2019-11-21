@@ -60,7 +60,7 @@ int main()
     vector<string> commentIDS;
     cout << "the request we are making : " << endl;
     cout << "SELECT CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'" << endl;
-    stmt->execute("SELECT  ARTID FROM comments WHERE CommentID >= '"+commentIDZero+"'");
+    stmt->execute("SELECT  CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'");
     do {
             res.reset(stmt->getResultSet());
             while (res->next()) {
