@@ -113,6 +113,77 @@ int main()
            
              nextCommentInt++;
           }
+    
+            output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
+    
+            string voterIDZero = "0";
+            stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
+             do {
+                 res.reset(stmt->getResultSet());
+                 while (res->next()) {
+                    string voteID  = res->getString("voteID");
+                 }
+                }while (stmt ->getMoreResults());
+    
+            int voteIDInt;
+            istringstream iss2 (voteID);
+            iss2 >> voteIDInt;
+            int FiveVoteIDAgoInt = voteIDInt - 5;
+            stringstream ss3;
+            ss3 << FiveVoteIDAgoInt;
+            string fiveVotesAgoString = ss3.str();
+            
+    
+
+            vector<string> upvotedArt;
+            stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
+            do {
+                     res.reset(stmt->getResultSet());
+                     while (res->next()) {
+                       upvotedArt.push_back(res->getString("ARTID"));
+                     }
+                }while (stmt ->getMoreResults());
+
+            for (int i = 0; i <upvotedArt.size(); i++)
+            {
+                    stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
+                    do {
+                     res.reset(stmt->getResultSet());
+                     while (res->next()) {
+                        string first, last;
+                        stringstream nameStream(res->getString("Author"));
+                        getline(nameStream, last, ',');
+                        getline(nameStream, first);
+                        output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+                     }
+                    }while (stmt ->getMoreResults());
+            }
+            output += "µ"; //CHARACTER SIGNIFIES END OF UPVOTES
+
+
+            vector<string> downvotedArt;
+            stmt->execute("SELECT voteID FROM votes where voteID = '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
+            do {
+                     res.reset(stmt->getResultSet());
+                     while (res->next()) {
+                       downvotedArt.push_back(res->getString("ARTID"));
+                     }
+                }while (stmt ->getMoreResults());
+
+            for (int i = 0; i <downvotedArt.size(); i++)
+            {
+                    stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
+                    do {
+                     res.reset(stmt->getResultSet());
+                     while (res->next()) {
+                        string first, last;
+                        stringstream nameStream(res->getString("Author"));
+                        getline(nameStream, last, ',');
+                        getline(nameStream, first);
+                        output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+                     }
+                    }while (stmt ->getMoreResults());
+            }
     cout << output << endl;
           
     return 0;
