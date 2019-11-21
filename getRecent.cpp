@@ -80,12 +80,12 @@ int main()
     for (int i =0; i < artIDS.size(); i++)
          {
             string nextCommentString;
-            
             stringstream ss2;
             ss2 << lastCommentInt;
-            string  nextCommentString = ss2.str();
-             stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
-             do {
+            nextCommentString = ss2.str();
+        
+            stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
+            do {
                  res.reset(stmt->getResultSet());
                  while (res->next()) {
                     string first, last;
