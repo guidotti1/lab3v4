@@ -19,15 +19,15 @@ $(document).ready(function () {
     $("#LogOutRecentPage").hide();
     $("#AddFriendBtn").hide();
 	
-     if (typeof initLastCommentId === "undefined")
-	{
+     //if (typeof initLastCommentId === "undefined")
+	//{
 		    $.ajax({
 	url: '/cgi-bin/guidotti1_getLastCommentID.cgi?lastcomment='+0,
 	dataType: 'text',
 	success: initLastCommentId,
 	error: function(){alert("Error: Something went wrong");}
      });
-	 }
+	// }
 
 	
     $("#LogOutBtnView").click(function()
