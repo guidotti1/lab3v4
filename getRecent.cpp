@@ -109,6 +109,8 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
              output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
+             
+           
              nextCommentInt++;
           }
     cout << output << endl;
