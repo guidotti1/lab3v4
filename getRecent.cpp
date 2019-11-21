@@ -84,8 +84,6 @@ int main()
             ss2 << nextCommentInt;
             nextCommentString = ss2.str();
         
-            //cout << "first request being made " << endl;
-            //cout << "SELECT * FROM art where ARTID = '"+artIDS[i]+"'" << endl;
             stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
             do {
                  res.reset(stmt->getResultSet());
@@ -99,8 +97,6 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
 
-             //cout << "second request being made " << endl;
-             //cout << "SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'" << endl;
              stmt->execute("SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
@@ -118,8 +114,6 @@ int main()
     
     
             string voterIDZero = "0";
-            cout << "First voteID request " << endl;
-            cout << "SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'" << endl;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
             string voteID = " ";
              do {
@@ -140,8 +134,6 @@ int main()
     
 
             vector<string> upvotedArt;
-            cout << "Upvote art request " << endl;
-            cout << "SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'" << endl;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
             do {
                      res.reset(stmt->getResultSet());
@@ -170,8 +162,6 @@ int main()
 
 
             vector<string> downvotedArt;
-            cout << "Downvoted art request " << endl; 
-            cout << "SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'" << endl;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
             do {
                      res.reset(stmt->getResultSet());
