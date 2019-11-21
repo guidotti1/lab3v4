@@ -84,6 +84,8 @@ int main()
             ss2 << lastCommentInt;
             nextCommentString = ss2.str();
         
+            cout << "first request being made " << endl;
+            cout << "SELECT * FROM art where ARTID = '"+artIDS[i]+"'" << endll
             stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
             do {
                  res.reset(stmt->getResultSet());
@@ -97,6 +99,8 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
 
+             cout << "second request being made " << endl;
+             cout << "SELECT * FROM comments where CommentID = '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'" << endl;
              stmt->execute("SELECT * FROM comments where CommentID = '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
