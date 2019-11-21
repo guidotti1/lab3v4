@@ -146,7 +146,7 @@ int main()
             do {
                      res.reset(stmt->getResultSet());
                      while (res->next()) {
-                       upvotedArt.push_back(res->getString("ARTID"));
+                       upvotedArt.push_back(res->getString("voteID"));
                      }
                 }while (stmt ->getMoreResults());
 
@@ -176,7 +176,7 @@ int main()
             do {
                      res.reset(stmt->getResultSet());
                      while (res->next()) {
-                       downvotedArt.push_back(res->getString("ARTID"));
+                       downvotedArt.push_back(res->getString("voteID"));
                      }
                 }while (stmt ->getMoreResults());
 
