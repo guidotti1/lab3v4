@@ -396,7 +396,7 @@ function processRecent(results)
 	}
 	
 	//handles all votes (upvotes and downvotes) for the user
-	var votesString = a[1];
+	var votesString = a[0];
 	var votesTypeSeparated = votesString.split("µ");
 	var upvotes = votesTypeSeparated[0];
 	var u = upvotes.split("^");
