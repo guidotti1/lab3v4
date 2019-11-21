@@ -100,8 +100,8 @@ int main()
                 }while (stmt ->getMoreResults());
 
              cout << "second request being made " << endl;
-             cout << "SELECT * FROM comments where CommentID = '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'" << endl;
-             stmt->execute("SELECT * FROM comments where CommentID = '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'");
+             cout << "SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'" << endl;
+             stmt->execute("SELECT * FROM comments where CommentID >= '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
                  while (res->next()) {
