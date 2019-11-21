@@ -118,10 +118,11 @@ int main()
     
             string voterIDZero = "0";
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
+            string voteID = " ";
              do {
                  res.reset(stmt->getResultSet());
                  while (res->next()) {
-                    string voteID  = res->getString("voteID");
+                    voteID  = res->getString("voteID");
                  }
                 }while (stmt ->getMoreResults());
     
