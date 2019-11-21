@@ -53,6 +53,8 @@ int main()
     stringstream ss;
     ss << fiveCommentsAgoInt;
     string fiveCommentsAgoString = ss.str();
+    
+
 
 
     sql::Driver* driver = sql::mysql::get_driver_instance();
@@ -74,9 +76,14 @@ int main()
         }while (stmt ->getMoreResults());
     
 
-    
+    int nextCommentInt =fiveCommentsAgoInt;
     for (int i =0; i < artIDS.size(); i++)
          {
+            string nextCommentString;
+            
+            stringstream ss2;
+            ss2 << lastCommentInt;
+            string  nextCommentString = ss2.str();
              stmt->execute("SELECT * FROM art where ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
@@ -90,7 +97,7 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
 
-             stmt->execute("SELECT * FROM comments where CommentID >= '"+fiveCommentsAgoString+"' AND ARTID = '"+artIDS[i]+"'");
+             stmt->execute("SELECT * FROM comments where CommentID = '"+nextCommentString+"' AND ARTID = '"+artIDS[i]+"'");
              do {
                  res.reset(stmt->getResultSet());
                  while (res->next()) {
@@ -98,6 +105,7 @@ int main()
                  }
                 }while (stmt ->getMoreResults());
              output += "‰"; //CHARAACTER SIGNIFIES END OF COMMENTS FOR THE GIVEN USERNAME FOR A SPECIFIC PAINTING
+             nextCommentInt++;
           }
     cout << output << endl;
           
