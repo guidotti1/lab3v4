@@ -298,12 +298,12 @@ function viewProfile(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#UsersComments").append(appendFigure);
-		$('#UsersComments').append("<h4 style=#212121> Comments for this piece of art </h4>");
+		$('#UsersComments').append("<h4 > Comments for this piece of art </h4>");
 		$('#UsersComments').append("<div class='media'>");
 		
 		for (var j = 5; j < artComments.length; j++)
 		{	
-			appendDiv = "<div class='media-body' style=#212121>";
+			appendDiv = "<div class='media-body'>";
 			appendDiv += artComments[j];
 			appendDiv += "</div>";
 			$('#UsersComments').append(appendDiv);
@@ -386,12 +386,12 @@ function processRecent(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#RecentComments").append(appendFigure);
-		$('#RecentComments').append("<h4> Comments for this piece of art style='#212121' <\h4>");
+		$('#RecentComments').append("<h4> Comments for this piece of art<\h4>");
 		$('#RecentComments').append("<div class='media'>");
 		
 		for (var j = 5; j < artComments.length; j++)
 		{	
-			appendDiv = "<div class='media-body' style='#212121'>";
+			appendDiv = "<div class='media-body'>";
 			appendDiv += artComments[j];
 			appendDiv += "</div>";
 			$('#RecentComments').append(appendDiv);
@@ -696,8 +696,8 @@ function viewVotes(results)
 {
 	var a = results.split("^");
 	var aLen = a.length;
-	appendH3= "<h3 class='text-center' style='#212121'>User votes</h3>";
-	appendH5 = "<h5 class ='text-center' style='#212121'>Total upvotes : "+a[1]+" Total downvotes : "+a[2]+"</h5";
+	appendH3= "<h3 class='text-center'>User votes</h3>";
+	appendH5 = "<h5 class ='text-center'>Total upvotes : "+a[1]+" Total downvotes : "+a[2]+"</h5";
 	$('#Comments').append(appendH3);
 	$('#Comments').append(appendH5);
 }
@@ -744,7 +744,7 @@ function viewComments(results)
 	console.log("Results are :"+results);
 	var a = results.split("^");
 	var aLen = a.length;
-	appendH3= "<h3 class='text-center' style='#212121' >Comments</h3>";
+	appendH3= "<h3 class='text-center'>Comments</h3>";
 	$('#Comments').append(appendH3);
 	for (var i = 1; i < aLen; i+=2) {
 		appendDiv = "<div class='media'>";
