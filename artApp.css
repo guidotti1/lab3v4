@@ -80,6 +80,10 @@ h2,h4 {
   padding-right:30px;
 }
 
+div.results
+{
+ background-color: #808080;
+}
 
 tr:hover {background-color: #414141}
 
