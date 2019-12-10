@@ -570,7 +570,7 @@ function buildTable(list) {
     } else if (a.length == 1) {
 	return "<h3>Nothing Found</h3>";
     } else {
-	var result = '<table class="w3-table-all w3-hoverable" border="0"><tr><th>Last</th><th>First</th><th>Born-Died</th><th>Title</th><th>Date</th><th>Technique</th><th>Location</th><th>URL</th><th>Form</th><th>Type</th><th>School</th><th>Timeframe</th><th>View Art</th><tr>';
+	var result = '<table class="w3-table-all w3-hoverable" border="0"><tr><th>Last</th><th>First</th><th>Title</th><th>URL</th><th>View Art</th><tr>';
 	var aLen = a.length;
 	for (var i = 0; i < aLen-1; i+=13) {
 	    result += "<tr><td class='Last'>"+a[i]+"</td><td class='First'>"+a[i+1]+"</td><td class='Title'>"+a[i+3]+"</td>";
