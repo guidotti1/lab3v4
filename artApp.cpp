@@ -32,7 +32,7 @@ int main() {
   logfile << "Op:" << operation << endl;
   logfile.close();
   string output = "Error = "+operation+ " - Operation not support yet!";
-  if (operation == "Find Last") 
+  if (operation == "Search by last name") 
   {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
@@ -64,7 +64,7 @@ int main() {
     	}
   }
 
-  if (operation == "Find First") 
+  if (operation == "Search by first name") 
   {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
@@ -97,7 +97,7 @@ int main() {
     }
   }
 	
-  if (operation == "Find Title") 
+  if (operation == "Search by title") 
   {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
