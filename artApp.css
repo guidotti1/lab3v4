@@ -6,7 +6,8 @@ body {
 }
 
 h2,h4 {
-	fontcolor: #ffffff;
+	/*fontcolor: #ffffff;*/
+	fontcolor:  #212121; 
 	
 }
 
