@@ -298,12 +298,12 @@ function viewProfile(results)
 		appendFigure += "<figcaption class='figure-caption text-right'> by  "+artistFirstname+" "+artistLastname+" </figcaption>";
         	appendFigure += "</figure>";
 		$("#UsersComments").append(appendFigure);
-		$('#UsersComments').append("<h4 style='#212121'> Comments for this piece of art <\h4>");
+		$('#UsersComments').append("<h4 style=#212121> Comments for this piece of art </h4>");
 		$('#UsersComments').append("<div class='media'>");
 		
 		for (var j = 5; j < artComments.length; j++)
 		{	
-			appendDiv = "<div class='media-body' style='#212121'>";
+			appendDiv = "<div class='media-body' style=#212121>";
 			appendDiv += artComments[j];
 			appendDiv += "</div>";
 			$('#UsersComments').append(appendDiv);
