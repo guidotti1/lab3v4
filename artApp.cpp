@@ -23,7 +23,7 @@ string firstCharUpper(string s)
 	string returnS = s;
 	for (int i = 1; i < s.size(); i++)
 	{
-		returnS =  char(tolower(s[i]));
+		returnS[i] =  char(tolower(s[i]));
 	}
 	return returnS;
 }
