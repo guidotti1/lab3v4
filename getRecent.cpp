@@ -30,6 +30,15 @@
 using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 
+string firstCharUpper(string s)
+{
+	string returnS = s;
+	for (int i = 1; i < s.size(); i++)
+	{
+		returnS[i] =  char(tolower(s[i]));
+	}
+	return returnS;
+}
 
 
 int main()
@@ -92,7 +101,7 @@ int main()
                     stringstream nameStream(res->getString("Author"));
                     getline(nameStream, last, ',');
                     getline(nameStream, first);
-                    output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+                    output += "^" + firstCharUpper(last) + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
 
                  }
                 }while (stmt ->getMoreResults());
@@ -154,7 +163,7 @@ int main()
                         stringstream nameStream(res->getString("Author"));
                         getline(nameStream, last, ',');
                         getline(nameStream, first);
-                        output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+                        output += "^" + firstCharUpper(last) + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
                      }
                     }while (stmt ->getMoreResults());
             }
@@ -182,7 +191,7 @@ int main()
                         stringstream nameStream(res->getString("Author"));
                         getline(nameStream, last, ',');
                         getline(nameStream, first);
-                        output += "^" + last + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
+                        output += "^" + firstCharUpper(last) + "^" + first + "^" + res->getString("URL") + "^" + res->getString("Title");
                      }
                     }while (stmt ->getMoreResults());
             }
