@@ -6,9 +6,15 @@ body {
 	
 }
 
+figure 
+{
+	font-family: "Times New Roman", Times, serif;
+	color: #ffffff;
+}
+
 h2,h4 {
-	/*fontcolor: #ffffff;*/
-	fontcolor:  #212121; 
+	fontcolor: #ffffff;
+	//fontcolor:  #212121; 
 	
 }
 
