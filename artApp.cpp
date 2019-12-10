@@ -140,49 +140,108 @@ int main() {
     }
   }
 	
-	/*
-  if(operation=="Add Entry"){
-    form_iterator afnameString = cgi.getElement("afname");
-    form_iterator alnameString = cgi.getElement("alname");
-    form_iterator addphoneString = cgi.getElement("aphone");
-    form_iterator addtypeString = cgi.getElement("atype");
-
-    string addfname=**afnameString;
-    string addlname=**alnameString;
-    string addphone=**addphoneString;
-    string addtype=**addtypeString;
-
-    pb.addEntry(addfname,addlname,addphone,addtype);
-    output="success";
+  if (operation == "Search by form") 
+  {
+    form_iterator searchString = cgi.getElement("find");
+    string search = **searchString;
+    
+    abResults = ab.findByForm(search);
+    if (abResults.size() > 0)
+    	{
+	      //output = "success";
+	      output = "";
+	      for (int i = 0; i<abResults.size(); i++) 
+	      {
+	      	  output += firstCharUpper(abResults.at(i).last) + "^"
+		  + abResults.at(i).first + "^"
+		  + abResults.at(i).bornDied + "^"
+		  + abResults.at(i).title + "^"
+		  + abResults.at(i).date + "^"
+		  + abResults.at(i).technique + "^"
+		  + abResults.at(i).location + "^"
+		  + abResults.at(i).url + "^"
+		  + abResults.at(i).form + "^"
+		  + abResults.at(i).type + "^"
+		  + abResults.at(i).school + "^"
+		  + abResults.at(i).timeframe + "^"
+		  + abResults.at(i).ARTID + "^";
+      	     }
+    }
+  else 
+    {
+      	output = "No Match Found";
+    }
   }
-  
-  if(operation=="delete"){
-    form_iterator idtodeleteString = cgi.getElement("deleteid");
-    string iddelete=**idtodeleteString;
-
-    pb.deleteEntry(iddelete);
-    output="success";
+	
+  if (operation == "Search by school") 
+  {
+    form_iterator searchString = cgi.getElement("find");
+    string search = **searchString;
+    
+    abResults = ab.findBySchool(search);
+    if (abResults.size() > 0)
+    	{
+	      //output = "success";
+	      output = "";
+	      for (int i = 0; i<abResults.size(); i++) 
+	      {
+	      	  output += firstCharUpper(abResults.at(i).last) + "^"
+		  + abResults.at(i).first + "^"
+		  + abResults.at(i).bornDied + "^"
+		  + abResults.at(i).title + "^"
+		  + abResults.at(i).date + "^"
+		  + abResults.at(i).technique + "^"
+		  + abResults.at(i).location + "^"
+		  + abResults.at(i).url + "^"
+		  + abResults.at(i).form + "^"
+		  + abResults.at(i).type + "^"
+		  + abResults.at(i).school + "^"
+		  + abResults.at(i).timeframe + "^"
+		  + abResults.at(i).ARTID + "^";
+      	     }
+    }
+  else 
+    {
+      	output = "No Match Found";
+    }
   }
-  if(operation=="edit"){
-    form_iterator idtoeditString = cgi.getElement("editid");
-    string idedit=**idtoeditString;
-
-    form_iterator editfnameString = cgi.getElement("editfname");
-    form_iterator editlnameString = cgi.getElement("editlname");
-    form_iterator editphoneString = cgi.getElement("editphone");
-    form_iterator edittypeString = cgi.getElement("edittype");
-
-    string editfname=**editfnameString;
-    string editlname=**editlnameString;
-    string editphone=**editphoneString;
-    string edittype=**edittypeString;
-
-
-    pb.editEntry(idedit,editfname,editlname,editphone,edittype);
-    output="success";
+	
+  if (operation == "Search by type") 
+  {
+    form_iterator searchString = cgi.getElement("find");
+    string search = **searchString;
+    
+    abResults = ab.findByType(search);
+    if (abResults.size() > 0)
+    	{
+	      //output = "success";
+	      output = "";
+	      for (int i = 0; i<abResults.size(); i++) 
+	      {
+	      	  output += firstCharUpper(abResults.at(i).last) + "^"
+		  + abResults.at(i).first + "^"
+		  + abResults.at(i).bornDied + "^"
+		  + abResults.at(i).title + "^"
+		  + abResults.at(i).date + "^"
+		  + abResults.at(i).technique + "^"
+		  + abResults.at(i).location + "^"
+		  + abResults.at(i).url + "^"
+		  + abResults.at(i).form + "^"
+		  + abResults.at(i).type + "^"
+		  + abResults.at(i).school + "^"
+		  + abResults.at(i).timeframe + "^"
+		  + abResults.at(i).ARTID + "^";
+      	     }
+    }
+  else 
+    {
+      	output = "No Match Found";
+    }
   }
-  */
-  /* send back the results */
+	
+  	
+	
+
   cout << "Content-Type: text/plain\n\n";
 
   cout << output << endl;
