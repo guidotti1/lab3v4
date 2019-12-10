@@ -92,13 +92,13 @@ PutCGI: artApp
 	ls -l /usr/lib/cgi-bin/
 
 PutHTML:
-	cp artApp.html /var/www/html/class/softdev/$(USER)/artApp3
-	cp artAppV2.js /var/www/html/class/softdev/$(USER)/artApp3
-	cp artApp.css /var/www/html/class/softdev/$(USER)/artApp3
+	cp artApp.html /var/www/html/class/softdev/$(USER)/artApp4
+	cp artAppV2.js /var/www/html/class/softdev/$(USER)/artApp4
+	cp artApp.css /var/www/html/class/softdev/$(USER)/artApp4
 
 
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/class/softdev/$(USER)/artApp3
+	ls -l /var/www/html/class/softdev/$(USER)/artApp4
 
 clean:
 	rm -f *.o  artApp 
