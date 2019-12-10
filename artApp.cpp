@@ -18,6 +18,16 @@ using namespace cgicc; // Needed for AJAX functions.
 
 ofstream logfile; 
 
+string firstCharUpper(string s)
+{
+	string returnS = s;
+	for (int i = 1; i < s.size(); i++)
+	{
+		returnS =  char(tolower(s[i]));
+	}
+	return returnS;
+}
+
 int main() {
   Cgicc cgi;    // Ajax object
   char *cstr;
@@ -43,7 +53,7 @@ int main() {
 	      output = "";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output += abResults.at(i).last + "^"
+	      	  output += firstCharUpper(abResults.at(i).last) + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
 		  + abResults.at(i).title + "^"
@@ -76,7 +86,7 @@ int main() {
 	      output = "";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output +=  abResults.at(i).last + "^"
+	      	  output +=  firstCharUpper(abResults.at(i).last) + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
 		  + abResults.at(i).title + "^"
@@ -109,7 +119,7 @@ int main() {
 	      output = "";
 	      for (int i = 0; i<abResults.size(); i++) 
 	      {
-	      	  output += abResults.at(i).last + "^"
+	      	  output += firstCharUpper(abResults.at(i).last) + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
 		  + abResults.at(i).title + "^"
