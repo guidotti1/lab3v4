@@ -78,37 +78,77 @@ vector<artEntry> artBook::findByTitle(string findTitle)
   return list;
 
 }
-/*
-void PhoneBook::addEntry(string first,string last,string phone, string type){
-  sql::Driver* driver = sql::mysql::get_driver_instance();
-  std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
-  con->setSchema(database);
-  std::auto_ptr<sql::Statement> stmt(con->createStatement());
-  if(type != "Friend" && type != "Family" && type!="Business"){
-      type="Other";
-  }
-  stmt->execute("INSERT INTO Phonebook(First,Last,Phone,Type) VALUES ('"+first+"','"+last+"','"+phone+"','"+type+"')");
-}
 
-
-void PhoneBook::editEntry(string idnum,string first,string last,string phone, string type){
-  sql::Driver* driver = sql::mysql::get_driver_instance();
-  std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
-  con->setSchema(database);
-  std::auto_ptr<sql::Statement> stmt(con->createStatement());
-  if(type != "Friend" && type != "Family" && type!="Business"){
-    type="Other";
-  }
-  stmt->execute("UPDATE Phonebook SET First = '"+first+"', Last ='"+last+"', Phone ='"+phone+"', Type ='"+type+"' WHERE ID='"+idnum+"'");
-}
-
-
-void PhoneBook::deleteEntry(string idnum){
+vector<artEntry> artBook::findByType(string findType)
+{
   sql::Driver* driver = sql::mysql::get_driver_instance();
   std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
   con->setSchema(database);
   std::auto_ptr<sql::Statement> stmt(con->createStatement());
 
-  stmt->execute("DELETE FROM Phonebook WHERE ID='"+idnum+"'");
+  vector<artEntry> list;
+  stmt->execute("SELECT * FROM art WHERE Type like '%"+findType+"%'");
+  std::auto_ptr< sql::ResultSet > res;
+  do {
+    res.reset(stmt->getResultSet());
+    while (res->next()) {
+	    artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
+			   res->getString("Title"),res->getString("Date"),
+	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"), res->getString("ARTID"));
+	  list.push_back(entry);
+
+    }
+  } while (stmt->getMoreResults());
+  return list;
 }
-*/
+
+vector<artEntry> artBook::findByForm(string findForm)
+{
+  sql::Driver* driver = sql::mysql::get_driver_instance();
+  std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
+  con->setSchema(database);
+  std::auto_ptr<sql::Statement> stmt(con->createStatement());
+
+  vector<artEntry> list;
+  stmt->execute("SELECT * FROM art WHERE Form like '%"+findForm+"%'");
+  std::auto_ptr< sql::ResultSet > res;
+  do {
+    res.reset(stmt->getResultSet());
+    while (res->next()) {
+	    artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
+			   res->getString("Title"),res->getString("Date"),
+	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"), res->getString("ARTID"));
+	  list.push_back(entry);
+
+    }
+  } while (stmt->getMoreResults());
+  return list;
+
+}
+
+vector<artEntry> artBook::findBySchool(string findSchool)
+{
+  sql::Driver* driver = sql::mysql::get_driver_instance();
+  std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
+  con->setSchema(database);
+  std::auto_ptr<sql::Statement> stmt(con->createStatement());
+
+  vector<artEntry> list;
+  stmt->execute("SELECT * FROM art WHERE School like '%"+findSchool+"%'");
+  std::auto_ptr< sql::ResultSet > res;
+  do {
+    res.reset(stmt->getResultSet());
+    while (res->next()) {
+	    artEntry entry(res->getString("Author"),res->getString("Born-Diec"),
+			   res->getString("Title"),res->getString("Date"),
+	    res->getString("Technique"), res->getString("Location"), res->getString("URL"), 
+	    res->getString("Form"), res->getString("Type"), res->getString("School"), res->getString("Timeframe"), res->getString("ARTID"));
+	  list.push_back(entry);
+
+    }
+  } while (stmt->getMoreResults());
+  return list;
+
+}
