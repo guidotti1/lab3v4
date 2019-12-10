@@ -1,5 +1,6 @@
 body {
-	background-color: #212121;
+	//background-color: #212121;
+	 background-color: #000000;
 	font-family: "Times New Roman", Times, serif;
 	color: #ffffff;
 	
@@ -82,7 +83,7 @@ h2,h4 {
 
 div.results
 {
- background-color: #2F4F4F;
+	background-color: #212121;
 }
 
 tr:hover {background-color: #414141}
