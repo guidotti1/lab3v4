@@ -9,57 +9,78 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="artApp.css">
     
-    <title>Art App</title>
+    <title>ΛRT BΛBY</title>
   </head>
   <body>
  <div id = "Home">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "HomeNav">
-      <a class="navbar-brand" href="#">Art app</a>
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id ="HomeNav">
+      <a class="navbar-brand" href="#">Λ R T  B Λ B Y</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	 <div class="container">
+	 <div class="row">
+	 <div class="col">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
+	 <!-- <li class="nav-item active">
 	    <a class="nav-link" href="https://cslab.kenyon.edu">CS Lab <span class="sr-only">(current)</span></a>
-	  </li>
+	  </li>-->
+         <li class="nav-item active">
+            <a class="nav-link" href="#" id = "ReturnHomeBtnProfile">Home<span class="sr-only">(current)</span></a>
+      	 </li>
   	 <li class="nav-item active">
-	     <a class="nav-link" href="#" id = "ViewUserProfile">Your Profile<span class="sr-only">(current)</span></a>
-	  </li>
-	 <li class="nav-item active">
-	     <a class="nav-link" href="#" id = "ViewUserFriends">Your Friends<span class="sr-only">(current)</span></a>
-	  </li>
-	 <li class="nav-item active">
-	     <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
-	  </li>
-	  <li class="nav-item dropdown">
+	     <a class="nav-link" href="#" id = "ViewUserProfile">Profile<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserFriends">Friends<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	    <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item dropdown">
 	    <a class="nav-link dropdown-toggle selection" href="#" id="searchtype" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	      Find Last
+	      Advanced Search
 	    </a>
 	    <div class="main-menu dropdown-menu" aria-labelledby="navbarDropdown">
-	      <a class="main-menu dropdown-item" href="#">Find Last</a>
-	      <a class="main-menu dropdown-item" href="#">Find First</a>
-	      <a class="main-menu dropdown-item" href="#">Find Title</a>
+	      <a class="main-menu dropdown-item" href="#">Search by artist last name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by artist first name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by title of work</a>
 	    </div>
 	  </li>
 	</ul>
-        <p class="navbar-text" id = "LogInInfo"></p> 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtn" >Login! </button>
-        <button type="button" class="btn btn-primary" id = "LogOutBtnHome" >Log out!</button>
+	</div>
+	</div>
+	</div>
+	<p class="navbar-text" id = "LogInInfo"></p> 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtn" >Login</button>
+        <button type="button" class="btn btn-primary" id = "LogOutBtnHome" >Logout</button></div>
+	<div class="col">
 	<form class="form-inline my-2 my-lg-0">
-	  <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	  <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	  <input id="search" class="form-control mr-sm-2" type="search" placeholder="Ex: Gogh..." aria-label="Ex: Gogh...">
+	  <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Click to search</button>
 	</form>
-      </div>
-      </nav>
- 
-    <div class="jumbotron">
+	</div>
+	</nav>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
+<!-- SPACER SPACER RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -->
+<div class="container col-lg-12">
       <div class="container results">
 	<div id="searchresults"></div>
       </div>
-    </div>
   </div> 
+  </div>
 	  
   <div id="myModal" class="modal fade" role="dialog" style="display: none;">
    <div class="modal-dialog">
@@ -72,7 +93,7 @@
       </div>
       <div class="login-form ">
         <form >
-           <h2 class="text-center">Log in</h2>       
+           <h2 class="text-center">Login</h2>       
            <div class="form-group">
                <input id = "inputEmailLogin" type="text" class="form-control" placeholder="Username" required="required">
            </div>
@@ -80,7 +101,7 @@
                <input id = "inputPWLogin" type="password" class="form-control" placeholder="Password" required="required">
             </div>
             <div class="form-group" id = "UserLogInBtn">
-               <button type="submit" class="btn btn-primary btn-block">Log in</button>
+               <button type="submit" class="btn btn-primary btn-block">Click to login</button>
             </div>
 	    <!--
             <div class="clearfix">
@@ -89,7 +110,7 @@
             </div>
             -->        
          </form>
-      <p class="text-center"  id = "createAcct"><a href="#" data-page="CreateAccountPage"> Create Account </a></p>
+      <p class="text-center"  id = "createAcct"><a href="#" data-page="CreateAccountPage">Create account</a></p>
       </div>
      <div class="jumbotron">
        <div class="container results">
@@ -97,7 +118,7 @@
        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Dismiss</button>
       </div>
       </div>
 
@@ -107,7 +128,7 @@
   <div class="container page" id="CreateAccountPage" style="display:none;">
    <div class="login-form ">
         <form >
-           <h2 class="text-center">Create Account</h2>       
+           <h2 class="text-center">Create account</h2>       
            <div class="form-group">
                <input id = "inputEmailCreate" type="text" class="form-control" placeholder="Username" required="required">
            </div>
@@ -115,7 +136,7 @@
                <input id ="inputPWCreate" type="password" class="form-control" placeholder="Password" required="required">
             </div>
             <div class="form-group">
-               <button type="submit" class="btn btn-primary btn-block" id = "createAcctButton">Submit Information</button>
+               <button type="submit" class="btn btn-primary btn-block" id = "createAcctButton">Submit</button>
             </div>     
          </form>
       </div>
@@ -128,31 +149,56 @@
 	  
   <div class="container page" id="UserProfilePage" style="display:none;">
      <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "ViewArtNav">
-      <a class="navbar-brand" href="#">Art app</a>
+      <a class="navbar-brand" href="#">Λ R T  B Λ B Y</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
-	    <a class="nav-link" href="https://cslab.kenyon.edu">CS Lab <span class="sr-only">(current)</span></a>
-	  </li>
+	 <!-- <li class="nav-item active">
+	    <a class="nav-link" href="https://cslab.kenyon.edu"><span class="sr-only">(current)</span></a>
+	  </li>-->
          <li class="nav-item active">
-            <a class="nav-link" href="#" id = "ReturnHomeBtnProfile">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" id = "ReturnHomeBtnProfile">Home<span class="sr-only">(current)</span></a>
       	 </li>
+  	 <li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserProfile">Profile<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserFriends">Friends<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	    <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle selection" href="#" id="searchtype" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Advanced Search
+	    </a>
+	    <div class="main-menu dropdown-menu" aria-labelledby="navbarDropdown">
+	      <a class="main-menu dropdown-item" href="#">Search by artist last name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by artist first name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by title of work</a>
+	    </div>
+	  </li>
 	</ul>
         <p class="navbar-text" id = "LogInInfoProfilePage"></p> 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtnProfilePage" >Login! </button>
-        <button type="button" class="btn btn-primary" id = "LogOutProfilePage" >Log out!</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtnProfilePage" >Login</button>
+        <button type="button" class="btn btn-primary" id = "LogOutProfilePage" >Logout</button>
       </div>
+	<div class="col">
+	<form class="form-inline my-2 my-lg-0">
+	  <input id="search" class="form-control mr-sm-2" type="search" placeholder="Ex: Gogh..." aria-label="Ex: Gogh...">
+	  <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Click to search</button>
+	</form>
+	</div>
       </nav>
-      <h4 id = "PutUsernameHere"> </h4> 
-      <button type="button" class="btn btn-primary" id = "AddFriendBtn" >Add as friend!</button>
+      <h4 id = "PutUsernameHere">spacer</h4> 
+      <button type="button" class="btn btn-primary" id = "AddFriendBtn" >Add as friend</button>
       <div class="row">
       
     	<div class="col-sm-6">
-	 <h4> Comments </h4>
+	 <h5>Comments</h5>
     	   <div class="jumbotron">
              <div class="container results">
 	       <div id="UsersComments"></div>
@@ -160,13 +206,13 @@
 	   </div>
          </div>
 	<div class="col-sm-6">
-	  <h4> Likes </h4>
+	  <h5> Likes </h5>
     	   <div class="jumbotron">
              <div class="container results">
 	       <div id="UsersLikes"></div>
 	     </div>
 	   </div>
-	  <h4> Dislikes </h4>
+	  <h5> Dislikes </h5>
 	   <div class="jumbotron">
              <div class="container results">
 	       <div id="UsersDislikes"></div>
@@ -178,24 +224,49 @@
 	  
     <div class="container page" id="RecentPage" style="display:none;">
      <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "RecentPageNav">
-      <a class="navbar-brand" href="#">Art app</a>
+      <a class="navbar-brand" href="#">Λ R T  B Λ B Y</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
+	  <!--<li class="nav-item active">
 	    <a class="nav-link" href="https://cslab.kenyon.edu">CS Lab <span class="sr-only">(current)</span></a>
-	  </li>
+	  </li>-->
          <li class="nav-item active">
-            <a class="nav-link" href="#" id = "ReturnHomeRecentPage">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" id = "ReturnHomeRecentPage">Home<span class="sr-only">(current)</span></a>
       	 </li>
+  	 <li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserProfile">Profile<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserFriends">Friends<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	    <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle selection" href="#" id="searchtype" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Advanced Search
+	    </a>
+	    <div class="main-menu dropdown-menu" aria-labelledby="navbarDropdown">
+	      <a class="main-menu dropdown-item" href="#">Search by artist last name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by artist first name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by title of work</a>
+	    </div>
+	  </li>
 	</ul>
         <p class="navbar-text" id = "LogInInfoRecentPage"></p> 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInRecentPage" >Login! </button>
-        <button type="button" class="btn btn-primary" id = "LogOutRecentPage" >Log out!</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInRecentPage" >Login</button>
+        <button type="button" class="btn btn-primary" id = "LogOutRecentPage" >Logout</button>
       </div>
+	<div class="col">
+	<form class="form-inline my-2 my-lg-0">
+	  <input id="search" class="form-control mr-sm-2" type="search" placeholder="Ex: Gogh..." aria-label="Ex: Gogh...">
+	  <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Click to search</button>
+	</form>
+	</div>
       </nav>
 	    
       <div class="row">
@@ -227,26 +298,51 @@
 	  
   <div class="container page" id="UserFriendsPage" style="display:none;">
      <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "UserFriendsNav">
-      <a class="navbar-brand" href="#">Art app</a>
+      <a class="navbar-brand" href="#">Λ R T  B Λ B Y</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
+	  <!--<li class="nav-item active">
 	    <a class="nav-link" href="https://cslab.kenyon.edu">CS Lab <span class="sr-only">(current)</span></a>
-	  </li>
+	  </li>-->
          <li class="nav-item active">
-            <a class="nav-link" href="#" id = "ReturnHomeBtnFriends">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" id = "ReturnHomeBtnFriends">Home<span class="sr-only">(current)</span></a>
       	 </li>
+  	 <li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserProfile">Profile<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserFriends">Friends<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	    <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle selection" href="#" id="searchtype" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Advanced Search
+	    </a>
+	    <div class="main-menu dropdown-menu" aria-labelledby="navbarDropdown">
+	      <a class="main-menu dropdown-item" href="#">Search by artist last name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by artist first name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by title of work</a>
+	    </div>
+	  </li>
 	</ul>
         <p class="navbar-text" id = "LogInInfoFriends"></p> 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtnFriends" >Login! </button>
-        <button type="button" class="btn btn-primary" id = "LogOutBtnFriends" >Log out!</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtnFriends" >Login</button>
+        <button type="button" class="btn btn-primary" id = "LogOutBtnFriends" >Logout</button>
       </div>
+	<div class="col">
+	<form class="form-inline my-2 my-lg-0">
+	  <input id="search" class="form-control mr-sm-2" type="search" placeholder="Ex: Gogh..." aria-label="Ex: Gogh...">
+	  <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Click to search</button>
+	</form>
+	</div>
       </nav>
-      <h4> Your friends </h4>
+      <h4> Your friends</h4>
 	 <div class="jumbotron">
            <div class="container results">
 	      <div id="UsersFriendsResults"></div>
@@ -256,24 +352,49 @@
 	  
   <div class="container page" id="ViewArtPage" style="display:none;">
      <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "ViewArtNav">
-      <a class="navbar-brand" href="#">Art app</a>
+      <a class="navbar-brand" href="#">Λ R T  B Λ B Y</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item active">
+	  <!--<li class="nav-item active">
 	    <a class="nav-link" href="https://cslab.kenyon.edu">CS Lab <span class="sr-only">(current)</span></a>
-	  </li>
+	  </li>-->
          <li class="nav-item active">
-            <a class="nav-link" href="#" id = "ReturnHomeBtn">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#" id = "ReturnHomeBtn">Home<span class="sr-only">(current)</span></a>
       	 </li>
+  	 <li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserProfile">Profile<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	     <a class="nav-link" href="#" id = "ViewUserFriends">Friends<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item active">
+	    <a class="nav-link" href="#" id = "ViewRecent">Trending<span class="sr-only">(current)</span></a>
+		</li>
+	<li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle selection" href="#" id="searchtype" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Advanced Search
+	    </a>
+	    <div class="main-menu dropdown-menu" aria-labelledby="navbarDropdown">
+	      <a class="main-menu dropdown-item" href="#">Search by artist last name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by artist first name</a>
+	      <a class="main-menu dropdown-item" href="#">Search by title of work</a>
+	    </div>
+	  </li>
 	</ul>
         <p class="navbar-text" id = "LogInInfoViewArt"></p> 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtnViewArt" >Login! </button>
-        <button type="button" class="btn btn-primary" id = "LogOutBtnView" >Log out!</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "LogInBtnViewArt" >Login</button>
+        <button type="button" class="btn btn-primary" id = "LogOutBtnView" >Logout</button>
        </div>
+	<div class="col">
+	<form class="form-inline my-2 my-lg-0">
+	  <input id="search" class="form-control mr-sm-2" type="search" placeholder="Ex: Gogh..." aria-label="Ex: Gogh...">
+	  <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Click to search</button>
+	</form>
+	</div>
       </nav>
     <div class="row">
     	<div class="col-sm-6">
