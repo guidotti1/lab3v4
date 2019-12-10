@@ -33,9 +33,10 @@ public:
     vector<artEntry> findByFirst(string findFirst);
     vector<artEntry> findByLast(string findLast);
     vector<artEntry> findByTitle(string findTitle);
-    //void addEntry(string first,string last,string phone,string type);
-    //void editEntry(string idnum,string first,string last,string phone,string type);
-    //void deleteEntry(string idnum);
+    vector<artEntry> findByForm(string findForm);
+    vector<artEntry> findBySchool(string findSchool);
+    vector<artEntry> findByType(string findType);
+
 private:
     const string url=HOST;
     const string user=USER;
