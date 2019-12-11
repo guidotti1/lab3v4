@@ -23,7 +23,7 @@ $(document).ready(function () {
      //if (typeof initLastCommentId === "undefined")
 	//{
 		    $.ajax({
-	url: '/cgi-bin/guidotti1_getLastCommentID.cgi?lastcomment='+0,
+	url: '/cgi-bin/guidotti1_getLastCommentID.cgi?lastcomment='+0+'&lastvote='+0,
 	dataType: 'text',
 	success: initLastIds,
 	error: function(){alert("Error: Something went wrong");}
