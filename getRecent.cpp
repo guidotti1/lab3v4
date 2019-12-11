@@ -138,11 +138,11 @@ int main()
             
             vector<string> upvotedArt;
 	
-            stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
+            stmt->execute("SELECT * FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
             do {
                      res.reset(stmt->getResultSet());
                      while (res->next()) {
-                       upvotedArt.push_back(res->getString("voteID"));
+                       upvotedArt.push_back(res->getString("ARTID"));
                      }
                 }while (stmt ->getMoreResults());
 
@@ -164,11 +164,11 @@ int main()
 
 
             vector<string> downvotedArt;
-            stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
+            stmt->execute("SELECT * FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
             do {
                      res.reset(stmt->getResultSet());
                      while (res->next()) {
-                       downvotedArt.push_back(res->getString("voteID"));
+                       downvotedArt.push_back(res->getString("ARTID"));
                      }
                 }while (stmt ->getMoreResults());
 
