@@ -188,6 +188,7 @@ $(document).ready(function () {
 		$("#RecentPage").show();
 		$("#Home").hide();
 		console.log("Sending the lastCommendId of : "+lastCommentId);
+	        console.log("Sending the lastVoteId of : "+lastVoteId);
 		$.ajax({
 		url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId+'&lastvote='+lastVoteId,
 		dataType: 'text',
