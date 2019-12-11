@@ -53,8 +53,12 @@ int main()
 
     form_iterator lastcomment = cgi.getElement("lastcomment");
     string lastcommentString = **lastcomment;
+	
+    form_iterator lastvote = cgi.getElement("lastvote");
+    string lastvoteString = ** lastvote;
+	
     cout << "Content-Type: text/plain\n\n";
-    //exit(0);
+
     int lastCommentInt;
     istringstream iss (lastcommentString);
     iss >> lastCommentInt;
@@ -62,6 +66,14 @@ int main()
     stringstream ss;
     ss << fiveCommentsAgoInt;
     string fiveCommentsAgoString = ss.str();
+	
+    int lastVoteInt;
+    istringstream iss1 (lastvoteString);
+    iss1 >> lastVoteInt;
+    int fiveVotesAgoInt = lastVoteInt - 5;
+    stringstream ss1;
+    ss1 << fiveVotesAgoInt;
+    string fiveVotesAgoString = ss1.str();
     
 
 
@@ -121,7 +133,7 @@ int main()
     
             output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
     
-    
+    	    /*
             string voterIDZero = "0";
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
             string voteID = " ";
@@ -139,7 +151,7 @@ int main()
             stringstream ss3;
             ss3 << FiveVoteIDAgoInt;
             string fiveVotesAgoString = ss3.str();
-            
+            */
     
 
             vector<string> upvotedArt;
@@ -153,8 +165,8 @@ int main()
 
             for (int i = 0; i <upvotedArt.size(); i++)
             {
-                    cout << "Nested upvoted art request " << endl;
-                    cout << "SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'" << endl;
+                    //cout << "Nested upvoted art request " << endl;
+                    //cout << "SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'" << endl;
                     stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
                     do {
                      res.reset(stmt->getResultSet());
@@ -181,8 +193,8 @@ int main()
 
             for (int i = 0; i <downvotedArt.size(); i++)
             {
-                    cout << "Nested downvoted art request " << endl;
-                    cout << "SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'" << endl;
+                    //cout << "Nested downvoted art request " << endl;
+                    //cout << "SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'" << endl;
                     stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
                     do {
                      res.reset(stmt->getResultSet());
