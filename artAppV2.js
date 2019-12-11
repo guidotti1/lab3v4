@@ -726,8 +726,8 @@ function userComment(){
 
 function displayComments(results)
 {
-  lastCommentId = results;
-  console.log("lastCommentId: "+lastCommentId);
+  //lastCommentId = results;
+  //console.log("lastCommentId: "+lastCommentId);
   $('#Comments').empty();
   type = "display";
   comment = "";
