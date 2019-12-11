@@ -660,7 +660,7 @@ function userVote()
 	   else
    	{
 		type = "vote";
-		lastVoteId++;
+		//lastVoteId++;
 		$.ajax({
 		url: '/cgi-bin/guidotti1_userVote.cgi?voteType='+vote+'&email='+email+'&ArtID='+artid+'&type='+type,
 		dataType: 'text',
@@ -719,7 +719,7 @@ function userComment(){
     }
    else
    {
-	        lastCommentId++;
+	        //lastCommentId++;
 		$.ajax({
 		url: '/cgi-bin/guidotti1_userComment.cgi?comment='+comment+'&email='+email+'&artid='+artid+'&type='+type,
 		dataType: 'text',
