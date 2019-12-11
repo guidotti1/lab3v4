@@ -153,7 +153,7 @@ int main()
             string fiveVotesAgoString = ss3.str();
             */
     
-
+             cout << "fiveVotesAgoString is equal to " << fiveVotesAgoString << endl << endl << endl << endl;
             vector<string> upvotedArt;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
             do {
