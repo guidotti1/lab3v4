@@ -6,6 +6,7 @@ var pass;
 var artid;
 var vote;
 var lastCommentId;
+var lastVoteId;
 
 $(document).ready(function () {
     $('.editdata').hide();
@@ -24,7 +25,7 @@ $(document).ready(function () {
 		    $.ajax({
 	url: '/cgi-bin/guidotti1_getLastCommentID.cgi?lastcomment='+0,
 	dataType: 'text',
-	success: initLastCommentId,
+	success: initLastIds,
 	error: function(){alert("Error: Something went wrong");}
      });
 	// }
@@ -221,10 +222,11 @@ function processRecent(results)
 	console.log("Process recent results : "+results);
 }
 */
-function initLastCommentId(results)
+function initLastIds(results)
 {
-	console.log("initLastCommentID results : "+results);
-	lastCommentId = results;
+	var a = results.split("^");
+	lastCommentId = a[0];
+	lastVoteId = a[1];
 }
 
 function processAddFriends(results)
