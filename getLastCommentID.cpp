@@ -44,9 +44,14 @@ int main()
 
     form_iterator lastcomment = cgi.getElement("lastcomment");
     string lastcommentString = **lastcomment;
+    
+    form_iterator lastvote = cgi.getElement("lastvote");
+    string lastvoteString = **lastvote;
+    
     cout << "Content-Type: text/plain\n\n";
 
     string commentIDZero = lastcommentString;
+    string voteIDZero = lastvoteString;
 
 
     sql::Driver* driver = sql::mysql::get_driver_instance();
@@ -58,8 +63,7 @@ int main()
     string output = "";
 
     vector<string> commentIDS;
-    //cout << "the request we are making : " << endl;
-    //cout << "SELECT CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'" << endl;
+
     stmt->execute("SELECT CommentID FROM comments WHERE CommentID >= '"+commentIDZero+"'");
     do {
             res.reset(stmt->getResultSet());
@@ -67,15 +71,21 @@ int main()
                 commentIDS.push_back(res->getString("CommentID"));
             }
         }while (stmt ->getMoreResults());
-    /*
-
-    for (int i = 0 ; i< commentIDS.size(); i++)
-    {
-        cout << "CommentIDS[i] : " << commentIDS[i] << endl;
-    }
-    */
-
+    
     output += commentIDS[commentIDS.size()-1];
+    output += "^";
+    
+    vector<string> voteIDS;  
+    stmt->execute("SELECT voteID FROM votes WHERE voteID >= '"+voteIDZero+"'");
+    do {
+            res.reset(stmt->getResultSet());
+            while (res->next()) {
+                voteIDS.push_back(res->getString("voteID"));
+            }
+        }while (stmt ->getMoreResults());
+    
+    output += voteIDS[voteIDS.size()-1];
+    
     cout << output << endl;
     return 0;
 }
