@@ -133,28 +133,14 @@ int main()
     
             output += "®";  //CHARACTER SIGNIFIES END OF ALL COMMENTS FOR THE GIVEN USERNAME
     
-    	    /*
-            string voterIDZero = "0";
-            stmt->execute("SELECT voteID FROM votes where voteID >= '"+voterIDZero+"'");
-            string voteID = " ";
-             do {
-                 res.reset(stmt->getResultSet());
-                 while (res->next()) {
-                    voteID  = res->getString("voteID");
-                 }
-                }while (stmt ->getMoreResults());
+
     
-            int voteIDInt;
-            istringstream iss2 (voteID);
-            iss2 >> voteIDInt;
-            int FiveVoteIDAgoInt = voteIDInt - 5;
-            stringstream ss3;
-            ss3 << FiveVoteIDAgoInt;
-            string fiveVotesAgoString = ss3.str();
-            */
-    
-             cout << "fiveVotesAgoString is equal to " << fiveVotesAgoString << endl << endl << endl << endl;
+            cout << "fiveVotesAgoString is equal to " << fiveVotesAgoString << endl << endl << endl << endl;
             vector<string> upvotedArt;
+	
+	    cout << "first request : " << endl << endl;
+	    cout << "SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'" << endl;
+	
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Upvote'");
             do {
                      res.reset(stmt->getResultSet());
@@ -165,8 +151,8 @@ int main()
 
             for (int i = 0; i <upvotedArt.size(); i++)
             {
-                    //cout << "Nested upvoted art request " << endl;
-                    //cout << "SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'" << endl;
+                    cout << "Nested upvoted art request " << endl << endl;
+                    cout << "SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'" << endl;
                     stmt->execute("SELECT * FROM art where ARTID = '"+upvotedArt[i]+"'");
                     do {
                      res.reset(stmt->getResultSet());
@@ -184,6 +170,9 @@ int main()
 
             vector<string> downvotedArt;
             stmt->execute("SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'");
+	 
+	    cout << "Second request " << endl << endl;
+	    cout << "SELECT voteID FROM votes where voteID >= '"+fiveVotesAgoString+"' AND voteType = 'Downvote'" << endl;
             do {
                      res.reset(stmt->getResultSet());
                      while (res->next()) {
@@ -193,8 +182,8 @@ int main()
 
             for (int i = 0; i <downvotedArt.size(); i++)
             {
-                    //cout << "Nested downvoted art request " << endl;
-                    //cout << "SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'" << endl;
+                    cout << "Nested downvoted art request " << endl << endl;
+                    cout << "SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'" << endl;
                     stmt->execute("SELECT * FROM art where ARTID = '"+downvotedArt[i]+"'");
                     do {
                      res.reset(stmt->getResultSet());
