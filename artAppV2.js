@@ -189,7 +189,7 @@ $(document).ready(function () {
 		$("#Home").hide();
 		console.log("Sending the lastCommendId of : "+lastCommentId);
 		$.ajax({
-		url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId,
+		url: '/cgi-bin/guidotti1_getRecent.cgi?lastcomment='+lastCommentId+'&lastvote='+lastVoteId,
 		dataType: 'text',
 		success: processRecent,
 		error: function(){alert("Error: Something went wrong");}
