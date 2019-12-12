@@ -36,6 +36,7 @@ using namespace cgicc; // Needed for AJAX functions.
 class userInfo
 {
 public :
+	//the user is prompted to give the "username"
     string email;
     string password;
     userInfo();
