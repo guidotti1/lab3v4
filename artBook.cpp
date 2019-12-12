@@ -17,6 +17,8 @@ vector<artEntry> artBook::findByLast(string findLast)
     vector<artEntry> list;
     stmt->execute("SELECT * FROM art WHERE Author like '"+findLast+"%'");
     std::auto_ptr< sql::ResultSet > res;
+	//THIS NEXT DO-WHILE LOOP SHOULD BE IMPLEMENTED AS A PRIVATE MEMBER FUNCTION INSTEAD
+	//AS IT IS REPEATED THROUGH EACH SEARCH TYPE
     do {
       res.reset(stmt->getResultSet());
       while (res->next()) {	   
@@ -40,6 +42,8 @@ vector<artEntry> artBook::findByFirst(string findFirst)
     vector<artEntry> list;
     stmt->execute("SELECT * FROM art WHERE Author like '%"+findFirst+"'");
     std::auto_ptr< sql::ResultSet > res;
+	//THIS NEXT DO-WHILE LOOP SHOULD BE IMPLEMENTED AS A PRIVATE MEMBER FUNCTION INSTEAD
+	//AS IT IS REPEATED THROUGH EACH SEARCH TYPE
     do {
       res.reset(stmt->getResultSet());
       while (res->next()) {	   
@@ -64,6 +68,8 @@ vector<artEntry> artBook::findByTitle(string findTitle)
   vector<artEntry> list;
   stmt->execute("SELECT * FROM art WHERE Title like '%"+findTitle+"%'");
   std::auto_ptr< sql::ResultSet > res;
+	//THIS NEXT DO-WHILE LOOP SHOULD BE IMPLEMENTED AS A PRIVATE MEMBER FUNCTION INSTEAD
+	//AS IT IS REPEATED THROUGH EACH SEARCH TYPE
   do {
     res.reset(stmt->getResultSet());
     while (res->next()) {
@@ -89,6 +95,8 @@ vector<artEntry> artBook::findByType(string findType)
   vector<artEntry> list;
   stmt->execute("SELECT * FROM art WHERE Type like '%"+findType+"%'");
   std::auto_ptr< sql::ResultSet > res;
+	//THIS NEXT DO-WHILE LOOP SHOULD BE IMPLEMENTED AS A PRIVATE MEMBER FUNCTION INSTEAD
+	//AS IT IS REPEATED THROUGH EACH SEARCH TYPE
   do {
     res.reset(stmt->getResultSet());
     while (res->next()) {
@@ -113,6 +121,8 @@ vector<artEntry> artBook::findByForm(string findForm)
   vector<artEntry> list;
   stmt->execute("SELECT * FROM art WHERE Form like '%"+findForm+"%'");
   std::auto_ptr< sql::ResultSet > res;
+	//THIS NEXT DO-WHILE LOOP SHOULD BE IMPLEMENTED AS A PRIVATE MEMBER FUNCTION INSTEAD
+	//AS IT IS REPEATED THROUGH EACH SEARCH TYPE
   do {
     res.reset(stmt->getResultSet());
     while (res->next()) {
@@ -138,6 +148,8 @@ vector<artEntry> artBook::findBySchool(string findSchool)
   vector<artEntry> list;
   stmt->execute("SELECT * FROM art WHERE School like '%"+findSchool+"%'");
   std::auto_ptr< sql::ResultSet > res;
+	//THIS NEXT DO-WHILE LOOP SHOULD BE IMPLEMENTED AS A PRIVATE MEMBER FUNCTION INSTEAD
+	//AS IT IS REPEATED THROUGH EACH SEARCH TYPE
   do {
     res.reset(stmt->getResultSet());
     while (res->next()) {
