@@ -16,6 +16,11 @@
 using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 
+void appendResults(vector<artEntry>abResults,string&output);
+//where abResults is initiated according to search type
+//output changed according to search results
+//if abResults.size()=0, output="No Match Found"
+
 ofstream logfile; 
 
 string firstCharUpper(string s)
@@ -37,41 +42,23 @@ int main() {
   
   // Create AJAX objects to recieve information from web page.
   form_iterator op = cgi.getElement("operation");
+	//"operation" is search type: last name, first name, title, form, school, & type
   string operation = **op;
+	
   logfile.open("guidottiart.log",ios::out | ios::app);
   logfile << "Op:" << operation << endl;
   logfile.close();
   string output = "Error = "+operation+ " - Operation not support yet!";
+	
+  //find results according to operation
   if (operation == "Search by Last Name") 
   {
     form_iterator searchString = cgi.getElement("find");
     string search = **searchString;
     
     abResults = ab.findByLast(search);
-    if (abResults.size() > 0)
-    	{
-	      output = "";
-	      for (int i = 0; i<abResults.size(); i++) 
-	      {
-	      	  output += firstCharUpper(abResults.at(i).last) + "^"
-		  + abResults.at(i).first + "^"
-		  + abResults.at(i).bornDied + "^"
-		  + abResults.at(i).title + "^"
-		  + abResults.at(i).date + "^"
-		  + abResults.at(i).technique + "^"
-		  + abResults.at(i).location + "^"
-		  + abResults.at(i).url + "^"
-		  + abResults.at(i).form + "^"
-		  + abResults.at(i).type + "^"
-		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^"
-	          + abResults.at(i).ARTID + "^";
-      	     }
-    	}
-  else 
-    	{
-		output = "No Match Found";
-    	}
+    //append abResults to output
+    appendResults(abResults,output);
   }
 
   if (operation == "Search by First Name") 
@@ -80,31 +67,7 @@ int main() {
     string search = **searchString;
     
     abResults = ab.findByFirst(search);
-    if (abResults.size() > 0)
-    	{
-	      //output = "success";
-	      output = "";
-	      for (int i = 0; i<abResults.size(); i++) 
-	      {
-	      	  output +=  firstCharUpper(abResults.at(i).last) + "^"
-		  + abResults.at(i).first + "^"
-		  + abResults.at(i).bornDied + "^"
-		  + abResults.at(i).title + "^"
-		  + abResults.at(i).date + "^"
-		  + abResults.at(i).technique + "^"
-		  + abResults.at(i).location + "^"
-		  + abResults.at(i).url + "^"
-		  + abResults.at(i).form + "^"
-		  + abResults.at(i).type + "^"
-		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^"
-		  + abResults.at(i).ARTID + "^";
-      	     }
-    }
-  else 
-    {
-    	output = "No Match Found";
-    }
+    appendResults(abResults,output);
   }
 	
   if (operation == "Search by Title") 
@@ -113,31 +76,7 @@ int main() {
     string search = **searchString;
     
     abResults = ab.findByTitle(search);
-    if (abResults.size() > 0)
-    	{
-	      //output = "success";
-	      output = "";
-	      for (int i = 0; i<abResults.size(); i++) 
-	      {
-	      	  output += firstCharUpper(abResults.at(i).last) + "^"
-		  + abResults.at(i).first + "^"
-		  + abResults.at(i).bornDied + "^"
-		  + abResults.at(i).title + "^"
-		  + abResults.at(i).date + "^"
-		  + abResults.at(i).technique + "^"
-		  + abResults.at(i).location + "^"
-		  + abResults.at(i).url + "^"
-		  + abResults.at(i).form + "^"
-		  + abResults.at(i).type + "^"
-		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^"
-		  + abResults.at(i).ARTID + "^";
-      	     }
-    }
-  else 
-    {
-      	output = "No Match Found";
-    }
+    appendResults(abResults,output);
   }
 	
   if (operation == "Search by Form") 
@@ -146,31 +85,7 @@ int main() {
     string search = **searchString;
     
     abResults = ab.findByForm(search);
-    if (abResults.size() > 0)
-    	{
-	      //output = "success";
-	      output = "";
-	      for (int i = 0; i<abResults.size(); i++) 
-	      {
-	      	  output += firstCharUpper(abResults.at(i).last) + "^"
-		  + abResults.at(i).first + "^"
-		  + abResults.at(i).bornDied + "^"
-		  + abResults.at(i).title + "^"
-		  + abResults.at(i).date + "^"
-		  + abResults.at(i).technique + "^"
-		  + abResults.at(i).location + "^"
-		  + abResults.at(i).url + "^"
-		  + abResults.at(i).form + "^"
-		  + abResults.at(i).type + "^"
-		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^"
-		  + abResults.at(i).ARTID + "^";
-      	     }
-    }
-  else 
-    {
-      	output = "No Match Found";
-    }
+    appendResults(abResults,output);
   }
 	
   if (operation == "Search by School") 
@@ -179,31 +94,7 @@ int main() {
     string search = **searchString;
     
     abResults = ab.findBySchool(search);
-    if (abResults.size() > 0)
-    	{
-	      //output = "success";
-	      output = "";
-	      for (int i = 0; i<abResults.size(); i++) 
-	      {
-	      	  output += firstCharUpper(abResults.at(i).last) + "^"
-		  + abResults.at(i).first + "^"
-		  + abResults.at(i).bornDied + "^"
-		  + abResults.at(i).title + "^"
-		  + abResults.at(i).date + "^"
-		  + abResults.at(i).technique + "^"
-		  + abResults.at(i).location + "^"
-		  + abResults.at(i).url + "^"
-		  + abResults.at(i).form + "^"
-		  + abResults.at(i).type + "^"
-		  + abResults.at(i).school + "^"
-		  + abResults.at(i).timeframe + "^"
-		  + abResults.at(i).ARTID + "^";
-      	     }
-    }
-  else 
-    {
-      	output = "No Match Found";
-    }
+    appendResults(abResults,output);
   }
 	
   if (operation == "Search by Type") 
@@ -212,12 +103,29 @@ int main() {
     string search = **searchString;
     
     abResults = ab.findByType(search);
-    if (abResults.size() > 0)
+    appendResults(abResults,output);
+  }
+	
+  	
+	
+
+  cout << "Content-Type: text/plain\n\n";
+ 
+  //return output
+  cout << output << endl;
+  
+  
+  return 0;
+}
+
+
+void appendResults(vector<artEntry>abResults,string&output){
+	if (abResults.size() > 0)		//if there are results
     	{
 	      //output = "success";
-	      output = "";
+	      output = "";			//empty output
 	      for (int i = 0; i<abResults.size(); i++) 
-	      {
+	      {					//artEntry components delineated by "^"
 	      	  output += firstCharUpper(abResults.at(i).last) + "^"
 		  + abResults.at(i).first + "^"
 		  + abResults.at(i).bornDied + "^"
@@ -232,21 +140,10 @@ int main() {
 		  + abResults.at(i).timeframe + "^"
 		  + abResults.at(i).ARTID + "^";
       	     }
-    }
-  else 
-    {
+    	}
+  	else 
+  	{
       	output = "No Match Found";
-    }
-  }
-	
-  	
-	
-
-  cout << "Content-Type: text/plain\n\n";
-
-  cout << output << endl;
-  
-  
-  return 0;
+    	}
 }
 
