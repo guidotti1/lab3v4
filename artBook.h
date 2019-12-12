@@ -42,6 +42,7 @@ private:
     const string user=USER;
     const string database=DB;
     const string pass=PASS;
+    //ADD PRIVATE FUNCTION FOR DO-WHILE STATEMENT
     
 };
 
