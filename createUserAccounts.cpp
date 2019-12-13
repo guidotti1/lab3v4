@@ -61,6 +61,10 @@ int main()
     form_iterator password = cgi.getElement("password");
     string pwString = **password;
 	
+	//"type" is the way the class is being used
+	//here, "type" can be "Create" or "Login"
+	//"Create" calls for a new user to be created and added to database
+	//"Login" searches for and loads a user from the database
     form_iterator type = cgi.getElement("type");
     string typeString = **type;
     
