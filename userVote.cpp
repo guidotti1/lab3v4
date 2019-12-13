@@ -59,6 +59,10 @@ int main()
     form_iterator artID = cgi.getElement("ArtID");
     string artIDString = ** artID;
     
+    //"type" is the way the class is being used
+	//here, "type" can be "vote" or "display"
+	//"vote" calls for a new vote to be created and added to database
+	//"display" searches for and displays all votes from the database
     form_iterator type = cgi.getElement("type");
     string typeString = **type;
 
