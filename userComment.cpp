@@ -58,6 +58,10 @@ int main()
     form_iterator artID = cgi.getElement("ArtID");
     string artIDString = ** artID;
     
+    //"type" is the way the class is being used
+	//here, "type" can be "Create" or "Login"
+	//"Add" calls for a comment to be created and added to database
+	//"Display" searches for and displays all comments from the database
     form_iterator type = cgi.getElement("type");
     string typeString = **type;
 
@@ -86,15 +90,6 @@ int main()
                cout << recentID << endl;
             }
             }while (stmt2 ->getMoreResults());
-        
-        /*
-        const char *path="/usr/lib/cgi-bin";
-        ofstream recentCommentFile(path);
-        recentCommentFile.open("guidotti1_out.txt");
-        recentCommentFile << recentID << endl;
-        recentCommentFile.close();
-        cout << "recentID after alter : " << recentID << endl;
-        */
     }
     else if (typeString == "display")
     {
