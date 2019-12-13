@@ -55,6 +55,11 @@ int main()
     form_iterator receive = cgi.getElement("receive");
     string receiveString = **receive;
     
+    //"type" is the way the class is being used
+	//here, "type" can be "Create" or "Login"
+	//"Add" calls for a new friend to be added to database 
+	//"Retrieve" searches for and displays all friends from the database
+    //friends data is specific to email/username
     form_iterator type = cgi.getElement("type");
     string typeString = **type;
   
