@@ -59,7 +59,7 @@ int main()
     string artIDString = ** artID;
     
     //"type" is the way the class is being used
-	//here, "type" can be "Create" or "Login"
+	//here, "type" can be "Add" or "Display"
 	//"Add" calls for a comment to be created and added to database
 	//"Display" searches for and displays all comments from the database
     form_iterator type = cgi.getElement("type");
